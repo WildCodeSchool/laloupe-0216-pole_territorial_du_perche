@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20150325095258) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
-    t.date     "date"
     t.string   "lieu"
     t.string   "siteweb"
+    t.date     "date"
   end
 
   create_table "categories", force: :cascade do |t|
