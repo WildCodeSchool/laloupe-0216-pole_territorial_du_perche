@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325095258) do
+ActiveRecord::Schema.define(version: 20160425125622) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20150325095258) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
-    t.date     "date"
     t.string   "lieu"
     t.string   "siteweb"
+    t.date     "date"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150325095258) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.boolean  "newsletter",             default: false
+    t.string   "codepostal"
   end
 
   add_index "contributeurs", ["confirmation_token"], name: "index_contributeurs_on_confirmation_token", unique: true

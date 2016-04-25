@@ -19,28 +19,6 @@ form.new_contributeur {
   }
 }
 
-.split-gauche {
-  @include make-sm-column(4);
-  @include make-sm-column-offset(2);
-  margin-bottom: 2rem;
-}
-
-.split-droit {
-  @include make-sm-column(4);
-  @include make-sm-column-offset(1);
-  border: solid lightgrey 1px;
-  border-radius: 5px;
-  padding: 0.8rem 1.2rem;
-  margin-bottom: 2rem;
-  margin-top: 1.5rem;
-}
-
-.split-centre {
-  @include make-sm-column(4);
-  @include make-sm-column-offset(4);
-  margin-bottom: 2rem;
-}
-
 #error_explanation {
   @include make-row();
   h2 {
