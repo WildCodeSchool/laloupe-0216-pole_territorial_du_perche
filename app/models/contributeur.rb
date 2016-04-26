@@ -36,5 +36,9 @@ class Contributeur < ActiveRecord::Base
   def self.types
     %w( Animateur )
   end
+
+  def get_age
+    DateTime.now.year - annee_naissance
+  end
 end
 

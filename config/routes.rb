@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users, only: [:show]
+
   root 'pages#intro'
   devise_for :contributeurs
   get 'animation' => 'pages#animation'
