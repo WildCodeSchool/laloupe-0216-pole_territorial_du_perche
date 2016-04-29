@@ -7,18 +7,14 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <%= devise_error_messages! %>
 
-<div class="split-gauche">
+<div class="split-haut">
 
     <div class="field">
-      <%= f.label :pseudo, "Nom d'utilisateur *" %>
+      <%= f.label :pseudo, "Pseudonyme *" %>
       <em>(Affiché publiquement sur le site)</em>
       <%= f.text_field :pseudo, autofocus: true, class: 'form-control input-lg' %>
     </div>
 
-    <div class="field">
-      <%= f.label :email, "Email *" %>
-      <%= f.email_field :email, class: 'input-lg' %>
-    </div>
 
     <div class="field">
       <%= f.label :password, "Mot de passe *"%>
@@ -34,15 +30,17 @@
     </div>
 
 </div>
-<div class="split-droit">
+<div class="split-centre">
     <p>Aucune des informations demandées dans cet encadré ne sera publiée ou partagée avec des tiers</p>
-    <div class="field">
-      <%= f.label :status, "Vous résidez ou êtes dans le Perche à titre *" %>
-      <%= f.select :status, [ ["Principal", 'principal'],
-                              ["Secondaire", 'secondaire'],
-                              ["Pour travailler", 'travail'],
-                              ["Pour étudier", 'etudes'],
-                              ["Je ne suis pas dans le Perche", 'exterieur'] ], include_blank: true %>
+    <div class="col-sm-12">
+      <div class="field">
+        <%= f.label :status, "Vous résidez ou êtes dans le Perche à titre *" %>
+        <%= f.select :status, [ ["Principal", 'principal'],
+                                ["Secondaire", 'secondaire'],
+                                ["Pour travailler", 'travail'],
+                                ["Pour étudier", 'etudes'],
+                                ["Je ne suis pas dans le Perche", 'exterieur'] ], include_blank: true %>
+      </div>
     </div>
 
     <div class="col-sm-6">
@@ -56,37 +54,55 @@
     <div class="col-sm-6">
       <div class="field">
         <%= f.label :annee_naissance, "Année de naissance *" %>
-        <%= f.select :annee_naissance, (1900..2008).to_a.reverse %>
+        <%= f.select :annee_naissance, (1900..2020).to_a.reverse %>
       </div>
     </div>
 
-
-    <div class="field">
-      <%= f.label :prenom, "Prénom *" %>
-      <%= f.text_field :prenom, class: 'input-lg' %>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :prenom, "Prénom *" %>
+        <%= f.text_field :prenom, class: 'input-lg' %>
+      </div>
     </div>
 
-    <div class="field">
-      <%= f.label :nom, "Nom *" %>
-      <%= f.text_field :nom, class: 'input-lg' %>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :nom, "Nom *" %>
+        <%= f.text_field :nom, class: 'input-lg' %>
+      </div>
     </div>
 
-
-    <div class="field">
-      <%= f.label :commune, "Commune *" %>
-      <%= f.text_field :commune, class: 'input-lg' %>
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :email, "Email *" %>
+        <%= f.email_field :email, class: 'input-lg' %>
+      </div>
     </div>
 
-    <div class="col-sm-6 col-sm-offset-3">
+    <div class="col-sm-6">
       <div class="field">
         <%= f.label :telephone, "Numéro de téléphone" %>
         <%= f.text_field :telephone, class: 'input-sm', type: 'tel' %>
       </div>
     </div>
 
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :codepostal, "Code postal *" %>
+        <%= f.text_field :codepostal, class: 'input-lg' %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="field">
+        <%= f.label :commune, "Commune *" %>
+        <%= f.text_field :commune, class: 'input-lg' %>
+      </div>
+    </div>
+
 </div>
 
-<div class="split-centre">
+<div class="split-bas">
 
     <div class="field checkbox">
       <%= f.check_box :newsletter %>
