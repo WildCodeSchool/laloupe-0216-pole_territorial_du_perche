@@ -1,0 +1,227 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', '-g', 'ungit' ]
+2 info using npm@1.4.21
+3 info using node@v0.10.25
+4 verbose cache add [ 'ungit', null ]
+5 verbose cache add name=undefined spec="ungit" args=["ungit",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'ungit',
+6 verbose parsed url   path: 'ungit',
+6 verbose parsed url   href: 'ungit' }
+7 silly lockFile b5f3d853-ungit ungit
+8 verbose lock ungit /home/val/.npm/b5f3d853-ungit.lock
+9 silly lockFile b5f3d853-ungit ungit
+10 silly lockFile b5f3d853-ungit ungit
+11 verbose addNamed [ 'ungit', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 8d18b492-ungit ungit@
+14 verbose lock ungit@ /home/val/.npm/8d18b492-ungit.lock
+15 silly addNameRange { name: 'ungit', range: '*', hasData: false }
+16 verbose request where is /ungit
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 143db0b0724f87e7
+19 verbose url raw /ungit
+20 verbose url resolving [ 'https://registry.npmjs.org/', './ungit' ]
+21 verbose url resolved https://registry.npmjs.org/ungit
+22 verbose request where is https://registry.npmjs.org/ungit
+23 info trying registry request attempt 1 at 10:23:53
+24 verbose etag "7LO8CJ06W7C45QMTWLLC1JKJ0"
+25 http GET https://registry.npmjs.org/ungit
+26 http 304 https://registry.npmjs.org/ungit
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Fri, 29 Apr 2016 08:23:53 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'cache-control': 'max-age=300',
+27 silly registry.get     etag: '"7LO8CJ06W7C45QMTWLLC1JKJ0"',
+27 silly registry.get     age: '279',
+27 silly registry.get     connection: 'keep-alive',
+27 silly registry.get     'x-served-by': 'cache-fra1231-FRA',
+27 silly registry.get     'x-cache': 'HIT',
+27 silly registry.get     'x-cache-hits': '1',
+27 silly registry.get     'x-timer': 'S1461918233.563260,VS0,VE0',
+27 silly registry.get     vary: 'Accept-Encoding' } ]
+28 verbose etag https://registry.npmjs.org/ungit from cache
+29 silly addNameRange number 2 { name: 'ungit', range: '*', hasData: true }
+30 silly addNameRange versions [ 'ungit',
+30 silly addNameRange   [ '0.1.0',
+30 silly addNameRange     '0.1.1',
+30 silly addNameRange     '0.1.2',
+30 silly addNameRange     '0.1.3',
+30 silly addNameRange     '0.1.4',
+30 silly addNameRange     '0.1.5',
+30 silly addNameRange     '0.1.6',
+30 silly addNameRange     '0.1.7',
+30 silly addNameRange     '0.1.8',
+30 silly addNameRange     '0.1.9',
+30 silly addNameRange     '0.2.0',
+30 silly addNameRange     '0.2.1',
+30 silly addNameRange     '0.3.0',
+30 silly addNameRange     '0.3.1',
+30 silly addNameRange     '0.3.2',
+30 silly addNameRange     '0.4.0',
+30 silly addNameRange     '0.5.0',
+30 silly addNameRange     '0.6.0',
+30 silly addNameRange     '0.6.1',
+30 silly addNameRange     '0.6.2',
+30 silly addNameRange     '0.7.0',
+30 silly addNameRange     '0.7.1',
+30 silly addNameRange     '0.7.2',
+30 silly addNameRange     '0.8.0',
+30 silly addNameRange     '0.8.1',
+30 silly addNameRange     '0.8.2',
+30 silly addNameRange     '0.8.3',
+30 silly addNameRange     '0.8.4',
+30 silly addNameRange     '0.9.0',
+30 silly addNameRange     '0.9.1',
+30 silly addNameRange     '0.9.2',
+30 silly addNameRange     '0.9.3',
+30 silly addNameRange     '0.10.0',
+30 silly addNameRange     '0.10.1' ] ]
+31 verbose addNamed [ 'ungit', '0.10.1' ]
+32 verbose addNamed [ '0.10.1', '0.10.1' ]
+33 silly lockFile 22e86a1f-ungit-0-10-1 ungit@0.10.1
+34 verbose lock ungit@0.10.1 /home/val/.npm/22e86a1f-ungit-0-10-1.lock
+35 silly lockFile 22e86a1f-ungit-0-10-1 ungit@0.10.1
+36 silly lockFile 22e86a1f-ungit-0-10-1 ungit@0.10.1
+37 silly lockFile 8d18b492-ungit ungit@
+38 silly lockFile 8d18b492-ungit ungit@
+39 silly resolved [ { name: 'ungit',
+39 silly resolved     author: { name: 'Fredrik Norén', email: 'fredrik.jw.noren@gmail.com' },
+39 silly resolved     description: 'Git made easy',
+39 silly resolved     version: '0.10.1',
+39 silly resolved     ungitPluginApiVersion: '0.2.0',
+39 silly resolved     scripts: { start: 'node ./bin/ungit', test: 'grunt test' },
+39 silly resolved     repository:
+39 silly resolved      { type: 'git',
+39 silly resolved        url: 'git+https://github.com/FredrikNoren/ungit.git' },
+39 silly resolved     bin:
+39 silly resolved      { ungit: './bin/ungit',
+39 silly resolved        '0ungit-credentials-helper': './bin/credentials-helper' },
+39 silly resolved     dependencies:
+39 silly resolved      { async: '~1.5.2',
+39 silly resolved        bluebird: '~3.2.2',
+39 silly resolved        'blueimp-md5': '~2.1.0',
+39 silly resolved        'body-parser': '~1.14.2',
+39 silly resolved        color: '~0.11.1',
+39 silly resolved        'cookie-parser': '~1.4.1',
+39 silly resolved        crossroads: '~0.12.2',
+39 silly resolved        diff2html: '~1.2.0',
+39 silly resolved        express: '~4.13.4',
+39 silly resolved        'express-session': '~1.13.0',
+39 silly resolved        'forever-monitor': '~1.1.0',
+39 silly resolved        getmac: '~1.0.7',
+39 silly resolved        hasher: '~1.2.0',
+39 silly resolved        'keen.io': '~0.1.3',
+39 silly resolved        knockout: '~3.4.0',
+39 silly resolved        lodash: '~4.2.1',
+39 silly resolved        mkdirp: '~0.5.1',
+39 silly resolved        moment: '~2.11.2',
+39 silly resolved        'npm-registry-client': '~7.0.9',
+39 silly resolved        npmconf: '~2.1.2',
+39 silly resolved        octicons: '~3.4.1',
+39 silly resolved        open: '~0.0.5',
+39 silly resolved        'os-homedir': '~1.0.1',
+39 silly resolved        passport: '~0.3.2',
+39 silly resolved        'passport-local': '~1.0.0',
+39 silly resolved        raven: '~0.10.0',
+39 silly resolved        rc: '~1.1.6',
+39 silly resolved        rimraf: '~2.5.1',
+39 silly resolved        semver: '~5.1.0',
+39 silly resolved        'serve-static': '~1.10.2',
+39 silly resolved        signals: '~1.0.0',
+39 silly resolved        snapsvg: '~0.4.0',
+39 silly resolved        'socket.io': '~1.4.5',
+39 silly resolved        superagent: '^0.21.0',
+39 silly resolved        temp: '~0.8.3',
+39 silly resolved        uuid: '~2.0.1',
+39 silly resolved        winston: '~2.1.1',
+39 silly resolved        yargs: '~3.32.0' },
+39 silly resolved     devDependencies:
+39 silly resolved      { 'ansi-color': '~0.2.1',
+39 silly resolved        browserify: '~13.0.0',
+39 silly resolved        'electron-packager': '~5.2.1',
+39 silly resolved        'expect.js': '~0.3.1',
+39 silly resolved        grunt: '~0.4.5',
+39 silly resolved        'grunt-contrib-clean': '~0.7.0',
+39 silly resolved        'grunt-contrib-copy': '~0.8.2',
+39 silly resolved        'grunt-contrib-imagemin': '~0.5.0',
+39 silly resolved        'grunt-contrib-jshint': '~0.12.0',
+39 silly resolved        'grunt-contrib-less': '~1.2.0',
+39 silly resolved        'grunt-contrib-watch': '~0.6.1',
+39 silly resolved        'grunt-image-embed': '0.3.3',
+39 silly resolved        'grunt-lineending': '~0.2.4',
+39 silly resolved        'grunt-mocha-istanbul': '~3.0.1',
+39 silly resolved        'grunt-mocha-test': '~0.12.7',
+39 silly resolved        'grunt-plato': '~1.3.0',
+39 silly resolved        'grunt-release': '~0.13.0',
+39 silly resolved        istanbul: '~0.4.2',
+39 silly resolved        mocha: '~2.4.5',
+39 silly resolved        npm: '~3.7.2',
+39 silly resolved        phantomjs: '~1.9.19',
+39 silly resolved        supertest: '~0.15.0' },
+39 silly resolved     engines: { node: '>=0.10' },
+39 silly resolved     license: 'MIT',
+39 silly resolved     main: 'public/main.js',
+39 silly resolved     window:
+39 silly resolved      { title: 'Ungit',
+39 silly resolved        icon: 'icon.png',
+39 silly resolved        toolbar: false,
+39 silly resolved        frame: false,
+39 silly resolved        show: false,
+39 silly resolved        width: 1000,
+39 silly resolved        height: 600,
+39 silly resolved        position: 'center',
+39 silly resolved        min_width: 400,
+39 silly resolved        min_height: 200 },
+39 silly resolved     gitHead: '2d777c2cadf53116017a77e60be8f6d12e36df28',
+39 silly resolved     bugs: { url: 'https://github.com/FredrikNoren/ungit/issues' },
+39 silly resolved     homepage: 'https://github.com/FredrikNoren/ungit#readme',
+39 silly resolved     _id: 'ungit@0.10.1',
+39 silly resolved     _shasum: '46baa2bbdb767bbd0c4ecc64b1167052b06dab28',
+39 silly resolved     _from: 'ungit@',
+39 silly resolved     _npmVersion: '2.14.4',
+39 silly resolved     _nodeVersion: '4.1.1',
+39 silly resolved     _npmUser: { name: 'fredriknoren', email: 'fredrik.jw.noren@gmail.com' },
+39 silly resolved     dist:
+39 silly resolved      { shasum: '46baa2bbdb767bbd0c4ecc64b1167052b06dab28',
+39 silly resolved        tarball: 'https://registry.npmjs.org/ungit/-/ungit-0.10.1.tgz' },
+39 silly resolved     maintainers: [ [Object] ],
+39 silly resolved     _npmOperationalInternal:
+39 silly resolved      { host: 'packages-9-west.internal.npmjs.com',
+39 silly resolved        tmp: 'tmp/ungit-0.10.1.tgz_1455678520034_0.028495061211287975' },
+39 silly resolved     directories: {},
+39 silly resolved     _resolved: 'https://registry.npmjs.org/ungit/-/ungit-0.10.1.tgz',
+39 silly resolved     readme: 'ERROR: No README data found!' } ]
+40 info install ungit@0.10.1 into /usr/local/lib
+41 info installOne ungit@0.10.1
+42 verbose lib/node_modules/ungit unbuild
+43 verbose lib/node_modules/ungit unbuild
+44 error error rolling back Error: EACCES, unlink '/usr/local/lib/node_modules/ungit'
+44 error error rolling back  ungit@0.10.1 { [Error: EACCES, unlink '/usr/local/lib/node_modules/ungit']
+44 error error rolling back   errno: 3,
+44 error error rolling back   code: 'EACCES',
+44 error error rolling back   path: '/usr/local/lib/node_modules/ungit' }
+45 error Error: EACCES, unlink '/usr/local/lib/node_modules/ungit'
+45 error  { [Error: EACCES, unlink '/usr/local/lib/node_modules/ungit']
+45 error   errno: 3,
+45 error   code: 'EACCES',
+45 error   path: '/usr/local/lib/node_modules/ungit' }
+46 error Please try running this command again as root/Administrator.
+47 error System Linux 3.19.0-58-generic
+48 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g" "ungit"
+49 error cwd /home/val/Documents/Projets_Wild/territoire_participatif
+50 error node -v v0.10.25
+51 error npm -v 1.4.21
+52 error path /usr/local/lib/node_modules/ungit
+53 error code EACCES
+54 error errno 3
+55 error stack Error: EACCES, unlink '/usr/local/lib/node_modules/ungit'
+56 verbose exit [ 3, true ]
