@@ -10,7 +10,7 @@
       %br
         par
         %strong
-          = @projet.contributeur.pseudo
+          = link_to @projet.contributeur.pseudo
 
     - if @projet.localisation && !@projet.localisation.empty?
       %h4 Localisation:
