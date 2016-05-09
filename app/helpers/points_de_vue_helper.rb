@@ -1,0 +1,2 @@
+module PointsDeVueHelper
+end

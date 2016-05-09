@@ -22,94 +22,132 @@
 @import "contributeurs";
 @import "sondages";
 @import "actualites";
+@import "point_de_vues";
 
-@font-face {
+@font-face
+{
   font-family: 'GravityBold';
   src:font-url('Gravity-Bold.ttf') format('truetype');
 }
-@font-face {
+
+@font-face
+{
   font-family: 'GravityBook';
   src:font-url('Gravity-Book.ttf') format('truetype');
 }
-@font-face {
+
+@font-face
+{
   font-family: 'GrooveNext';
   src:font-url('GrooveNext.ttf') format('truetype');
 }
 
-html {
+html 
+{
   font-size: 16px;
-  body {
+  body 
+  {
     font-family: 'GravityBook', 'Helvetica';
-    h1, h2, h3 {
+    h1, h2, h3
+    {
       font-family: 'GravityBold', 'Helvetica';
     }
   }
 }
 
-@media (min-width: $screen-md-min){
+@media (min-width: $screen-md-min)
+{
 
 }
 
-.notices {
+.notices
+{
   @extend .container;
 }
 
-footer {
+footer
+{
   @include make-row(12);
   margin-top: 2rem;
   padding: 2rem;
   color: #FFF;
   background-color:$vert;
   border-top: solid .5rem $vert-fonce;
-  h3 {
+
+  h3
+  {
     font-size: 1.1rem;
   }
-  .pays-perche {
+
+  .pays-perche
+  {
     @include make-sm-column(2);
     @include make-sm-column-offset(1);
-    img {
+
+    img
+    {
       width: 100%;
       max-width: 160px;
       padding-top: 35px;
     }
   }
-  address {
+
+  address
+  {
     @include make-sm-column(4);
-    a {
+
+    a
+    {
       color: #fff;
-      &:hover {
+
+      &:hover
+      {
         color: inherit;
       }
     }
   }
-  .newsletter {
+
+  .newsletter
+  {
     @include make-sm-column(4);
     padding-top: 15px;
     text-align: center;
-    input {
+
+    input
+    {
       padding: 0.8rem;
       font-size: 0.9rem;
       color: $gray-dark;
       height: 47px;
     }
-    .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn{
+
+    .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn
+    {
       height: 47px;
       width: 80px;
     }
-    input[type="email"] {
+
+    input[type="email"]
+    {
       background-color: lighten($vert,30%);
       border: 0px none;
       border-radius: 6px 0px 0px 6px;
       width: 100%;
     }
-    input[type="submit"] {
+
+    input[type="submit"]
+    {
       background-color: $gray-lighter;
     }
+
     // hack pour changer la couleur du placeholder dans tous les navigateurs
-    input::-webkit-input-placeholder {
+    input::-webkit-input-placeholder
+    {
       color: grey;
     }
-    input:-moz-placeholder {
+
+    input:-moz-placeholder
+    {
       /* FF 4-18 */
       color: grey;
     }
@@ -122,23 +160,31 @@ footer {
       color: grey;
     }
   }
-  .financeurs {
+
+  .financeurs 
+  {
     @include make-sm-column(10);
     @include make-sm-column-offset(1);
     margin-top: 1.5rem;
-    p {
+
+    p 
+    {
       display: inline-block;
       font-size: 1.2rem;
       margin-right: .7rem;
     }
-    img {
+
+    img 
+    {
       display: inline-block;
       max-width: 100%;
       max-height: 3.5rem;
       margin: 5px auto;
     }
   }
-  .made-by p{
+
+  .made-by p
+  {
     display: inline;
     color: lighten($vert,20%);
     a {
@@ -172,7 +218,8 @@ select {
 .field_with_errors {
   @extend .has-error;
 }
-/* NAVBAR 4 COLORS MOBILE */
+
+/* NAVBAR 5 COLORS MOBILE */
 .projets{
   .navbar-all{
     .navbar-default .navbar-nav a{
@@ -197,6 +244,32 @@ select {
     }
   }
 }
+
+.point_de_vues{
+  .navbar-all{
+    .navbar-default .navbar-nav a{
+      color: #FFF;
+      &:hover{
+      background-color: lighten($violet, 10%);
+      }
+    }
+    .navbar-default .navbar-nav > .active > a{
+     background-color: lighten($violet, 10%);
+    }
+    .navbar-default{
+      background-color: $violet;
+    }
+    .navbar-header {
+      button {
+        background-color: $violet;
+      &:hover {
+        background-color: $violet;
+      }
+      }
+    }
+  }
+}
+
 .actualites{
   .navbar-all{
     .navbar-default .navbar-nav a{
@@ -270,7 +343,7 @@ select {
   }
 }
 
-/* END NAVBAR 4 COLORS MOBILE */
+/* END NAVBAR 5 COLORS MOBILE */
 
 .navbar-all{
   svg{
@@ -344,109 +417,157 @@ select {
 
 @media (min-width: $screen-md-min){
 
-/* NAVBAR 4 COLORS DESKTOP */
+/* NAVBAR 5 COLORS DESKTOP */
 
-.projets {
-  .navbar-all {
-    .navbar-default .navbar-nav a {
-      color: #FFF;
-      &:hover{
-        background-color: lighten($bleu, 10%);
+  .projets {
+    .navbar-all {
+      .navbar-default .navbar-nav a {
+        color: #FFF;
+        &:hover{
+          background-color: lighten($bleu, 10%);
+        }
       }
-    }
-    .navbar-default .navbar-nav > .active > a{
-     background-color: lighten($bleu, 10%);
-    }
-    .navbar-default{
-      background-color: $bleu;
-    }
-    .navbar-header {
-      button {
+      .navbar-default .navbar-nav > .active > a{
+       background-color: lighten($bleu, 10%);
+      }
+      .navbar-default{
         background-color: $bleu;
-        &:hover {
+      }
+      .navbar-header {
+        button {
           background-color: $bleu;
+          &:hover {
+            background-color: $bleu;
+          }
         }
       }
     }
   }
-}
 
-.actualites{
-  .navbar-all{
-    .navbar-default .navbar-nav a{
-      color: #FFF;
-      &:hover{
-      background-color: lighten($orange, 10%);
+  .point_de_vues {
+    .navbar-all {
+      .navbar-default .navbar-nav a {
+        color: #FFF;
+        &:hover{
+          background-color: lighten($violet, 10%);
+        }
       }
-    }
-    .navbar-default .navbar-nav > .active > a{
-     background-color: lighten($orange, 10%);
-    }
-    .navbar-default{
-      background-color: $orange;
-    }
-    .navbar-header {
-      button {
-        background-color: $orange;
-      &:hover {
-        background-color: $orange;
+      .navbar-default .navbar-nav > .active > a{
+       background-color: lighten($violet, 10%);
       }
+      .navbar-default{
+        background-color: $violet;
+      }
+      .navbar-header {
+        button {
+          background-color: $violet;
+          &:hover {
+            background-color: $violet;
+          }
+        }
       }
     }
   }
-}
 
-.sondages{
-  .navbar-all{
-    .navbar-default .navbar-nav a{
-      color: #FFF;
-      &:hover{
-      background-color: lighten($ocre, 10%);
+  .actualites{
+    .navbar-all{
+      .navbar-default .navbar-nav a{
+        color: #FFF;
+        &:hover{
+        background-color: lighten($orange, 10%);
+        }
       }
-    }
-    .navbar-default .navbar-nav > .active > a{
-     background-color: lighten($ocre, 10%);
-    }
-    .navbar-default{
-      background-color: $ocre;
-    }
-    .navbar-header {
-      button {
-        background-color: $ocre;
-      &:hover {
-        background-color: $ocre;
+      .navbar-default .navbar-nav > .active > a{
+       background-color: lighten($orange, 10%);
       }
+      .navbar-default{
+        background-color: $orange;
       }
-    }
-  }
-}
-
-.pages, .registrations, .sessions, .passwords, .confirmations {
-  .navbar-all{
-    .navbar-default .navbar-nav a{
-      color: #FFF;
-      &:hover{
-      background-color: lighten($vert, 10%);
+      .navbar-header {
+        button {
+          background-color: $orange;
+        &:hover {
+          background-color: $orange;
+        }
+   .pages, .registrations, .sessions, .passwords, .confirmations {
+    .navbar-all{
+      .navbar-default .navbar-nav a{
+        color: #FFF;
+        &:hover{
+        background-color: lighten($vert, 10%);
+        }
       }
-    }
-    .navbar-default .navbar-nav > .active > a{
-     background-color: lighten($vert, 10%);
-    }
-    .navbar-default{
-      background-color: $vert;
-    }
-    .navbar-header {
-      button {
-        background-color: $vert;
-      &:hover {
+      .navbar-default .navbar-nav > .active > a{
+       background-color: lighten($vert, 10%);
+      }
+      .navbar-default{
         background-color: $vert;
       }
+      .navbar-header {
+        button {
+          background-color: $vert;
+        &:hover {
+          background-color: $vert;
+        }
+        }
+      }
+    }
+  }     }
       }
     }
   }
-}
 
-/* END NAVBAR 4 COLORS DESKTOP */
+  .sondages{
+    .navbar-all{
+      .navbar-default .navbar-nav a{
+        color: #FFF;
+        &:hover{
+        background-color: lighten($ocre, 10%);
+        }
+      }
+      .navbar-default .navbar-nav > .active > a{
+       background-color: lighten($ocre, 10%);
+      }
+      .navbar-default{
+        background-color: $ocre;
+      }
+      .navbar-header {
+        button {
+          background-color: $ocre;
+        &:hover {
+          background-color: $ocre;
+        }
+        }
+      }
+    }
+  }
+
+  .pages, .registrations, .sessions, .passwords, .confirmations {
+    .navbar-all{
+      .navbar-default .navbar-nav a{
+        color: #FFF;
+        &:hover{
+        background-color: lighten($vert, 10%);
+        }
+      }
+      .navbar-default .navbar-nav > .active > a{
+       background-color: lighten($vert, 10%);
+      }
+      .navbar-default{
+        background-color: $vert;
+      }
+      .navbar-header {
+        button {
+          background-color: $vert;
+        &:hover {
+          background-color: $vert;
+        }
+        }
+      }
+    }
+  }
+
+/* END NAVBAR 5 COLORS DESKTOP */
 
   .navbar-all{
     .navbar{

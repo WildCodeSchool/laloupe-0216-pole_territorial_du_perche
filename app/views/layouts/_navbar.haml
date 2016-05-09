@@ -23,6 +23,16 @@
                 Je dépose
                 %br.hidden-sm.hidden-xs un projet
 
+          - ifactive = controller.controller_name == 'point_de_vues' ? "active" : ""
+          %li{class: ifactive}
+            %a{href: point_de_vues_path}
+              %span.icon
+                %svg.icon-camera2{:role => "img"}
+                  %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-camera2"}
+              %span.action
+                J'exprime
+                %br.hidden-sm.hidden-xs un point de vue      
+
           - ifactive = controller.controller_name == 'sondages' ? "active" : ""
           %li{class: ifactive}
             %a{href: sondages_path }
