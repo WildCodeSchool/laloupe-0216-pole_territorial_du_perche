@@ -31,7 +31,7 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   .bouton{
-    @include make-sm-column(3);
+    @include make-sm-column(2.4);
     color: #FFF;
     a {
       display: block;
@@ -62,6 +62,7 @@
     }
   }
   .nouveau-projet {
+    /*width: 20%;*/
     a {
       background-color: $bleu;
       &:hover, &:focus {
@@ -69,7 +70,19 @@
       }
     }
   }
+
+  .point_de_vues {
+    /*width: 20%;*/
+    a {
+      background-color: $violet;
+      &:hover, &:focus {
+        background-color: lighten($violet,10%);
+      }
+    }
+  }
+
   .sondage {
+    /*width: 20%;*/
     a {
       background-color: $ocre;
       &:hover, &:focus {
@@ -78,6 +91,7 @@
     }
   }
   .actualites {
+    /*width: 20%;*/
     a {
       background-color: $orange;
       &:hover, &:focus {
@@ -86,6 +100,7 @@
     }
   }
   .howto {
+    /*width: 20%;*/
     a {
       background-color: $vert;
       &:hover, &:focus {

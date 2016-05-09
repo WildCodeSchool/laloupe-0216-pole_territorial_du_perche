@@ -8,8 +8,8 @@ AWS_SECRET=
 
 
 # To generate an admin account from the seeds
-ADMIN_EMAIL=
-ADMIN_PASSWORD=
+ADMIN_EMAIL='admin@wcs.fr'
+ADMIN_PASSWORD="12345678"
 
 # Sending emails with sendgrid
 SENDGRID_USERNAME=

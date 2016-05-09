@@ -7,37 +7,44 @@
     = link_to 'Découvrir les projets déposés', projets_path, class: 'btn btn-primary btn-lg'
 
 .navigation
-  .container
-    .bouton.nouveau-projet
-      %a{href: projets_path}
-        %span.icon
-          %svg.icon-light-bulb{:role => "img"}
-            %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-light-bulb"}
-        %span.action
-          Je dépose
-          %br un projet
-    .bouton.sondage
-      %a{href: sondages_path}
-        %span.icon
-          %svg.icon-bubble{:role => "img"}
-            %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-bubble"}
-        %span.action
-          Je participe
-          %br à un sondage
-    .bouton.actualites
-      %a{href: last_actu_path}
-        %span.icon
-          %svg.icon-calendar{:role => "img"}
-            %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-calendar"}
-        %span.action
-          Je suis l'actualité
-          %br des projets
-    .bouton.howto
-      %a{href: comment_ca_marche_path}
-        %span.icon
-          %svg.icon-question{:role => "img"}
-            %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-question"}
-        %span.action Pourquoi cette application
+  .bouton.nouveau-projet
+    %a{href: projets_path}
+      %span.icon
+        %svg.icon-light-bulb{:role => "img"}
+          %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-light-bulb"}
+      %span.action
+        Je dépose
+        %br un projet
+  .bouton.point_de_vues
+    %a{href: point_de_vues_path}
+      %span.icon
+        %svg.icon-camera2{:role => "img"}
+          %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-camera2"}
+      %span.action
+        J'exprime
+        %br un point de vue      
+  .bouton.sondage
+    %a{href: sondages_path}
+      %span.icon
+        %svg.icon-bubble{:role => "img"}
+          %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-bubble"}
+      %span.action
+        Je participe
+        %br à un sondage
+  .bouton.actualites
+    %a{href: last_actu_path}
+      %span.icon
+        %svg.icon-calendar{:role => "img"}
+          %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-calendar"}
+      %span.action
+        Je suis l'actualité
+        %br des projets
+  .bouton.howto
+    %a{href: comment_ca_marche_path}
+      %span.icon
+        %svg.icon-question{:role => "img"}
+          %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-question"}
+      %span.action Pourquoi cette application
 
 .derniers-projets
   .liste-projets
