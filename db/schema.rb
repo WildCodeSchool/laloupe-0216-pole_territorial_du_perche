@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509145410) do
+
+ActiveRecord::Schema.define(version: 20160509153738) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -20,9 +21,9 @@ ActiveRecord::Schema.define(version: 20160509145410) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
+    t.date     "date"
     t.string   "lieu"
     t.string   "siteweb"
-    t.date     "date"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -87,6 +88,20 @@ ActiveRecord::Schema.define(version: 20160509145410) do
   add_index "likes", ["contributeur_id"], name: "index_likes_on_contributeur_id"
   add_index "likes", ["projet_id"], name: "index_likes_on_projet_id"
 
+<<<<<<< HEAD
+=======
+  create_table "point_de_vues", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "titre"
+    t.string   "codepostal"
+    t.text     "description"
+    t.string   "localisation"
+    t.string   "image"
+    t.string   "commune"
+  end
+
+>>>>>>> 6200387... creation point de vue
   create_table "projets", force: :cascade do |t|
     t.string   "titre"
     t.string   "codepostal"

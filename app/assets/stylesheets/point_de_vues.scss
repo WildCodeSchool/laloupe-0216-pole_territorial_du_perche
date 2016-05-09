@@ -1,0 +1,80 @@
+// Place all the styles related to the points_de_vue controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.liste-point-de-vues {
+  @include make-row();
+  margin-top: 2rem;
+
+  .encart {
+    a {
+      border-color: $violet;
+      display: block;
+      text-decoration: none;
+      color: $gris-svg;
+      &:hover {
+        text-decoration: none;
+        color: $gris-svg;
+      }
+    }
+    .panel {
+      border-color: $violet;
+      background-color: $violet;
+      display: block;
+      &:hover {
+        background-color: lighten($violet, 10%);
+      }
+      .panel-heading {
+        display: block;
+        color: $gris-svg;
+        padding: 10px 15px 0px;
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: $gris-svg;
+          position: relative;
+          top: 4px;
+        }
+        img {
+          width: 80%;
+        }
+        em {
+          font-size: 12px;
+        }
+      }
+      .panel-body {
+        display: block;
+        height: 212px;
+        padding: 0;
+        h2 {
+          text-align: left;
+          margin-top: 0;
+          padding: 10px;
+          background-color: rgba(24, 24, 24, 0.71);
+          color: #fff;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        p {
+          padding: 10px;
+          color: #fff;
+        }
+      }
+      .panel-footer {
+        display: block;
+        background-color: transparent;
+        border: 0;
+        padding: 0 15px;
+      }
+    }
+  }
+}
+
+#point_de_vue_description {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 15em;
+  resize: none;
+}

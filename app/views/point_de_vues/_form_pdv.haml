@@ -1,0 +1,17 @@
+.row.renderformpoint-de-vue
+  .col-sm-10.col-sm-offset-1
+    = form_for @point_de_vue do |form|
+      .field
+        = form.label :image, "Une image qui illustre votre point de vue"
+        %p= form.file_field :image
+      .field
+        = form.label :codepostal, "Où est localisé votre point de vue ? (code postal)"
+        %p= form.text_field :codepostal, placeholder: "Code postal : ex. 28240"
+      .field
+        = form.label :commune, "Commune *"
+        %p= form.text_field :commune, class: "input-lg"
+      .field
+        = form.label :description, "Décrire brièvement votre point de vue"
+        %p= form.text_area :description, maxlength: 1500, :placeholder => "Limite de 1500 caractères"
+
+        = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg'
