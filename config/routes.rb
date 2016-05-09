@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :point_de_vues, only: [:index]
+  resources :point_de_vues
+  # only: [:index, :new]
   # get 'point_de_vues' => 'point_de_vues#show'
 
   root 'pages#intro'
