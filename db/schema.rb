@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425125622) do
+ActiveRecord::Schema.define(version: 20160509145410) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20160425125622) do
 
   create_table "categories", force: :cascade do |t|
     t.string "nom"
+  end
+
+  create_table "codepostals", force: :cascade do |t|
+    t.integer  "codepostal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "commentaires", force: :cascade do |t|
@@ -121,5 +127,14 @@ ActiveRecord::Schema.define(version: 20160425125622) do
     t.string   "autre_usage_tablette"
     t.string   "autre_usage_smartphone"
   end
+
+  create_table "villes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "codepostal_id"
+  end
+
+  add_index "villes", ["codepostal_id"], name: "index_villes_on_codepostal_id"
 
 end

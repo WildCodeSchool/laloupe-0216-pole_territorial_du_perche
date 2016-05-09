@@ -1,4 +1,10 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :codepostal do
+    
+  end
+  factory :ville do
+    
+  end
+
 
 
   factory :actualite do
