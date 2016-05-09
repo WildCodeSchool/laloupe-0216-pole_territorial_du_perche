@@ -1,3 +1,25 @@
 // Place all the styles related to the points_de_vue controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.violet
+{
+  background-color: $violet;
+  heigth: 50%;
+  fill: #FFF;
+  width: 35%;
+  margin-left: 10%;
+  margin-top: 5%;
+    .action {
+      color: white;
+    }
+    .icon {
+      color: white;
+      fill: #FFF;
+    }
+    &:hover {
+          color: $violet;
+          background-color: lighten($violet, 10%);
+          }
+}
+
