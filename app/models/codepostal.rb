@@ -1,3 +1,3 @@
 class Codepostal < ActiveRecord::Base
-	has_many: villes
+	has_many :villes
 end
