@@ -88,8 +88,6 @@ ActiveRecord::Schema.define(version: 20160509153738) do
   add_index "likes", ["contributeur_id"], name: "index_likes_on_contributeur_id"
   add_index "likes", ["projet_id"], name: "index_likes_on_projet_id"
 
-<<<<<<< HEAD
-=======
   create_table "point_de_vues", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -101,7 +99,6 @@ ActiveRecord::Schema.define(version: 20160509153738) do
     t.string   "commune"
   end
 
->>>>>>> 6200387... creation point de vue
   create_table "projets", force: :cascade do |t|
     t.string   "titre"
     t.string   "codepostal"
