@@ -23,3 +23,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << [:pseudo, :nom, :prenom, :annee_naissance, :commune, :status, :charte, :sexe, :telephone, :newsletter, :codepostal]
   end
 end
+

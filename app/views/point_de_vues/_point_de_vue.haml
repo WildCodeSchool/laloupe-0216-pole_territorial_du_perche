@@ -12,23 +12,22 @@
             %p
               %svg.icon-clock{:role => "img"}
                 %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-clock"} 
-              %em= "Créé il y a #{time_ago_in_words(projet.created_at)}"
-          %span.col-xs-3
-            = image_tag "#{point_de_vue.categorie.nom}.png" 
+              %em= "Créé il y a #{time_ago_in_words(point_de_vue.created_at)}"
+          
 
-      %span.panel-body{ style: "background: url(#{projet.image}) center center no-repeat; background-size: cover;" }
+      %span.panel-body{ style: "background: url(#{point_de_vue.image}) center center no-repeat; background-size: cover;" }
         %h2= point_de_vue.titre
         -if point_de_vue.image.url.nil?
           %p= point_de_vue.description.truncate(120)
 
-      %span.panel-footer
-        %span.row
-          %span.col-xs-6.text-center
-            = image_tag 'chat-16.png'
-            %br
-            = point_de_vue.commentaires.count
-            = 'commentaire'.pluralize(point_de_vue.commentaires.count)
-          %span.col-xs-6.text-center
-            =image_tag 'heart-16.png'
-            %br
-            = point_de_vue.likes.count
+      / %span.panel-footer
+      /   %span.row
+      /     %span.col-xs-6.text-center
+      /       = image_tag 'chat-16.png'
+      /       %br
+      /       = point_de_vue.commentaires.count
+      /       = 'commentaire'.pluralize(point_de_vue.commentaires.count)
+      /     %span.col-xs-6.text-center
+      /       =image_tag 'heart-16.png'
+      /       %br
+      /       = point_de_vue.likes.count
