@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 20160509153738) do
     t.string "nom"
   end
 
+  create_table "codepostals", force: :cascade do |t|
+    t.integer  "codepostal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "commentaires", force: :cascade do |t|
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -132,5 +138,14 @@ ActiveRecord::Schema.define(version: 20160509153738) do
     t.string   "autre_usage_tablette"
     t.string   "autre_usage_smartphone"
   end
+
+  create_table "villes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "codepostal_id"
+  end
+
+  add_index "villes", ["codepostal_id"], name: "index_villes_on_codepostal_id"
 
 end

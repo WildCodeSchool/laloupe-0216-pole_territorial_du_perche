@@ -1,8 +1,5 @@
-FactoryGirl.define do  factory :point_de_vue do
-    
-  end
 
-
+FactoryGirl.define do 
 
   factory :actualite do
     titre "Atelier Tourisme"
