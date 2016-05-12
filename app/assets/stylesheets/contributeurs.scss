@@ -2,21 +2,3 @@ h1
 {
   text-align: center;
 }
-
-
-#error_explanation {
-  @include make-row();
-  h2 {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-  ul {
-    @include make-sm-column(6);
-    @include make-sm-column-offset(3);
-    text-align: left;
-    border-radius: 3px;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-    background-color: lighten($brand-warning, 30%);
-  }
-}

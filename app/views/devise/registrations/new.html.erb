@@ -1,126 +1,128 @@
-<h1 class="text-center">Inscription</h1>
-<h4 class="text-center">
-  Votre inscription est soumise à l'acceptation de 
-  <%= link_to "la charte d'utilisation", charte_path, target: "_blank" %>
-</h4>
-<br>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= devise_error_messages! %>
+<div class="sign-up">
+  <h1 class="text-center">Inscription</h1>
+  <h4 class="text-center">
+    Votre inscription est soumise à l'acceptation de 
+    <%= link_to "la charte d'utilisation", charte_path, target: "_blank" %>
+  </h4>
+  <br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
-<div class="split-haut">
+  <div class="split-haut">
 
-    <div class="field">
-      <%= f.label :pseudo, "Pseudonyme *" %>
-      <em>(Affiché publiquement sur le site)</em>
-      <%= f.text_field :pseudo, autofocus: true, class: 'form-control input-lg' %>
-    </div>
-
-
-    <div class="field">
-      <%= f.label :password, "Mot de passe *"%>
-      <% if @validatable %>
-      <em>(<%= @minimum_password_length %> caractères minimum)</em>
-      <% end %>
-      <%= f.password_field :password, autocomplete: "off", class: 'input-lg' %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation, "Confirmation du mot de passe *" %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'input-lg' %>
-    </div>
-
-</div>
-<div class="split-centre">
-    <p>Aucune des informations demandées dans cet encadré ne sera publiée ou partagée avec des tiers</p>
-    <div class="col-sm-12">
       <div class="field">
-        <%= f.label :status, "Vous résidez ou êtes dans le Perche à titre *" %>
-        <%= f.select :status, [ ["Principal", 'principal'],
-                                ["Secondaire", 'secondaire'],
-                                ["Pour travailler", 'travail'],
-                                ["Pour étudier", 'etudes'],
-                                ["Je ne suis pas dans le Perche", 'exterieur'] ], include_blank: true %>
+        <%= f.label :pseudo, "Pseudonyme *" %>
+        <em>(Affiché publiquement sur le site)</em>
+        <%= f.text_field :pseudo, autofocus: true, class: 'form-control input-lg' %>
       </div>
-    </div>
 
-    <div class="col-sm-6">
+
       <div class="field">
-        <%= f.label :sexe, "Civilité *" %>
-        <%= f.select :sexe, [ ["Féminin", 'F'],
-                              ["Masculin", 'M']], include_blank: true %>
+        <%= f.label :password, "Mot de passe *"%>
+        <% if @validatable %>
+        <em>(<%= @minimum_password_length %> caractères minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off", class: 'input-lg' %>
       </div>
-    </div>
 
-    <div class="col-sm-6">
       <div class="field">
-        <%= f.label :annee_naissance, "Année de naissance *" %>
-        <%= f.select :annee_naissance, (1900..2020).to_a.reverse %>
+        <%= f.label :password_confirmation, "Confirmation du mot de passe *" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'input-lg' %>
       </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="field">
-        <%= f.label :prenom, "Prénom *" %>
-        <%= f.text_field :prenom, class: 'input-lg' %>
+  </div>
+  <div class="split-centre">
+      <p>Aucune des informations demandées dans cet encadré ne sera publiée ou partagée avec des tiers</p>
+      <div class="col-sm-12">
+        <div class="field">
+          <%= f.label :status, "Vous résidez ou êtes dans le Perche à titre *" %>
+          <%= f.select :status, [ ["Principal", 'principal'],
+                                  ["Secondaire", 'secondaire'],
+                                  ["Pour travailler", 'travail'],
+                                  ["Pour étudier", 'etudes'],
+                                  ["Je ne suis pas dans le Perche", 'exterieur'] ], include_blank: true %>
+        </div>
       </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="field">
-        <%= f.label :nom, "Nom *" %>
-        <%= f.text_field :nom, class: 'input-lg' %>
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :sexe, "Civilité *" %>
+          <%= f.select :sexe, [ ["Féminin", 'F'],
+                                ["Masculin", 'M']], include_blank: true %>
+        </div>
       </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="field">
-        <%= f.label :email, "Email *" %>
-        <%= f.email_field :email, class: 'input-lg' %>
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :annee_naissance, "Année de naissance *" %>
+          <%= f.select :annee_naissance, (1900..2020).to_a.reverse %>
+        </div>
       </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="field">
-        <%= f.label :telephone, "Numéro de téléphone" %>
-        <%= f.text_field :telephone, class: 'input-sm', type: 'tel' %>
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :prenom, "Prénom *" %>
+          <%= f.text_field :prenom, class: 'input-lg' %>
+        </div>
       </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="field">
-        <%= f.label :codepostal, "Code postal *" %>
-        <%= f.text_field :codepostal, class: 'input-lg' %>
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :nom, "Nom *" %>
+          <%= f.text_field :nom, class: 'input-lg' %>
+        </div>
       </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="field">
-        <%= f.label :commune, "Commune *" %>
-        <%= f.text_field :commune, class: 'input-lg' %>
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :email, "Email *" %>
+          <%= f.email_field :email, class: 'input-lg' %>
+        </div>
       </div>
-    </div>
 
-</div>
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :telephone, "Numéro de téléphone" %>
+          <%= f.text_field :telephone, class: 'input-sm', type: 'tel' %>
+        </div>
+      </div>
 
-<div class="split-bas">
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :codepostal, "Code postal *" %>
+          <%= f.text_field :codepostal, class: 'input-lg' %>
+        </div>
+      </div>
 
-    <div class="field checkbox">
-      <%= f.check_box :newsletter %>
-      <%= f.label :newsletter, "Je souhaite m'abonner à la lettre d'information" %><br />
-    </div>
+      <div class="col-sm-6">
+        <div class="field">
+          <%= f.label :commune, "Commune *" %>
+          <%= f.text_field :commune, class: 'input-lg' %>
+        </div>
+      </div>
 
-    <div class="field checkbox">
-      <%= f.check_box :charte %>
-      <%= f.label :charte, "J'ai lu et j'accepte la charte d'utilisation" %><br />
-    </div>
+  </div>
 
-    <div class="actions">
-      <%= f.submit "S'inscrire", class: 'center-block btn btn-lg btn-primary' %>
-    </div>
-  <% end %>
-<br>
-  <p>
-    J'ai déjà un compte :
-    <%= render "devise/shared/links" %>
-  </p>
+  <div class="split-bas">
+
+      <div class="field checkbox">
+        <%= f.check_box :newsletter %>
+        <%= f.label :newsletter, "Je souhaite m'abonner à la lettre d'information" %><br />
+      </div>
+
+      <div class="field checkbox">
+        <%= f.check_box :charte %>
+        <%= f.label :charte, "J'ai lu et j'accepte la charte d'utilisation" %><br />
+      </div>
+
+      <div class="actions">
+        <%= f.submit "S'inscrire", class: 'center-block btn btn-lg btn-primary' %>
+      </div>
+    <% end %>
+  <br>
+    <p>
+      J'ai déjà un compte :
+      <%= render "devise/shared/links" %>
+    </p>
+  </div>
 </div>
