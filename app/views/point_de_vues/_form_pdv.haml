@@ -6,7 +6,7 @@
         %p= form.file_field :image
       .field
         = form.label :codepostal, "Où est localisé votre point de vue ? (code postal)"
-        %p= form.text_field :codepostal, placeholder: "Code postal : ex. 28240"
+        %p= form.collection_select :codepostal_id,Codepostal.order(:name), :id, :name
       .field
         = form.label :commune, "Commune *"
         %p= form.text_field :commune, class: "input-lg"
