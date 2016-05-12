@@ -1,0 +1,27 @@
+.row
+  .metadonnees-projet
+    %p.datecrea
+      Créé il y a
+      = time_ago_in_words(@point_de_vue.created_at)
+      %br
+        par
+        %strong
+          = link_to @point_de_vue.contributeur.pseudo, 
+
+    - if @point_de_vue.localisation && !@point_de_vue.localisation.empty?
+      %h4 Localisation:
+      %p= @point_de_vue.localisation
+
+    - if current_contributeur && current_contributeur.type == 'Animateur'
+      %hr
+      .anim-only
+        %strong Les informations suivantes ne sont visibles que par l'animateur de la plateforme :
+        %p
+          = @point_de_vue.contributeur.try(:nom)
+          = @point_de_vue.contributeur.try(:prenom)
+          %br
+          / = mail_to @point_de_vue.contributeur.email
+          = @point_de_vue.contributeur.try(:telephone)
+          %br
+          = @point_de_vue.contributeur.try(:commune)
+          %br

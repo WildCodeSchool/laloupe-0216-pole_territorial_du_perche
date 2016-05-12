@@ -8,10 +8,8 @@ class PointDeVuesController < ApplicationController
 	end
 	
 	def show
-    @actualite = Actualite.find(params[:id])
-    @filactu = (Actualite.last(5).reverse - [@actualite])
+    @point_de_vue = PointDeVue.find(params[:id])
   end
-
   
   def new
   	@point_de_vue = PointDeVue.new
