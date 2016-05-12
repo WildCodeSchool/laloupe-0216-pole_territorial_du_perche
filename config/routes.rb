@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   # only: [:index, :new]
   # get 'point_de_vues' => 'point_de_vues#show'
+
+  resources :users, only: [:show]
+
+
   root 'pages#intro'
   devise_for :contributeurs
   get 'animation' => 'pages#animation'
