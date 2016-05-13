@@ -26,13 +26,12 @@
 .liste-point-de-vues {
   @include make-row();
   margin-top: 2rem;
-
+  width: 155%;
   .encart {
     a {
       border-color: $violet;
       display: block;
       text-decoration: none;
-      color: $gris-svg;
       &:hover {
         text-decoration: none;
         color: $gris-svg;
@@ -47,12 +46,13 @@
       }
       .panel-heading {
         display: block;
-        color: $gris-svg;
-        padding: 10px 15px 0px;
+        height: 50px;
+        color: white;
+        padding: 0px 0px 0px;
         svg {
           width: 20px;
           height: 20px;
-          fill: $gris-svg;
+          fill: #FFF;
           position: relative;
           top: 4px;
         }
@@ -70,7 +70,7 @@
         h2 {
           text-align: left;
           margin-top: 0;
-          padding: 10px;
+          padding: 0px;
           background-color: rgba(24, 24, 24, 0.71);
           color: #fff;
           &:hover {
@@ -85,8 +85,15 @@
       .panel-footer {
         display: block;
         background-color: transparent;
+        color: #fff;
         border: 0;
         padding: 0 15px;
+        .text-center {
+          img {
+            fill: #FFF;
+            color: white;
+          }    
+        }
       }
     }
   }
