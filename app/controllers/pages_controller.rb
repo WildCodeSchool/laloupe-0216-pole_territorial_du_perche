@@ -19,6 +19,7 @@ class PagesController < ApplicationController
     @actualites = Actualite.order(created_at: :desc)
     @projets = Projet.order(id: :desc)
     @commentaires = Commentaire.order(created_at: :desc)
+    @point_de_vues = PointDeVue.order(id: :desc)
   end
 
   def merci

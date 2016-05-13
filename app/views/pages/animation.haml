@@ -31,7 +31,7 @@
                 data: {confirm: "Êtes-vous sur de vouloir supprimer le projet \"#{projet.titre}\" ?"}
 
 .anim-commentaires
-  %h2 Commentaires déposés
+  %h2 Commentaires déposés des projets
   %table
     %thead
       %th #
@@ -57,6 +57,32 @@
                 projet_commentaire_path(commentaire.projet_id, commentaire.id),
                 method: :delete,
                 data: {confirm: "Êtes-vous sur de vouloir supprimer ce commentaire ?"}
+
+.anim-point-de-vue
+  %h2 Point de vue en lignes
+  %table
+    %thead
+      %th #
+      %th Auteur
+      %th Localisation
+      %th Publié le
+      %th Actions
+    %tbody
+      - @point_de_vues.each do |point_de_vue|
+        %tr
+          %td= point_de_vue.id
+          %td= point_de_vue.contributeur.pseudo
+          / %td= link_to point_de_vue.titre, point_de_vue_path(point_de_vue)
+          %td= point_de_vue.contributeur.try(:commune)
+          %td= point_de_vue.created_at.to_date
+          %td
+            = link_to 'Voir', point_de_vue_path(point_de_vue)
+            |
+            = link_to 'Editer', edit_point_de_vue_path(point_de_vue)
+            |
+            = link_to 'Supprimer', point_de_vue_path(point_de_vue),
+                method: :delete,
+                data: {confirm: "Êtes-vous sur de vouloir supprimer le projet \"#{point_de_vue.titre}\" ?"}
 
 .anim-actus
   %h2
