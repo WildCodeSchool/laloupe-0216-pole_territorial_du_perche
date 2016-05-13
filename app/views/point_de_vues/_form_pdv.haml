@@ -4,13 +4,15 @@
       .field
         = form.label :image, "Une image qui illustre votre point de vue"
         %p= form.file_field :image
-      .field
-        = form.label :codepostal, "Où est localisé votre point de vue ? (code postal)"
-        %p= form.collection_select :codepostal_id,Codepostal.order(:name), :id, :name
 
       .field
-        = form.label :commune, "Commune *"
-        %p= form.text_field :commune, class: "input-lg"
+        = form.label :codepostal, "Où est localisé votre point de vue ? (code postal)"
+        %p= form.collection_select :codepostals_id, Codepostal.order(:codepostal), :id, :codepostal
+
+      .field
+        = form.label :ville, "Commune *"
+        %p= form.collection_select :villes_id, Ville.order(:name), :id, :name
+
       .field
         = form.label :description, "Décrire brièvement votre point de vue"
         %p= form.text_area :description, maxlength: 1500, :placeholder => "Limite de 1500 caractères"
