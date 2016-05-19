@@ -160,6 +160,7 @@
   select#projet_demarrage_3i, select#projet_demarrage_2i, select#projet_demarrage_1i  {
     @include make-xs-column(4);
   }
+
   .metadonnees-projet {
     @include make-sm-column(2);
     @include make-sm-column-offset(1);
@@ -192,10 +193,11 @@
     .anim-only {
       text-align: left;
     }
+    .barre-sociale {
+      margin: 30px auto;
+    }
   }
-  .barre-sociale {
-    margin: 30px auto;
-  }
+
   .liens-projets {
     @include make-sm-column(3);
     margin-top: 20px;
@@ -208,6 +210,7 @@
     }
   }
 }
+
 
 .blocgaucheprojet{
   margin: 15px;
