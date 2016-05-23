@@ -15,9 +15,11 @@
 
       .field
         = form.label :description, "Décrire brièvement votre point de vue"
-        %p= form.text_area :description, maxlength: 1500, :placeholder => "Limite de 1500 caractères"
+        %p= form.text_area :description, maxlength: 140, :placeholder => "Limite de 140 caractères"
 
-      = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg'
+      .row
+        .col-sm-6.col-sm-offset-3
+          = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg'
 
 :javascript
   $('.commune').hide();
