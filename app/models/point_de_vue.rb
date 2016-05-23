@@ -2,10 +2,10 @@ class PointDeVue < ActiveRecord::Base
   has_many :commentaires
   has_many :likes
   belongs_to :contributeurs
-  has_one :codepostal
-  has_one :ville
+  belongs_to :codepostal
+  belongs_to :ville
 
-  validates_presence_of :codepostal, :commune, :description
+  validates_presence_of :codepostal_id, :ville_id, :description
 
   mount_uploader :image, ImageUploader
 
