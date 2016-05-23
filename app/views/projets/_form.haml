@@ -8,8 +8,11 @@
         = form.label :categorie, "Quel est la thèmatique dominante de votre projet ?"
         %p= form.select :categorie_id, options_for_select(@categories)
       .field
-        = form.label :codepostal, "Où est localisé votre projet ? (code postal)"
-        %p= form.text_field :codepostal, placeholder: "Code postal : ex. 28240"
+        = form.label :codepostal, "Où est localisé votre projet? (code postal)"
+        %p= form.collection_select :codepostal_id, @codepostals, :id, :codepostal
+      .field
+        = form.label :ville, "Commune *"
+        %p= form.select :ville_id, options_for_select(@coms, @codepostals)
       .field
         = form.label :demarrage, "Date de démarrage du projet (passé ou futur)"
         %p= form.date_select :demarrage
@@ -40,3 +43,12 @@
 
         = form.submit "Enregistrer mon projet", class: 'btn btn-primary btn-lg'
 
+:javascript
+  $('.commune').hide();
+  $('.commune.0').show();
+  $('#projet_codepostal_id').on('change', function(){
+    $('#projet_ville_id').val(0);
+    $('.commune').hide();
+    $('.commune.0').show();
+    $('.commune.'+$('#projet_codepostal_id').val()).show();
+  })

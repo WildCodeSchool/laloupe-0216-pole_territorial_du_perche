@@ -16,6 +16,20 @@ class ProjetsController < ApplicationController
   def new
     @projet = Projet.new
     @categories = list_categories
+
+    villes = Ville.order(:name)
+    @coms = []
+    @coms << ["","","commune 0"]
+    villes.each do |ville|
+      com = []
+      com << ville.name
+      com << ville.id
+      com << {class: "commune #{ville.codepostal.id}"}
+      @coms << com
+    end
+    
+    @codepostals = Codepostal.order(:codepostal)
+
   end
 
   def edit
@@ -94,7 +108,9 @@ class ProjetsController < ApplicationController
               :localisation,
               :demarrage,
               :urlsite,
-              :image)
+              :image,
+              :codepostal_id,
+              :ville_id)
   end
 
   def checked_statuts
