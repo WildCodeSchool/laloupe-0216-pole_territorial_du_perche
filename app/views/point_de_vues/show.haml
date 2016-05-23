@@ -1,58 +1,59 @@
-.row
-  .metadonnees-point-de-vue
-    %p.datecrea
-      Créé il y a
-      = time_ago_in_words(@point_de_vue.created_at)
-      %br
-        par
-        %strong
-          = link_to @point_de_vue.contributeur.pseudo, user_path
+.point_de_vue_show
+  .row
+    .metadonnees-point-de-vue
+      %p.datecrea
+        Créé il y a
+        = time_ago_in_words(@point_de_vue.created_at)
+        %br
+          par
+          %strong
+            = link_to @point_de_vue.contributeur.pseudo, user_path
 
-    - if @point_de_vue.localisation && !@point_de_vue.localisation.empty?
-      %h4 Localisation:
-      %p= @point_de_vue.localisation
+      - if @point_de_vue.localisation && !@point_de_vue.localisation.empty?
+        %h4 Localisation:
+        %p= @point_de_vue.localisation
 
-    - if current_contributeur && current_contributeur.type == 'Animateur'
+      - if current_contributeur && current_contributeur.type == 'Animateur'
+        %hr
+        .anim-only
+          %strong Les informations suivantes ne sont visibles que par l'animateur de la plateforme :
+          %p
+            = @point_de_vue.contributeur.try(:nom)
+            = @point_de_vue.contributeur.try(:prenom)
+            %br
+            = mail_to @point_de_vue.contributeur.email
+            = @point_de_vue.contributeur.try(:telephone)
+            %br
+            = @point_de_vue.contributeur.try(:commune)
+            
+        %hr
+        = link_to 'Modifier ce point de vue', edit_point_de_vue_path(@point_de_vue), class: 'btn btn-primary pull-right'
+
+      - elsif @point_de_vue.contributeur == current_contributeur
+        %hr
+        = link_to 'Modifier votre point de vue', edit_point_de_vue_path(@point_de_vue), class: 'btn btn-primary pull-right'
+
+    .contenu-point-de-vue
+      = image_tag(@point_de_vue.image.url)
+      %h2 Description
+      = simple_format @point_de_vue.description
       %hr
-      .anim-only
-        %strong Les informations suivantes ne sont visibles que par l'animateur de la plateforme :
-        %p
-          = @point_de_vue.contributeur.try(:nom)
-          = @point_de_vue.contributeur.try(:prenom)
-          %br
-          = mail_to @point_de_vue.contributeur.email
-          = @point_de_vue.contributeur.try(:telephone)
-          %br
-          = @point_de_vue.contributeur.try(:commune)
-          
+
+
+    .contenu-point-de-vue-bis
+      = image_tag(@point_de_vue.image.url)
+      %h2 Description
+      = simple_format @point_de_vue.description
       %hr
-      = link_to 'Modifier ce point de vue', edit_point_de_vue_path(@point_de_vue), class: 'btn btn-primary pull-right'
-
-    - elsif @point_de_vue.contributeur == current_contributeur
-      %hr
-      = link_to 'Modifier votre point de vue', edit_point_de_vue_path(@point_de_vue), class: 'btn btn-primary pull-right'
-
-  .contenu-point-de-vue
-    = image_tag(@point_de_vue.image.url)
-    %h2 Description
-    = simple_format @point_de_vue.description
-    %hr
-
-
-  .contenu-point-de-vue-bis
-    = image_tag(@point_de_vue.image.url)
-    %h2 Description
-    = simple_format @point_de_vue.description
-    %hr
-    /   - if @point_de_vue.liked_by?(current_contributeur)
-    /     .coeur=link_to image_tag('dislike.png'), unlike_point_de_vue_path(@point_de_vue.id)
-    /   - else
-    /     .coeur=link_to image_tag('heart-16.png'), like_point_de_vue_path(@point_de_vue.id)
-    /   .comptecoeur= @point_de_vue.likes.count
-    /   personnes aiment ce projet
-    / %hr
-.row
-  .barre-sociale
-    %h4 Partagez ce projet dans vos réseaux
-    .facebook= facebook_button :facebook => {:button_caption => "Facebook", :static_link => true}
-    .twitter= twitter_button :twitter => {:button_caption => "Twitter", :static_link => true}
+      /   - if @point_de_vue.liked_by?(current_contributeur)
+      /     .coeur=link_to image_tag('dislike.png'), unlike_point_de_vue_path(@point_de_vue.id)
+      /   - else
+      /     .coeur=link_to image_tag('heart-16.png'), like_point_de_vue_path(@point_de_vue.id)
+      /   .comptecoeur= @point_de_vue.likes.count
+      /   personnes aiment ce projet
+      / %hr
+  .row
+    .barre-sociale
+      %h4 Partagez ce projet dans vos réseaux
+      .facebook= facebook_button :facebook => {:button_caption => "Facebook", :static_link => true}
+      .twitter= twitter_button :twitter => {:button_caption => "Twitter", :static_link => true}
