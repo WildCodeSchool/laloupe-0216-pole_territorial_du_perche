@@ -16,15 +16,15 @@
 
         .field
           = form.label :description, "Décrire brièvement votre point de vue"
-          %p= form.text_area :description, maxlength: 140, :placeholder => "Limite de 140 caractères"
+          %p= form.text_area :description, maxlength: 140, placeholder: "Limite de 140 caractères"
 
         .droit
-          %input{:name => "droit_image", :type => "checkbox"}
+          %input{name: "droit_image", type: "checkbox", id: "droits"}
           = form.label :droit_image, " En postant mes photographies sur Perche Participatif, je m'engage à respecter la vie privée, le droit à l'image et la propriété privée. J'accepte également que mes clichés puissent être utilisés par le Pôle territorial du Perche."
 
         .row
           .col-sm-6.col-sm-offset-3
-            = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg'
+            = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg', id: "submit_form", disabled: "true"
 
   :javascript
     $('.commune').hide();
@@ -35,3 +35,12 @@
       $('.commune.0').show();
       $('.commune.'+$('#point_de_vue_codepostal_id').val()).show();
     })
+
+    $('#droits').change(function () {
+      if ($('#droits').is(":checked")) {
+        $('#submit_form').removeAttr("disabled")
+      }
+      else {
+        $('#submit_form').prop("disabled", "true");
+      }
+    });
