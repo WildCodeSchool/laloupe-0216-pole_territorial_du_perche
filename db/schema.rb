@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160519125702) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
-    t.date     "date"
     t.string   "lieu"
     t.string   "siteweb"
+    t.date     "date"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -88,13 +88,12 @@ ActiveRecord::Schema.define(version: 20160519125702) do
   add_index "likes", ["projet_id"], name: "index_likes_on_projet_id"
 
   create_table "point_de_vues", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "titre"
     t.text     "description"
     t.string   "localisation"
     t.string   "image"
-    t.string   "commune"
     t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"

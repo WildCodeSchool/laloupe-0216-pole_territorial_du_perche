@@ -6,6 +6,7 @@ class Contributeur < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projets
+  has_many :point_de_vues
   has_many :likes
   validates_presence_of :pseudo, :nom, :prenom, :annee_naissance,
                         :commune, :status, :sexe

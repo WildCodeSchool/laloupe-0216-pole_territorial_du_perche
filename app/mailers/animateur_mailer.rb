@@ -9,4 +9,14 @@ class AnimateurMailer < ApplicationMailer
     mail(to: @destinataire.email, subject: @subject)
   end
 
+  def nouveau_point_de_vue(animateur, point_de_vue)
+    @destinataire = animateur
+    @point_de_vue = point_de_vue
+    @point_de_vue_url = point_de_vue_url(@point_de_vue.id)
+    @contributeur = @point_de_vue.contributeur 
+    @subject = "Nouveau point de vue \"#{@point_de_vue.titre}\""
+    # binding.pry
+    mail(to: @destinataire.email, subject: @subject)
+  end  
+    
 end

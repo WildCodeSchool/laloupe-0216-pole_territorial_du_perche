@@ -1,0 +1,8 @@
+%h1= "Bonjour #{@destinataire.pseudo}"
+%p
+  = "Un nouveau point de vue vient d'être créé sur la plateforme Perche Participatif par "
+  = @contributeur.nom
+  = @contributeur.prenom
+  \.
+%p
+  %a{ href: @point_de_vue_url} Lire les détails du point de vue.
