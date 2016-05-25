@@ -10,7 +10,10 @@
       %br
         par
         %strong
-          = link_to @projet.contributeur.pseudo
+        -if current_contributeur.type == 'Animateur'
+          = link_to @projet.contributeur.pseudo, contributeur_info_path(@projet.contributeur.id)
+        -else
+          = @projet.contributeur.pseudo
 
     - if @projet.localisation && !@projet.localisation.empty?
       %h4 Localisation:

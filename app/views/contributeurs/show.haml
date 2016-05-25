@@ -1,0 +1,13 @@
+%h1= "Information de #{@contributeur.pseudo}"
+
+.field
+  ="email: #{@contributeur.email}"
+  %br/
+.field
+  = "nom: #{@contributeur.nom}"
+  %br/
+.field
+  = "prenom: #{@contributeur.prenom}"
+  %br/
+.field
+  = "age: #{@contributeur.get_age}"
