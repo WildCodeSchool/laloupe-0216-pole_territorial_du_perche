@@ -39,21 +39,14 @@
       = simple_format @point_de_vue.description
       %hr
 
-
-    .contenu-point-de-vue-bis
-      = image_tag(@point_de_vue.image.url)
-      %h2 Description
-      = simple_format @point_de_vue.description
+      .barre-sociale
+        %h4 Partagez ce projet dans vos réseaux
+        .facebook= facebook_button :facebook => {:button_caption => "Facebook", :static_link => true}
+        .twitter= twitter_button :twitter => {:button_caption => "Twitter", :static_link => true}
+        - if @point_de_vue.jadhere_by?(current_contributeur)
+          .approuve= button_to "Je n'approuve plus", unjadhere_point_de_vue_path(@point_de_vue.id), method: :get
+        - else
+          .approuve= button_to "J'approuve", jadhere_point_de_vue_path(@point_de_vue.id), method: :get
+      .compteapprouve= @point_de_vue.jadheres.count 
+      personnes approuvent ce projet
       %hr
-      /   - if @point_de_vue.liked_by?(current_contributeur)
-      /     .coeur=link_to image_tag('dislike.png'), unlike_point_de_vue_path(@point_de_vue.id)
-      /   - else
-      /     .coeur=link_to image_tag('heart-16.png'), like_point_de_vue_path(@point_de_vue.id)
-      /   .comptecoeur= @point_de_vue.likes.count
-      /   personnes aiment ce projet
-      / %hr
-  .row
-    .barre-sociale
-      %h4 Partagez ce projet dans vos réseaux
-      .facebook= facebook_button :facebook => {:button_caption => "Facebook", :static_link => true}
-      .twitter= twitter_button :twitter => {:button_caption => "Twitter", :static_link => true}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519125702) do
+ActiveRecord::Schema.define(version: 20160524152429) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(version: 20160519125702) do
   add_index "contributeurs", ["confirmation_token"], name: "index_contributeurs_on_confirmation_token", unique: true
   add_index "contributeurs", ["email"], name: "index_contributeurs_on_email", unique: true
   add_index "contributeurs", ["reset_password_token"], name: "index_contributeurs_on_reset_password_token", unique: true
+
+  create_table "jadheres", force: :cascade do |t|
+    t.integer  "point_de_vue_id"
+    t.integer  "contributeur_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "jadheres", ["contributeur_id"], name: "index_jadheres_on_contributeur_id"
+  add_index "jadheres", ["point_de_vue_id"], name: "index_jadheres_on_point_de_vue_id"
 
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at",      null: false

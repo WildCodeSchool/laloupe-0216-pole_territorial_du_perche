@@ -140,7 +140,7 @@
 
   .metadonnees-point-de-vue {
     @include make-sm-column(2);
-    @include make-sm-column-offset(0);
+    @include make-sm-column-offset(1);
     text-align: right;
     margin-top: 12px;
     padding: 5px;
@@ -153,10 +153,13 @@
     .anim-only {
       text-align: left;
     }
+    .barre-sociale {
+      margin: 30px auto;
+    }
   }
 
   .contenu-point-de-vue {
-    @include make-sm-column(5);
+    @include make-sm-column(6);
     h1, h2, h3, h4 {
       color: $violet;
     }
@@ -166,25 +169,6 @@
     img {
       width: 100%;
     }
-  }
-
-  .contenu-point-de-vue-bis {
-    @include make-sm-column(5);
-    h1, h2, h3, h4 {
-      color: $violet;
-    }
-    h2 {
-      font-size: 1.5rem;
-    }
-    img {
-      width: 100%;
-    }
-  }
-
-  .barre-sociale {
-    @include make-sm-column(4);
-    @include make-sm-column-offset(4);
-    margin: 30px auto;
   }
 }
 // ---- End View Show ----- //
