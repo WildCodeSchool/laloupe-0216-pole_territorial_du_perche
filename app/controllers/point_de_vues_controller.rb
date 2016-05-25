@@ -29,7 +29,11 @@ class PointDeVuesController < ApplicationController
 
   def create
     point_de_vue = PointDeVue.new(point_de_vue_params)
+    point_de_vue.contributeur_id = current_contributeur.id
     if point_de_vue.save
+      Animateur.all.each do |animateur|
+        AnimateurMailer.nouveau_point_de_vue(animateur, point_de_vue).deliver_now
+      end
       redirect_to point_de_vues_path, method: :get
     else
       render 'new'
