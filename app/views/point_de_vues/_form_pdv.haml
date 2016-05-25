@@ -1,36 +1,37 @@
-.row.renderformpoint-de-vue
-  .col-sm-10.col-sm-offset-1
-    = form_for @point_de_vue do |form|
-      .field
-        = form.label :image, "Une image qui illustre votre point de vue"
-        %p= form.file_field :image
+.pointform
+  .row.renderformpoint-de-vue
+    .col-sm-10.col-sm-offset-1
+      = form_for @point_de_vue do |form|
+        .field
+          = form.label :image, "Une image qui illustre votre point de vue"
+          %p= form.file_field :image
 
-      .field
-        = form.label :codepostal, "Où est localisé votre point de vue ? (code postal)"
-        %p= form.collection_select :codepostal_id, @codepostals, :id, :codepostal
+        .field
+          = form.label :codepostal, "Où est localisé votre point de vue ? (code postal)"
+          %p= form.collection_select :codepostal_id, @codepostals, :id, :codepostal
 
-      .field
-        = form.label :ville, "Commune *"
-        %p= form.select :ville_id, options_for_select(@coms, @codepostals)
+        .field
+          = form.label :ville, "Commune *"
+          %p= form.select :ville_id, options_for_select(@coms, @codepostals)
 
-      .field
-        = form.label :description, "Décrire brièvement votre point de vue"
-        %p= form.text_area :description, maxlength: 140, :placeholder => "Limite de 140 caractères"
+        .field
+          = form.label :description, "Décrire brièvement votre point de vue"
+          %p= form.text_area :description, maxlength: 140, :placeholder => "Limite de 140 caractères"
 
-      .droit
-        %input{:name => "droit_image", :type => "checkbox"}
-        = form.label :droit_image, " En postant mes photographies sur Perche Participatif, je m'engage à respecter la vie privée, le droit à l'image et la propriété privée. J'accepte également que mes clichés puissent être utilisés par le Pôle territorial du Perche."
+        .droit
+          %input{:name => "droit_image", :type => "checkbox"}
+          = form.label :droit_image, " En postant mes photographies sur Perche Participatif, je m'engage à respecter la vie privée, le droit à l'image et la propriété privée. J'accepte également que mes clichés puissent être utilisés par le Pôle territorial du Perche."
 
-      .row
-        .col-sm-6.col-sm-offset-3
-          = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg'
+        .row
+          .col-sm-6.col-sm-offset-3
+            = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg'
 
-:javascript
-  $('.commune').hide();
-  $('.commune.0').show();
-  $('#point_de_vue_codepostal_id').on('change', function(){
-    $('#point_de_vue_ville_id').val(0);
+  :javascript
     $('.commune').hide();
     $('.commune.0').show();
-    $('.commune.'+$('#point_de_vue_codepostal_id').val()).show();
-  })
+    $('#point_de_vue_codepostal_id').on('change', function(){
+      $('#point_de_vue_ville_id').val(0);
+      $('.commune').hide();
+      $('.commune.0').show();
+      $('.commune.'+$('#point_de_vue_codepostal_id').val()).show();
+    })
