@@ -16,13 +16,31 @@ class PointDeVuesController < ApplicationController
   end
 
   def create
-    point_de_vue = PointDeVue.new(point_de_vue_params)
+    @point_de_vue = PointDeVue.new(point_de_vue_params)
     # @point_de_vue.contributeur_id = current_contributeur.id
-    if point_de_vue.save
+    if @point_de_vue.save
       redirect_to point_de_vues_path, method: :get
     else
       render 'new'
     end
+  end
+
+  def jadhere
+    @point_de_vue = PointDeVue.find(params[:id])
+    if @point_de_vue.jadhere_by? current_contributeur
+      redirect_to @point_de_vue
+    else
+      @point_de_vue.jadheres.create(contributeur_id: current_contributeur.id)
+      redirect_to @point_de_vue
+    end
+  end
+
+  def unjadhere
+    @point_de_vue = PointDeVue.find(params[:id])
+    if @point_de_vue.jadhere_by? current_contributeur
+      @point_de_vue.jadheres.select { |jadhere| jadhere.contributeur_id == current_contributeur.id }.first.destroy
+    end
+    redirect_to @point_de_vue
   end
   
   private

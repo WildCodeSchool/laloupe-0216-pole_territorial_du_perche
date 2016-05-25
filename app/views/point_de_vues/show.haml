@@ -43,3 +43,10 @@
         %h4 Partagez ce projet dans vos réseaux
         .facebook= facebook_button :facebook => {:button_caption => "Facebook", :static_link => true}
         .twitter= twitter_button :twitter => {:button_caption => "Twitter", :static_link => true}
+        - if @point_de_vue.jadhere_by?(current_contributeur)
+          .approuve= button_to "Je n'approuve plus", unjadhere_point_de_vue_path(@point_de_vue.id), method: :get
+        - else
+          .approuve= button_to "J'approuve", jadhere_point_de_vue_path(@point_de_vue.id), method: :get
+      .compteapprouve= @point_de_vue.jadheres.count 
+      personnes approuvent ce projet
+      %hr

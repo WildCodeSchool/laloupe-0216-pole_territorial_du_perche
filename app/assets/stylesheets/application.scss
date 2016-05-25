@@ -721,6 +721,7 @@ select
     }
   }
 }
+// ---- Start Part View Show Projet ----- //
 .coeur {
   display: inline-block;
   a {
@@ -740,6 +741,33 @@ select
   display: inline-block;
   margin-left: 5px;
 }
+// ---- End Part View Show Projet----- //
+
+
+// ---- Start Part View Show Point De Vue ----- //
+.approuve {
+  display: inline-block;
+  input{
+    font-size: 14px;
+    padding: 4px 9px;
+    height: 32px;
+    margin-left: 5px;
+    color: white;
+    background-color: $orangebis;
+    border-color: darken($orangebis, 10%);
+    border-radius: 4px;
+    &:hover {
+      background-color: white;
+      border-color: $orangebis;
+      color: $orangebis;
+    }
+  }
+}
+.compteapprouve {
+  display: inline-block;
+  margin-left: 5px;
+}
+// ---- End Part View Show Point De Vue ----- //
 
 .sign-in
 {
