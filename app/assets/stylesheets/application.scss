@@ -339,7 +339,7 @@ select
   }
 }
 
-.pages, .registrations, .sessions, .passwords, .confirmations, .users
+.pages, .registrations, .sessions, .passwords, .confirmations, .contributeurs
 {
   .navbar-all
   {
@@ -416,7 +416,7 @@ select
   .navbar-default .navbar-nav a{
     color: #FFF;
     &:hover{
-      color: #000;
+      color: #FFF;
       font-weight: bold;
     }
   }
