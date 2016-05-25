@@ -17,6 +17,10 @@
         = form.label :description, "Décrire brièvement votre point de vue"
         %p= form.text_area :description, maxlength: 140, :placeholder => "Limite de 140 caractères"
 
+      .droit
+        %input{:name => "droit_image", :type => "checkbox"}
+        = form.label :droit_image, " En postant mes photographies sur Perche Participatif, je m'engage à respecter la vie privée, le droit à l'image et la propriété privée. J'accepte également que mes clichés puissent être utilisés par le Pôle territorial du Perche."
+
       .row
         .col-sm-6.col-sm-offset-3
           = form.submit "Enregistrer mon point de vue", class: 'btn btn-primary btn-lg'
