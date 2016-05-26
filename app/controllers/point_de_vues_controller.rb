@@ -3,15 +3,19 @@ class PointDeVuesController < ApplicationController
   before_action :authenticate_contributeur!, only: [:new, :create]
 
 	def index
-		@point_de_vues = PointDeVue.order(updated_at: :desc)
+		@point_de_vues = PointDeVue.where(validation: true).order(updated_at: :desc)
+
+
 	end
 
 	def show
     @point_de_vue = PointDeVue.find(params[:id])
+
   end
   
   def new
   	@point_de_vue = PointDeVue.new
+    
     villes = Ville.order(:name)
 
     @coms = []

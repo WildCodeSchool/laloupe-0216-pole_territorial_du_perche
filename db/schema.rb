@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524152429) do
+ActiveRecord::Schema.define(version: 20160526153337) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -98,8 +98,8 @@ ActiveRecord::Schema.define(version: 20160524152429) do
   add_index "likes", ["projet_id"], name: "index_likes_on_projet_id"
 
   create_table "point_de_vues", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "titre"
     t.text     "description"
     t.string   "localisation"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160524152429) do
     t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
+    t.boolean  "validation",      default: false
   end
 
   add_index "point_de_vues", ["codepostal_id"], name: "index_point_de_vues_on_codepostal_id"
