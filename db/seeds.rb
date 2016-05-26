@@ -29,6 +29,7 @@ if Categorie.all.empty?
   end
 end
 
+codepostal_0 = Codepostal.create(codepostal: nil)
 codepostal_28120 = Codepostal.create(codepostal: 28120)
 codepostal_28160 = Codepostal.create(codepostal: 28160)
 codepostal_28240 = Codepostal.create(codepostal: 28240)
