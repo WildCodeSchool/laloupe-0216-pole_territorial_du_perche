@@ -12,7 +12,7 @@
         - if @point_de_vue.jadhere_by?(current_contributeur)
           J'ai déjà approuvé ce point de vue
         - else
-          .approuve= button_to "J'approuve", jadhere_point_de_vue_path(@point_de_vue.id), method: :get
+          = button_to "J'approuve", jadhere_point_de_vue_path(@point_de_vue.id), method: :get, class: couleur_bouton(@point_de_vue)
       .compteapprouve= @point_de_vue.jadheres.count 
       personnes approuvent ce point de vue
 

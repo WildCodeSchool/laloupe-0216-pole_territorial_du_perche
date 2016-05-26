@@ -745,24 +745,28 @@ select
 
 
 // ---- Start Part View Show Point De Vue ----- //
-.approuve {
-  display: inline-block;
-  input{
-    font-size: 14px;
-    padding: 4px 9px;
-    height: 32px;
-    margin-left: 5px;
-    color: white;
-    background-color: $vert;
-    border-color: darken($vert, 10%);
-    border-radius: 4px;
-    &:hover {
-      background-color: white;
-      border-color: $vert;
-      color: $vert;
-    }
+.bouton_vert {
+  background-color: $vert;
+  border-color: $vert;
+  color: white;
+  &:hover {
+    background-color: white;
+    border-color: $vert;
+    color: $vert;
   }
 }
+
+.bouton_rouge {
+  background-color: $rouge;
+  border-color: $rouge;
+  color: white;
+  &:hover {
+    background-color: white;
+    border-color: $rouge;
+    color: $rouge;
+  }
+}
+
 .compteapprouve {
   display: inline-block;
   margin-left: 5px;

@@ -12,6 +12,7 @@ class PointDeVuesController < ApplicationController
   
   def new
   	@point_de_vue = PointDeVue.new
+    @point_de_vue.positif = params[:positif]
     villes = Ville.order(:name)
 
     @coms = []
@@ -90,7 +91,8 @@ class PointDeVuesController < ApplicationController
     .permit(:image,
             :codepostal_id,
             :ville_id,
-            :description)
+            :description,
+            :positif)
   end
 
 end

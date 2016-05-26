@@ -17,7 +17,13 @@
     %br
     %p.asterix *Le schéma de cohérence territorial (SCOT) est un document de planification stratégique qui fixe les orientations d’aménagement du Perche d’Eure-et-Loir pour les 20 prochaines années.
 
-    = link_to 'Je partage mes photos', new_point_de_vue_path, class: 'btn btn-primary btn-lg'
+    %br
+    %h3.titre Je partage une photo
+    .row
+      .col-md-offset-1.col-md-5
+        = link_to "Que j'aime", new_point_de_vue_path(positif: true), class: 'btn btn-success btn-lg btn-aime'
+      .col-md-5
+        = link_to "Que je n'aime pas", new_point_de_vue_path(positif: false), class: 'btn btn-primary btn-lg btn-aime-pas'
 %h3 Actuellement #{@point_de_vues.size} point(s) de vue déposé(s)
 %p Donnez nous vos idées, votre avis sur les points de vue déjà déposés.
 %p Commentez, aimez, partagez !

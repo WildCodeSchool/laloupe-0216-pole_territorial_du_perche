@@ -2,6 +2,7 @@
   .row.renderformpoint-de-vue
     .col-sm-10.col-sm-offset-1
       = form_for @point_de_vue do |form|
+        .hidden= form.check_box :positif
         .field
           = form.label :image, "Je dépose une image"
           %p= form.file_field :image
