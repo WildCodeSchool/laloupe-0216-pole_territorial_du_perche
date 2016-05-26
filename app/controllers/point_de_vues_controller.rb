@@ -24,7 +24,6 @@ class PointDeVuesController < ApplicationController
     end
 
     @codepostals = Codepostal.order(:codepostal)
-
   end
 
   def create
