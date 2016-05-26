@@ -9,12 +9,20 @@
           %strong
             = link_to @point_de_vue.contributeur.pseudo, contributeur_info_path(@point_de_vue.contributeur.id)
 
+        - if @point_de_vue.jadhere_by?(current_contributeur)
+          J'ai déjà approuvé ce point de vue
+        - else
+          .approuve= button_to "J'approuve", jadhere_point_de_vue_path(@point_de_vue.id), method: :get
+      .compteapprouve= @point_de_vue.jadheres.count 
+      personnes approuvent ce point de vue
+
       - if @point_de_vue.localisation && !@point_de_vue.localisation.empty?
+        %hr
         %h4 Localisation:
         %p= @point_de_vue.localisation
 
       - if current_contributeur && current_contributeur.type == 'Animateur'
-        %hr
+
         .anim-only
           %strong Les informations suivantes ne sont visibles que par l'animateur de la plateforme :
           %p
@@ -43,10 +51,3 @@
         %h4 Partagez ce projet dans vos réseaux
         .facebook= facebook_button :facebook => {:button_caption => "Facebook", :static_link => true}
         .twitter= twitter_button :twitter => {:button_caption => "Twitter", :static_link => true}
-        - if @point_de_vue.jadhere_by?(current_contributeur)
-          .approuve= button_to "Je n'approuve plus", unjadhere_point_de_vue_path(@point_de_vue.id), method: :get
-        - else
-          .approuve= button_to "J'approuve", jadhere_point_de_vue_path(@point_de_vue.id), method: :get
-      .compteapprouve= @point_de_vue.jadheres.count 
-      personnes approuvent ce projet
-      %hr

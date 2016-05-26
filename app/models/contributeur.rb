@@ -8,6 +8,7 @@ class Contributeur < ActiveRecord::Base
   has_many :projets
   has_many :point_de_vues
   has_many :likes
+  has_many :jadheres
   validates_presence_of :pseudo, :nom, :prenom, :annee_naissance,
                         :commune, :status, :sexe
   validates_uniqueness_of :pseudo
