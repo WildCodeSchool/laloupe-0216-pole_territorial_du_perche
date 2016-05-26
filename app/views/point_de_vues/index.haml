@@ -2,16 +2,20 @@
   .col-sm-5.text-center
     =image_tag "page-projet.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
   .col-sm-7
-    %h2 Point de vue sur le Perche!
+    %h2 Point de vue sur le Perche : campagne-photo
 
-    %p Lors de l’élaboration du SCOT* (Schéma de Cohérence Territorial), la participation des habitants tient un rôle majeur. La volonté du Pôle territorial du Perche (pilote du SCOT) est d’encourager au maximum la concertation et le débat entre les percherons afin de proposer le SCOT le plus approprié pour le Perche d’Eure-et-Loir.
+    %p Venez déposer vos photos et contribuez à l’élaboration du projet d’aménagement du territoire percheron pour les 20 prochaines années*.
 
-    %p Afin de recueillir le plus grand nombre d’avis sur le territoire, le pôle, pilote du SCOT, propose une campagne-photo « Point de vue sur le Perche » ouverte à tous. L’idée est de démontrer à l’aide de deux clichés un élément que vous aimez dans le Perche et un élément que vous n’aimez pas, en agrémentant chaque photo d’une ou deux phrases expliquant votre choix.
+    %p A travers vos clichés, nous attendons les éléments du territoire qui, selon vous, sont à conserver, valoriser et/ ou développer (J’aime) et les éléments à repenser, les échecs (J’aime pas) selon votre vécu et vos impressions.
 
-    %p Organisée autour de deux thèmes, Ville et Campagne, « Point de vue sur le Perche » a pour objectif d’alimenter la réflexion du Pôle territorial dans l’élaboration des documents du SCOT. A travers vos clichés, nous souhaitons identifier les éléments du territoire qui, selon vous, sont à conserver, valoriser et/ ou développer (J’aime) et les éléments à repenser, les échecs (J’aime pas) selon votre vécu et vos impressions.
-    A noter qu’il n’y a pas de limitation du nombre de photos mais qu’il convient de proposer systématiquement un duo « J’aime/ J’aime pas » et de préciser la localisation de la photo.
+    %p Il n’y a pas de limitation du nombre de photos. Le lieu de prise de vue doit être précisé et de courts commentaires peuvent être ajoutés.
 
-    %p Une fois validées par le PETR, vos photos seront affichées sur l’application et pourront être « Aimées » (J’aime) et « Pas aimées » (J’aime pas) par les autres utilisateurs. Certains clichés récoltés pourront également être valorisés dans différentes actions de communication. Par ailleurs, il convient de préciser que « Point de vue sur le Perche » se doit de respecter la vie privée et la propriété privée de tous. Les clichés que nous jugerons hors-sujet à la démarche de la campagne-photo ou portant toute atteinte à la propriété et à la vie privée ne seront pas publiés sur l’application Perche Participatif 2.8.
+    %p Une fois validées par le Pôle territorial, vos photos seront publiées et pourront être « Approuvées » par les autres utilisateurs. Certains clichés pourront également être valorisés dans différentes communications.
+
+    %p Il convient de préciser que « Point de vue sur le Perche » se doit de respecter la vie privée, le droit à l’image et la propriété privée. Les clichés que nous jugerons hors-sujet à la démarche de la campagne-photo ne seront pas publiés.
+
+    %br
+    %p.asterix *Le schéma de cohérence territorial (SCOT) est un document de planification stratégique qui fixe les orientations d’aménagement du Perche d’Eure-et-Loir pour les 20 prochaines années.
 
     = link_to 'Je partage mes photos', new_point_de_vue_path, class: 'btn btn-primary btn-lg'
 %h3 Actuellement #{@point_de_vues.size} point(s) de vue déposé(s)
