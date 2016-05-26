@@ -7,7 +7,7 @@
         %br
           par
           %strong
-            = link_to @point_de_vue.contributeur.id, user_path
+            = link_to @point_de_vue.contributeur.pseudo, user_path
 
       - if @point_de_vue.localisation && !@point_de_vue.localisation.empty?
         %h4 Localisation:

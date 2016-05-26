@@ -80,7 +80,7 @@
             |
             = link_to 'Editer', edit_point_de_vue_path(point_de_vue)
             |
-            = link_to 'Supprimer', point_de_vue_path(point_de_vue),
+            = link_to 'Supprimer', point_de_vue_path(point_de_vue.id),
                 method: :delete,
                 data: {confirm: "Êtes-vous sur de vouloir supprimer le projet \"#{point_de_vue.titre}\" ?"}
 
