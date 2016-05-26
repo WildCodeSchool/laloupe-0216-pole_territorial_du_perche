@@ -17,7 +17,7 @@
 
     - if @projet.localisation && !@projet.localisation.empty?
       %h4 Localisation:
-      %p= @projet.localisation
+      %p= @projet.codepostal.codepostal
     -if @projet.demarrage != nil
       %h4 Date de lancement
       %p= @projet.demarrage.strftime("%m/%Y")

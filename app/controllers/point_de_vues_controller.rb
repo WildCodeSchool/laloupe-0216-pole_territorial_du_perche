@@ -1,5 +1,6 @@
 class PointDeVuesController < ApplicationController
   before_action :authenticate_animateur!, except: [:index, :show, :last_actu, :new]
+  before_action :authenticate_contributeur!, only: [:new, :create]
 
 	def index
 		@point_de_vues = PointDeVue.order(updated_at: :desc)
