@@ -74,7 +74,7 @@
         padding: 0;
         h2
         {
-          display: none;  
+          display: none;
         }
         &:hover {
           h2 {
@@ -96,6 +96,7 @@
         }
       }
       .panel-footer {
+        font-size: 24px;
         display: block;
         background-color: transparent;
         color: #fff;
@@ -105,7 +106,10 @@
           img {
             fill: #FFF;
             color: white;
-          }    
+          }
+        }
+        .japprouve_compteur{
+          margin:-10% 0 0 35%;
         }
       }
     }
