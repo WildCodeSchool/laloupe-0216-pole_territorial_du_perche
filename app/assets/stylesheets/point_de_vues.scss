@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.asterix {
+  font-size: 12px;
+}
 .violet
 {
   background-color: $violet;
@@ -64,6 +67,7 @@
         }
       }
       .panel-body {
+        margin-top: 15px;
         display: block;
         height: 250px;
         width: 100%;
