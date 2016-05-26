@@ -33,6 +33,19 @@ class ProjetsController < ApplicationController
   end
 
   def edit
+    villes = Ville.order(:name)
+
+    @coms = []
+    @coms << ["","","commune 0"]
+    villes.each do |ville|
+      com = []
+      com << ville.name
+      com << ville.id
+      com << {class: "commune #{ville.codepostal.id}"}
+      @coms << com
+    end
+
+    @codepostals = Codepostal.order(:codepostal)
     @projet = Projet.find(params[:id])
     if @projet.contributeur == current_contributeur || current_animateur
       @categories = list_categories
