@@ -29,6 +29,7 @@ class PointDeVuesController < ApplicationController
 
   def create
     point_de_vue = PointDeVue.new(point_de_vue_params)
+    point_de_vue = current_contributeur
     if point_de_vue.save
       redirect_to point_de_vues_path, method: :get
     else

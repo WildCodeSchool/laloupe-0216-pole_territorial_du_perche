@@ -71,8 +71,8 @@
       - @point_de_vues.each do |point_de_vue|
         %tr
           %td= point_de_vue.id
-          %td= point_de_vue.contributeur.pseudo
-          / %td= link_to point_de_vue.titre, point_de_vue_path(point_de_vue)
+          / %td= point_de_vue.contributeur.pseudo
+          %td= link_to point_de_vue.titre, point_de_vue_path(point_de_vue)
           %td= point_de_vue.contributeur.try(:commune)
           %td= point_de_vue.created_at.to_date
           %td
