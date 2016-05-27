@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'point_de_vues/:id/jadhere' => 'point_de_vues#jadhere', as: :jadhere_point_de_vue
   get 'point_de_vues/:id/unjadhere' => 'point_de_vues#unjadhere', as: :unjadhere_point_de_vue
   get 'point_de_vues/:id/edit' => 'point_de_vues#edit'
-
+  post 'point_de_vues/:id/validation' => 'point_de_vues#validation', as: :validation_point_de_vue
+  
   # only: [:index, :new]
   # get 'point_de_vues' => 'point_de_vues#show'
 

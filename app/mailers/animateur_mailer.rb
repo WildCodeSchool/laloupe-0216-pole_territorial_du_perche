@@ -13,6 +13,7 @@ class AnimateurMailer < ApplicationMailer
     @destinataire = animateur
     @point_de_vue = point_de_vue
     @point_de_vue_url = point_de_vue_url(@point_de_vue.id)
+    @point_de_vue_url2 = point_de_vue_url(@point_de_vue.image)
     @contributeur = @point_de_vue.contributeur 
     @subject = "Nouveau point de vue \"#{@point_de_vue.titre}\""
     # binding.pry

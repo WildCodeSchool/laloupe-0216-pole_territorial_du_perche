@@ -3,16 +3,29 @@ class PointDeVuesController < ApplicationController
   before_action :authenticate_contributeur!, only: [:new, :create]
 
 	def index
-		@point_de_vues = PointDeVue.order(updated_at: :desc)
+		@point_de_vues = PointDeVue.where(validation: true).order(updated_at: :desc)
+
+
 	end
 
 	def show
     @point_de_vue = PointDeVue.find(params[:id])
   end
   
+  def validation
+    point_de_vue = PointDeVue.find(params[:id])
+    point_de_vue.validation = true
+    point_de_vue.save
+    redirect_to point_de_vues_path, method: :get
+  end
+
+
+
   def new
   	@point_de_vue = PointDeVue.new
+
     @point_de_vue.positif = params[:positif]
+
     villes = Ville.order(:name)
 
     @coms = []
