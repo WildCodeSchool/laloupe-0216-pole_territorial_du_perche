@@ -746,13 +746,13 @@ select
 
 // ---- Start Part View Show Point De Vue ----- //
 .bouton_vert {
-  background-color: $vert;
-  border-color: $vert;
+  background-color: $vert-clair;
+  border-color: $vert-clair;
   color: white;
   &:hover {
     background-color: white;
-    border-color: $vert;
-    color: $vert;
+    border-color: $vert-clair;
+    color: $vert-clair;
   }
 }
 
