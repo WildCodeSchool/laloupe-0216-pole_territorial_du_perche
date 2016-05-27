@@ -10,11 +10,11 @@
 }
 .btn-aime{
   width: 100%;
-  background-color: $vert;
-  border-color: $vert;
+  background-color: $vert-clair;
+  border-color: $vert-clair;
     &:hover {
-      background-color: darken($vert, 10%);
-      border-color: $vert;
+      background-color: darken($vert-clair, 10%);
+      border-color: $vert-clair;
     }
 }
 .btn-aime-pas{
@@ -56,12 +56,7 @@
       }
     }
     .panel {
-      border-color: $violet;
-      background-color: $violet;
       display: block;
-      &:hover {
-        background-color: lighten($violet, 10%);
-      }
       .panel-heading {
         display: block;
         height: 50px;
@@ -128,6 +123,18 @@
         .japprouve_compteur{
           margin:-10% 0 0 35%;
         }
+      }
+    }
+    .vignette_vert{
+      background-color: $vert-clair;
+      &:hover {
+        background-color: lighten($vert-clair, 5%);
+      }
+    }
+    .vignette_rouge{
+      background-color: $rouge;
+      &:hover {
+        background-color: lighten($rouge, 5%);
       }
     }
   }
