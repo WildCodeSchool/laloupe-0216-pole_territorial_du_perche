@@ -2,32 +2,31 @@
   %a{ href: point_de_vue_path(point_de_vue) }
 
     %span.panel
-      %span.panel-heading 
+      %span.panel-heading
         %span.row
           %span.col-xs-6
             %p
               %svg.icon-location{:role => "img"}
-                %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-location"} 
+                %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-location"}
               = point_de_vue.codepostal.codepostal
               = point_de_vue.ville.name
             %p
           %span.col-xs-6
             %svg.icon-clock{:role => "img"}
-              %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-clock"} 
+              %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-clock"}
             %em= "Créé il y a #{time_ago_in_words(point_de_vue.created_at)}"
-          
+
       %span.row
         %span.panel-body{ style: "background: url(#{point_de_vue.image}) center center no-repeat; background-size: cover;" }
-          %h2= point_de_vue.description.truncate(120)
+          %h4= point_de_vue.description.truncate(120)
 
       %span.panel-footer
         %span.row
-          %span.col-xs-6.text-center
-            = image_tag 'chat.png'
-            %br
-          %span.col-xs-6.text-center
-            = image_tag 'heart.png'
-            %br
+          .japprouve_compteur
+            %span.col-md-6
+              = image_tag 'icone_japprouve.png'
+              = point_de_vue.jadheres.count
+
 
 
         :javascript
@@ -45,4 +44,3 @@
       /       =image_tag 'heart-16.png'
       /       %br
       /       = point_de_vue.likes.count
-
