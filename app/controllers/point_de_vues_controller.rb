@@ -10,9 +10,17 @@ class PointDeVuesController < ApplicationController
 
 	def show
     @point_de_vue = PointDeVue.find(params[:id])
-
   end
   
+  def validation
+    point_de_vue = PointDeVue.find(params[:id])
+    point_de_vue.validation = true
+    point_de_vue.save
+    redirect_to point_de_vues_path, method: :get
+  end
+
+
+
   def new
   	@point_de_vue = PointDeVue.new
     

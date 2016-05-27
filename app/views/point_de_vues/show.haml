@@ -36,6 +36,13 @@
             
         %hr
         = link_to 'Modifier ce point de vue', edit_point_de_vue_path(@point_de_vue), class: 'btn btn-primary pull-right'
+        %br
+        %br 
+        - if !@point_de_vue.validation
+          = link_to 'Valider ce point de vue', validation_point_de_vue_path(@point_de_vue.id), method: :post, class: 'btn btn-primary pull-right'
+          %br
+          %br
+          = link_to 'Supprimer ce point de vue', point_de_vue_path(@point_de_vue.id), method: :delete, class: 'btn btn-primary pull-right'
 
       - elsif @point_de_vue.contributeur == current_contributeur
         %hr
