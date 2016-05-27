@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160526153337) do
 
   create_table "actualites", force: :cascade do |t|
@@ -107,9 +106,9 @@ ActiveRecord::Schema.define(version: 20160526153337) do
     t.string   "image"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
+    t.integer  "contributeur_id"
     t.boolean  "positif",         default: true
     t.boolean  "validation",      default: false
-    t.integer  "contributeur_id"
   end
 
   add_index "point_de_vues", ["codepostal_id"], name: "index_point_de_vues_on_codepostal_id"
