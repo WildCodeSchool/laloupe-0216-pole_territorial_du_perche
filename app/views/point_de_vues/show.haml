@@ -12,7 +12,10 @@
         - if @point_de_vue.jadhere_by?(current_contributeur)
           J'ai déjà approuvé ce point de vue
         - else
-          = button_to "J'approuve", jadhere_point_de_vue_path(@point_de_vue.id), method: :get, class: couleur_bouton(@point_de_vue)
+          = button_to jadhere_point_de_vue_path(@point_de_vue.id), method: :get, class: couleur_bouton(@point_de_vue) do
+            %svg{:role => "img"}
+              %use{"xlink:href" => "#{image_url("icons.svg")}\#japprouve"}
+            J'approuve
       .compteapprouve= @point_de_vue.jadheres.count 
       personnes approuvent ce point de vue
 

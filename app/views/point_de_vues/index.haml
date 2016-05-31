@@ -1,6 +1,6 @@
 .row
   .col-sm-5.text-center
-    =image_tag "page-projet.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
+    =image_tag "paysage28.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
   .col-sm-7
     %h2 Point de vue sur le Perche : campagne-photo
 
@@ -25,8 +25,7 @@
       .col-md-5
         = link_to "Que je n'aime pas", new_point_de_vue_path(positif: false), class: 'btn btn-primary btn-lg btn-aime-pas'
 %h3 Actuellement #{@point_de_vues.size} point(s) de vue déposé(s)
-%p Donnez nous vos idées, votre avis sur les points de vue déjà déposés.
-%p Commentez, aimez, partagez !
+%p Dites nous si vous approuvez les points de vue déposés et partagez !
 
 .liste-point-de-vues
   = render partial: 'point_de_vues/point_de_vue', collection: @point_de_vues

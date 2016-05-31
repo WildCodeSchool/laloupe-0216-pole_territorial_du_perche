@@ -147,6 +147,30 @@
     @extend .table;
     @extend .table-hover;
   }
+  h2{
+    color: white;
+    padding: 5px;
+  }
+}
+.anim-projets{
+  h2{
+    background-color: $bleu;
+  }
+}
+.anim-commentaires{
+  h2{
+    background-color: $bleu;
+  }
+}
+.anim-point-de-vue {
+  h2{
+    background-color: $violet;
+  }
+}
+.anim-actus{
+  h2{
+    background-color: $orange;
+  }
 }
 
 // PAGE HOWTO

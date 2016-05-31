@@ -746,6 +746,10 @@ select
 
 // ---- Start Part View Show Point De Vue ----- //
 .bouton_vert {
+  @extend .btn;
+  @extend .btn-default;
+  margin-top: 9px;
+  font-size: 20px;
   background-color: $vert-clair;
   border-color: $vert-clair;
   color: white;
@@ -753,10 +757,23 @@ select
     background-color: white;
     border-color: $vert-clair;
     color: $vert-clair;
+    svg{
+      fill: #00CC00;
+    }
+  }
+  svg{
+    vertical-align: middle;
+    width: 40px;
+    height: 30px;
+    fill: #FFF;
   }
 }
 
 .bouton_rouge {
+  @extend .btn;
+  @extend .btn-default;
+  margin-top: 9px;
+  font-size: 20px;
   background-color: $rouge;
   border-color: $rouge;
   color: white;
@@ -764,6 +781,15 @@ select
     background-color: white;
     border-color: $rouge;
     color: $rouge;
+    svg{
+      fill: #F20603;
+    }
+  }
+  svg{
+    vertical-align: middle;
+    width: 40px;
+    height: 30px;
+    fill: #FFF;
   }
 }
 

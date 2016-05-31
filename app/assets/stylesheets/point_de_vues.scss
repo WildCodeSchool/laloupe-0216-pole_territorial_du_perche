@@ -114,25 +114,23 @@
         color: #fff;
         border: 0;
         padding: 0 15px;
-        .text-center {
-          img {
-            fill: #FFF;
-            color: white;
-          }
-        }
+
         .japprouve_compteur{
           margin:-10% 0 0 35%;
+          font-size: 30px;
         }
       }
     }
     .vignette_vert{
-      background-color: $vert-clair;
+      background-color: $violet;
+      border: 6px solid $vert-clair;
       &:hover {
         background-color: lighten($vert-clair, 5%);
       }
     }
     .vignette_rouge{
-      background-color: $rouge;
+      background-color: $violet;
+      border: 6px solid $rouge;
       &:hover {
         background-color: lighten($rouge, 5%);
       }
