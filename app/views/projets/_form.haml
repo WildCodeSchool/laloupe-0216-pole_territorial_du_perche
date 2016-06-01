@@ -9,10 +9,7 @@
         %p= form.select :categorie_id, options_for_select(@categories)
       .field
         = form.label :codepostal, "Où est localisé votre projet? (code postal)"
-        %p= form.collection_select :codepostal_id, @codepostals, :id, :codepostal
-      .field
-        = form.label :ville, "Commune *"
-        %p= form.select :ville_id, options_for_select(@coms, @codepostals)
+        %p= form.text_field :codepostal, placeholder: "Code postal: ex. 28240"
       .field
         = form.label :demarrage, "Date de démarrage du projet (passé ou futur)"
         %p= form.date_select :demarrage
