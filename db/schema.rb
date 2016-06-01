@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160526153337) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
-    t.date     "date"
     t.string   "lieu"
     t.string   "siteweb"
+    t.date     "date"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -104,9 +104,9 @@ ActiveRecord::Schema.define(version: 20160526153337) do
     t.text     "description"
     t.string   "localisation"
     t.string   "image"
+    t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
-    t.integer  "contributeur_id"
     t.boolean  "positif",         default: true
     t.boolean  "validation",      default: false
   end
