@@ -1,0 +1,41 @@
+.index_scot_messages
+  .row
+    .col-sm-5.text-center
+      =image_tag "paysage28.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
+    .col-sm-7
+      %h2 Scot-Box, Scot-Vox
+
+      %p Venez déposer vos photos et contribuez à l’élaboration du projet d’aménagement du territoire percheron pour les 20 prochaines années*.
+
+      %p A travers vos clichés, nous attendons les éléments du territoire qui, selon vous, sont à conserver, valoriser et/ ou développer (J’aime) et les éléments à repenser, les échecs (J’aime pas) selon votre vécu et vos impressions.
+
+      %p Il n’y a pas de limitation du nombre de photos. Le lieu de prise de vue doit être précisé et de courts commentaires peuvent être ajoutés.
+
+      %p Une fois validées par le Pôle territorial, vos photos seront publiées et pourront être « Approuvées » par les autres utilisateurs. Certains clichés pourront également être valorisés dans différentes communications.
+
+      %p Il convient de préciser que « Point de vue sur le Perche » se doit de respecter la vie privée, le droit à l’image et la propriété privée. Les clichés que nous jugerons hors-sujet à la démarche de la campagne-photo ne seront pas publiés.
+
+  .scot-form.col-sm-8.col-sm-offset-2
+    = form_for @scot_message do |form|
+      %h3= form.label :contenu, "Ecrire votre message"
+      %p= form.text_area :contenu, placeholder: "Ecrire votre message"
+      = form.submit "Enregistrer mon message", class: 'form-scot btn btn-primary btn-lg', id: "submit_form"
+
+  .col-sm-12
+    %br
+    %hr
+    - @scot_messages.reverse.each do |scot_message|
+      .row
+        .pseudo.col-sm-6
+          - if current_contributeur && current_contributeur.type == 'Animateur'
+            = link_to scot_message.contributeur.pseudo, contributeur_info_path(scot_message.contributeur.id)
+          - else
+            = scot_message.contributeur.pseudo
+        .date.col-sm-6
+          Créé il y a
+          = time_ago_in_words(scot_message.created_at)
+      %br
+      .row
+        .contents.col-sm-12
+          = scot_message.contenu
+      %hr

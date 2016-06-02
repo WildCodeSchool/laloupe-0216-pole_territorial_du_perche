@@ -23,6 +23,7 @@
 @import "sondages";
 @import "actualites";
 @import "point_de_vues";
+@import "scot_messages";
 
 @font-face
 {
@@ -261,7 +262,7 @@ select
   }
 }
 
-.point_de_vues
+.point_de_vues, .scot_messages
 {
   .navbar-all{
     .navbar-default .navbar-nav a{
@@ -477,7 +478,7 @@ select
     }
   }
 
-  .point_de_vues {
+  .point_de_vues, .scot_messages {
     .navbar-all {
       .navbar-default .navbar-nav a {
         color: #FFF;

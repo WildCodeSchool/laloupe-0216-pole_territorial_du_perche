@@ -1,0 +1,40 @@
+// Place all the styles related to the scot_messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.index_scot_messages {
+  .scot-form{
+    margin-top: 3%;
+  }
+
+  textarea {
+    resize: none;
+    height: 130px;
+  }
+  input {
+    width: 32%;
+    float: right;
+  }
+
+  hr {
+    border-top: 1px solid $violet;
+  }
+
+  .scot_message_contenu {
+    resize: none;
+  }
+
+  .pseudo {
+    font-size: 17px;
+    // font-weight: bold;
+    color: $violet;
+  }
+
+  .date {
+    font-size: 17px;
+    text-align: right;
+    font-weight: unset;
+    color: $violet;
+  }  
+}
