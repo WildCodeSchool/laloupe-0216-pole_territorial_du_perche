@@ -3,7 +3,7 @@
     .col-sm-5.text-center
       =image_tag "paysage28.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
     .col-sm-7
-      %h2 Point de vue sur le Perche : campagne-photo
+      %h2 Scot-Box, Scot-Vox
 
       %p Venez déposer vos photos et contribuez à l’élaboration du projet d’aménagement du territoire percheron pour les 20 prochaines années*.
 
@@ -27,7 +27,10 @@
     - @scot_messages.reverse.each do |scot_message|
       .row
         .pseudo.col-sm-6
-          = scot_message.contributeur.pseudo
+          - if current_contributeur && current_contributeur.type == 'Animateur'
+            = link_to scot_message.contributeur.pseudo, contributeur_info_path(scot_message.contributeur.id)
+          - else
+            = scot_message.contributeur.pseudo
         .date.col-sm-6
           Créé il y a
           = time_ago_in_words(scot_message.created_at)
