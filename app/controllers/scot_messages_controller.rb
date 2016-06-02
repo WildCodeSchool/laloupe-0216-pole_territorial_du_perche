@@ -1,4 +1,6 @@
 class ScotMessagesController < ApplicationController
+  # before_action :authenticate_animateur!, except: [:index, :show, :last_actu, :new]
+  before_action :authenticate_contributeur!, only: [:new, :create]
   
   def index
     @scot_messages = ScotMessage.all
