@@ -83,6 +83,31 @@
                 method: :delete,
                 data: {confirm: "Êtes-vous sur de vouloir supprimer le projet \"#{point_de_vue.titre}\" ?"}
 
+.anim-scot-box
+  %h2 Messages
+  %table
+    %thead
+      %th #
+      %th Auteur
+      %th Localisation
+      %th Publié le
+      %th Actions
+    %tbody
+      - @scot_messages.each do |scot_message|
+        %tr
+          %td= scot_message.id
+          %td= scot_message.contributeur.pseudo
+          %td= scot_message.contributeur.try(:commune)
+          %td= scot_message.created_at.to_date
+          %td
+            = link_to 'Voir', point_de_vue_path(scot_message)
+            |
+            / = link_to 'Editer', edit_point_de_vue_path(scot_message)
+            |
+            = link_to 'Supprimer', point_de_vue_path(scot_message.id),
+                method: :delete,
+                data: {confirm: "Êtes-vous sur de vouloir supprimer le message ?"}                
+
 .anim-actus
   %h2
     Actualités
