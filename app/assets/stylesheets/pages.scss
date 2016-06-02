@@ -141,7 +141,7 @@
 }
 
 // PAGE ANIMATION
-.anim-point-de-vue, .anim-projets, .anim-commentaires, .anim-actus {
+.anim-point-de-vue, .anim-scot-box, .anim-projets, .anim-commentaires, .anim-actus {
   @extend .table-responsive;
   table {
     @extend .table;
@@ -163,6 +163,11 @@
   }
 }
 .anim-point-de-vue {
+  h2{
+    background-color: $violet;
+  }
+}
+.anim-scot-box {
   h2{
     background-color: $violet;
   }
