@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # only: [:index, :new]
   # get 'point_de_vues' => 'point_de_vues#show'
 
+  resources :scot_messages
+
   get 'contributeurs_info/:id' => 'contributeurs#show', as: :contributeur_info
 
 

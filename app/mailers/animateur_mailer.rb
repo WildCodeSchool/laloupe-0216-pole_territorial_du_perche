@@ -16,7 +16,15 @@ class AnimateurMailer < ApplicationMailer
     @point_de_vue_url2 = point_de_vue_url(@point_de_vue.image)
     @contributeur = @point_de_vue.contributeur 
     @subject = "Nouveau point de vue \"#{@point_de_vue.titre}\""
-    # binding.pry
+    mail(to: @destinataire.email, subject: @subject)
+  end  
+   
+  def nouveau_scot_message(animateur, scot_message)
+    @destinataire = animateur
+    @scot_message = scot_message
+    @scot_message_url = scot_message_url(@scot_message.id)
+    @contributeur = @scot_message.contributeur 
+    @subject = "Nouveau message scot box"
     mail(to: @destinataire.email, subject: @subject)
   end  
     

@@ -1,5 +1,8 @@
 
-FactoryGirl.define do 
+FactoryGirl.define do  factory :scot_message do
+    
+  end
+ 
 
   factory :actualite do
     titre "Atelier Tourisme"
