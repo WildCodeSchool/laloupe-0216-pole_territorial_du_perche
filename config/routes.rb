@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'point_de_vues/:id/unjadhere' => 'point_de_vues#unjadhere', as: :unjadhere_point_de_vue
   get 'point_de_vues/:id/edit' => 'point_de_vues#edit'
   post 'point_de_vues/:id/validation' => 'point_de_vues#validation', as: :validation_point_de_vue
+  get 'sousmenu' => 'point_de_vues#menu_point_de_vue'
   # only: [:index, :new]
   # get 'point_de_vues' => 'point_de_vues#show'
 
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
 
   root 'pages#intro'
   devise_for :contributeurs
-  get 'sousmenu' => 'pages#menu_point_de_vue'
   get 'animation' => 'pages#animation'
   get 'sondages/export' => 'sondages#export', as: :export_sondages
   resources :sondages

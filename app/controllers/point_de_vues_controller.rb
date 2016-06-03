@@ -6,7 +6,7 @@ class PointDeVuesController < ApplicationController
 		@point_de_vues = PointDeVue.where(validation: true).order(updated_at: :desc)
 	end
 
-  def sousmenu
+  def menu_point_de_vue
   end
 
 	def show
