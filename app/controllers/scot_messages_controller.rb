@@ -1,5 +1,5 @@
 class ScotMessagesController < ApplicationController
-  # before_action :authenticate_animateur!, except: [:index, :show, :last_actu, :new]
+  before_action :authenticate_animateur!, except: [:index]
   before_action :authenticate_contributeur!, only: [:new, :create]
   
   def index
@@ -18,6 +18,19 @@ class ScotMessagesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def validation
+    scot_message = ScotMessage.find(params[:id])
+    scot_message.validation = true
+    scot_message.save
+    redirect_to scot_messages_path, method: :get
+  end
+
+  def destroy
+    scot_message = ScotMessage.find(params[:id])
+    scot_message.destroy
+    redirect_to scot_messages_path, method: :get
   end
 
   private

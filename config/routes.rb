@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # get 'point_de_vues' => 'point_de_vues#show'
 
   resources :scot_messages
+  post 'scot_messages/:id/validation' => 'scot_messages#validation', as: :validation_scot_message
 
   get 'contributeurs_info/:id' => 'contributeurs#show', as: :contributeur_info
 

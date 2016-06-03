@@ -1,25 +1,24 @@
 .index_scot_messages
   .row
     .col-sm-5.text-center
-      =image_tag "paysage28.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
+      =image_tag "ferté.vidame.jpg", class: 'img-responsive', alt: "Groupe de cyclistes"
     .col-sm-7
-      %h2 Scot-Box, Scot-Vox
+      %h2 « SCOT BOX / SCOT VOX »
 
-      %p Venez déposer vos photos et contribuez à l’élaboration du projet d’aménagement du territoire percheron pour les 20 prochaines années*.
+      %p « SCOT* BOX / SCOT VOX » est une boite à idées. 
 
-      %p A travers vos clichés, nous attendons les éléments du territoire qui, selon vous, sont à conserver, valoriser et/ ou développer (J’aime) et les éléments à repenser, les échecs (J’aime pas) selon votre vécu et vos impressions.
+      %p Elle vous permet d’exprimer publiquement un point de vue sur le développement du territoire percheron. Il ne s’agit pas d’un forum mais d’un lieu de partage d’idées et d’opinions formulées par quelques phrases ou par un texte plus conséquent. Ces témoignages pourront être pris en compte par le Pôle Territorial pour élaborer le projet de territoire des vingt prochaines années. 
 
-      %p Il n’y a pas de limitation du nombre de photos. Le lieu de prise de vue doit être précisé et de courts commentaires peuvent être ajoutés.
+      %p Les textes que nous jugerons hors-sujet par rapport à la démarche SCOT BOX / SCOT VOX ne seront pas publiés sur l’application Perche Participatif 2.8.
 
-      %p Une fois validées par le Pôle territorial, vos photos seront publiées et pourront être « Approuvées » par les autres utilisateurs. Certains clichés pourront également être valorisés dans différentes communications.
-
-      %p Il convient de préciser que « Point de vue sur le Perche » se doit de respecter la vie privée, le droit à l’image et la propriété privée. Les clichés que nous jugerons hors-sujet à la démarche de la campagne-photo ne seront pas publiés.
+      %br
+      %p.asterix *Le schéma de cohérence territorial est un document de planification stratégique qui fixe les orientations d’aménagement du territoire pour les 20 prochaines années.
 
   .scot-form.col-sm-8.col-sm-offset-2
     = form_for @scot_message do |form|
-      %h3= form.label :contenu, "Ecrire votre message"
+      %h3= form.label :contenu, "Partager votre idée"
       %p= form.text_area :contenu, placeholder: "Ecrire votre message"
-      = form.submit "Enregistrer mon message", class: 'form-scot btn btn-primary btn-lg', id: "submit_form"
+      = form.submit "Je partage mon idée", class: 'form-scot btn btn-primary btn-lg', id: "submit_form"
 
   .col-sm-12
     %br
@@ -38,4 +37,10 @@
       .row
         .contents.col-sm-12
           = scot_message.contenu
+        - if !scot_message.validation
+          = link_to 'Supprimer cette idée', scot_message_path(scot_message.id), method: :delete, class: 'btn btn-primary pull-right'
+          = link_to 'Valider cette idée', validation_scot_message_path(scot_message.id), method: :post, class: 'btn btn-primary pull-right'
+
+        - elsif scot_message.contributeur == current_contributeur
+          = link_to 'Supprimer cette idée', scot_message_path(scot_message.id), method: :delete, class: 'btn btn-primary pull-right'
       %hr
