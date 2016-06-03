@@ -6,6 +6,9 @@ class PagesController < ApplicationController
     @count = Projet.count
   end
 
+  def menu_point_de_vue
+  end
+
   def charte
   end
 

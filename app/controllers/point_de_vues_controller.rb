@@ -4,9 +4,10 @@ class PointDeVuesController < ApplicationController
 
 	def index
 		@point_de_vues = PointDeVue.where(validation: true).order(updated_at: :desc)
-
-
 	end
+
+  def sousmenu
+  end
 
 	def show
     @point_de_vue = PointDeVue.find(params[:id])
