@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602081947) do
+ActiveRecord::Schema.define(version: 20160603083014) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -140,8 +140,9 @@ ActiveRecord::Schema.define(version: 20160602081947) do
   create_table "scot_messages", force: :cascade do |t|
     t.text     "contenu"
     t.integer  "contributeur_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "validation",      default: false
   end
 
   add_index "scot_messages", ["contributeur_id"], name: "index_scot_messages_on_contributeur_id"
