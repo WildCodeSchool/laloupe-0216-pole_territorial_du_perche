@@ -18,7 +18,7 @@
     = form_for @scot_message do |form|
       %h3= form.label :contenu, "Partager votre idée"
       %p= form.text_area :contenu, placeholder: "Ecrire votre message"
-      = form.submit "Je partage mon idée", class: 'form-scot btn btn-primary btn-lg', id: "submit_form"
+      = form.submit "Je partage mon idée", class: 'btn btn-primary btn-lg', id: "submit_form"
 
   .col-sm-12
     %br
@@ -37,10 +37,8 @@
       .row
         .contents.col-sm-12
           = scot_message.contenu
-        - if !scot_message.validation
-          = link_to 'Supprimer cette idée', scot_message_path(scot_message.id), method: :delete, class: 'btn btn-primary pull-right'
-          = link_to 'Valider cette idée', validation_scot_message_path(scot_message.id), method: :post, class: 'btn btn-primary pull-right'
-
-        - elsif scot_message.contributeur == current_contributeur
-          = link_to 'Supprimer cette idée', scot_message_path(scot_message.id), method: :delete, class: 'btn btn-primary pull-right'
+        - if current_contributeur && current_contributeur.type == 'Animateur'
+          = link_to 'Supprimer cette idée', scot_message_path(scot_message.id), method: :delete, class: 'btn-delete btn btn-primary pull-right'
+          - if !scot_message.validation
+            = link_to 'Valider cette idée', validation_scot_message_path(scot_message.id), method: :post, class: 'btn-valid btn btn-primary pull-right'
       %hr

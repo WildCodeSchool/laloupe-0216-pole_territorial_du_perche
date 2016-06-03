@@ -2,12 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.asterix {
-  font-size: 12px;
-}
 .index_scot_messages {
-  .scot-form{
+  .scot-form {
     margin-top: 3%;
+  }
+
+  .asterix {
+    font-size: 12px;
   }
 
   textarea {
@@ -29,7 +30,7 @@
 
   .pseudo {
     font-size: 17px;
-    // font-weight: bold;
+    font-weight: bold;
     color: $violet;
   }
 
@@ -39,4 +40,11 @@
     font-weight: unset;
     color: $violet;
   }  
+
+  .btn-valid {
+    margin-right: 1%;
+  }
+  .btn-delete {
+    margin-right: 1.5%;
+  }
 }

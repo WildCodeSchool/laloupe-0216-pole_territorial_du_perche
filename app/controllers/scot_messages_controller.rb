@@ -3,7 +3,11 @@ class ScotMessagesController < ApplicationController
   before_action :authenticate_contributeur!, only: [:new, :create]
   
   def index
-    @scot_messages = ScotMessage.all
+    if current_contributeur && current_contributeur.type == 'Animateur'
+      @scot_messages = ScotMessage.all
+    else
+      @scot_messages = ScotMessage.where(validation: true).order(updated_at: :desc)
+    end
     @scot_message = ScotMessage.new
   end
 
