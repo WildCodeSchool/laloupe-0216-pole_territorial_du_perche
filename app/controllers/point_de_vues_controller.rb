@@ -4,8 +4,6 @@ class PointDeVuesController < ApplicationController
 
 	def index
 		@point_de_vues = PointDeVue.where(validation: true).order(updated_at: :desc)
-
-
 	end
 
 	def show
@@ -18,8 +16,6 @@ class PointDeVuesController < ApplicationController
     point_de_vue.save
     redirect_to point_de_vues_path, method: :get
   end
-
-
 
   def new
   	@point_de_vue = PointDeVue.new
