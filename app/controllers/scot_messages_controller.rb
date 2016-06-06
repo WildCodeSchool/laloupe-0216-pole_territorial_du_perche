@@ -1,10 +1,15 @@
 class ScotMessagesController < ApplicationController
   # before_action :authenticate_animateur!, except: [:index, :show, :last_actu, :new]
   before_action :authenticate_contributeur!, only: [:new, :create]
+  before_action :authenticate_animateur!, only: [:show]
   
   def index
     @scot_messages = ScotMessage.all
     @scot_message = ScotMessage.new
+  end
+
+  def show
+    @scot_message = ScotMessage.find(params[:id])
   end
 
   def create
