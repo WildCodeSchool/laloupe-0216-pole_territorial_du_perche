@@ -4,7 +4,7 @@ class Projet < ActiveRecord::Base
   has_many :likes
   belongs_to :contributeur
 
-  validates_presence_of :titre, :codepostal,:ville, :description, :contributeur, :categorie
+  validates_presence_of :titre, :codepostal, :description, :contributeur, :categorie
 
   mount_uploader :image, ImageUploader
 
