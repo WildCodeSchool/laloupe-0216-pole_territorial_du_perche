@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526153337) do
+ActiveRecord::Schema.define(version: 20160606073459) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 20160526153337) do
     t.text     "description"
     t.string   "localisation"
     t.string   "image"
-    t.string   "commune"
     t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
@@ -129,14 +128,10 @@ ActiveRecord::Schema.define(version: 20160526153337) do
     t.date     "demarrage"
     t.string   "urlsite"
     t.string   "image"
-    t.integer  "codepostal_id"
-    t.integer  "ville_id"
   end
 
   add_index "projets", ["categorie_id"], name: "index_projets_on_categorie_id"
-  add_index "projets", ["codepostal_id"], name: "index_projets_on_codepostal_id"
   add_index "projets", ["contributeur_id"], name: "index_projets_on_contributeur_id"
-  add_index "projets", ["ville_id"], name: "index_projets_on_ville_id"
 
   create_table "sondages", force: :cascade do |t|
     t.datetime "created_at",             null: false
