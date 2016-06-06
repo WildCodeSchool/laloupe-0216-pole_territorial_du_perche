@@ -1,4 +1,5 @@
 class Contributeur < ActiveRecord::Base
+
   has_many :commentaires
   has_one :sondage
   # Include default devise modules. Others available are:
@@ -43,5 +44,6 @@ class Contributeur < ActiveRecord::Base
   def get_age
     DateTime.now.year - annee_naissance
   end
+
 end
 

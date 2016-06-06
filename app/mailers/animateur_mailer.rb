@@ -22,8 +22,8 @@ class AnimateurMailer < ApplicationMailer
   def nouveau_scot_message(animateur, scot_message)
     @destinataire = animateur
     @scot_message = scot_message
-    @scot_message_url = scot_message_url(scot_message.id)
-    @contributeur = scot_message.contributeur 
+    @scot_messages_url = scot_messages_url
+    @contributeur = @scot_message.contributeur 
     @subject = "Nouveau message scot box"
     mail(to: @destinataire.email, subject: @subject)
   end  

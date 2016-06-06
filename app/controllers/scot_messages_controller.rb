@@ -1,6 +1,7 @@
 class ScotMessagesController < ApplicationController
   before_action :authenticate_animateur!, except: [:index]
   before_action :authenticate_contributeur!, only: [:new, :create]
+  before_action :authenticate_animateur!, only: [:show]
   
   def index
     if current_contributeur && current_contributeur.type == 'Animateur'
@@ -9,6 +10,10 @@ class ScotMessagesController < ApplicationController
       @scot_messages = ScotMessage.where(validation: true).order(updated_at: :desc)
     end
     @scot_message = ScotMessage.new
+  end
+
+  def show
+    @scot_message = ScotMessage.find(params[:id])
   end
 
   def create
