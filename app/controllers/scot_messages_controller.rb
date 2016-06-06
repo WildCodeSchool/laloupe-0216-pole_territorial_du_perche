@@ -37,6 +37,16 @@ class ScotMessagesController < ApplicationController
     redirect_to scot_messages_path, method: :get
   end
 
+  def jadhere
+    @scot_message = ScotMessage.find(params[:id])
+    if @scot_message.jadhere_by? current_contributeur
+      redirect_to @scot_message
+    else
+      @scot_message.jadheres.create(contributeur_id: current_contributeur.id)
+      redirect_to @scot_message
+    end
+  end
+
   private
 
   def scot_message_params

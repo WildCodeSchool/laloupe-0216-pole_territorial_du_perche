@@ -1,7 +1,7 @@
 .index_scot_messages
   .row
     .col-sm-5.text-center
-      =image_tag "ferté.vidame.jpg", class: 'img-responsive', alt: "Groupe de cyclistes"
+      =image_tag "paysage.28_perche.51.jpg", class: 'img-responsive', alt: "Groupe de cyclistes"
     .col-sm-7
       %h2 « SCOT BOX / SCOT VOX »
 
@@ -42,3 +42,11 @@
           - if !scot_message.validation
             = link_to 'Valider cette idée', validation_scot_message_path(scot_message.id), method: :post, class: 'btn-valid btn btn-primary pull-right'
       %hr
+
+- if @scot_message.jadhere_by?(current_contributeur)
+  J'ai déjà approuvé ce point de vue
+- else
+  = button_to jadhere_point_de_vue_path(@scot_message.id), method: :get, class: couleur_bouton(@scot_message) do
+    %svg{:role => "img"}
+      %use{"xlink:href" => "#{image_url("icons.svg")}\#japprouve"}
+    J'approuve
