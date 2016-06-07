@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.gras
+{
+  font-weight: bold;
+  display: inline;
+}
+
 .asterix {
   font-size: 12px;
 }
@@ -148,6 +154,11 @@
 }
 
 .pointform {
+  #point_de_vue_image{
+    height: 40px;
+    padding-bottom: 50px;
+  }
+
   .droit{
     font-size: 14px;
     width: 97%;
@@ -219,5 +230,12 @@
     width: 42%;
     margin-left: 5%;
   }
+}
 
+footer
+{
+  img
+  {
+    width: 80px;
+  }
 }
