@@ -14,9 +14,13 @@
       %br
       %p.asterix *Le schéma de cohérence territorial est un document de planification stratégique qui fixe les orientations d’aménagement du territoire pour les 20 prochaines années.
 
+  %h3 Actuellement #{@scot_messages.size} message(s) déposé(s)
+  %p Dites nous si vous approuvez les messages déposés et partagez !
+  %p nb: Vos messages feront l'objet d'une validation avant publication (sous 24h).
+
   .scot-form.col-sm-8.col-sm-offset-2
     = form_for @scot_message do |form|
-      %h3= form.label :contenu, "Partager votre idée"
+      %h3= form.label :contenu, "Partage votre idée"
       %p= form.text_area :contenu, placeholder: "Ecrire votre message"
       .checkbox
         %input{name: "droit_image", type: "checkbox", id: "droits"}
