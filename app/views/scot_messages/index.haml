@@ -18,7 +18,10 @@
     = form_for @scot_message do |form|
       %h3= form.label :contenu, "Partager votre idée"
       %p= form.text_area :contenu, placeholder: "Ecrire votre message"
-      = form.submit "Je partage mon idée", class: 'btn btn-primary btn-lg', id: "submit_form"
+      .checkbox
+        %input{name: "droit_image", type: "checkbox", id: "droits"}
+        = form.label :droit_image, "En postant mon message sur Perche Participatif, je m'engage à respecter propriété et vie privées. J'accepte également que mon texte puissent être utilisés par le Pôle territorial du Perche."
+      = form.submit "Je partage mon idée", class: 'btn btn-primary btn-lg', id: "submit_form", disabled: "true"
 
   .col-sm-12
     %br
@@ -42,3 +45,13 @@
           - if !scot_message.validation
             = link_to 'Valider cette idée', validation_scot_message_path(scot_message.id), method: :post, class: 'btn-valid btn btn-primary pull-right'
       %hr
+
+  :javascript
+    $('#droits').change(function () {
+      if ($('#droits').is(":checked")) {
+        $('#submit_form').removeAttr("disabled")
+      }
+      else {
+        $('#submit_form').prop("disabled", "true");
+      }
+    });
