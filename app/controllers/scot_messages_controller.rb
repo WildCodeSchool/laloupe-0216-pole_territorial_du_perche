@@ -1,7 +1,6 @@
 class ScotMessagesController < ApplicationController
-  before_action :authenticate_animateur!, except: [:index]
-  before_action :authenticate_contributeur!, only: [:new, :create]
-  before_action :authenticate_animateur!, only: [:show]
+  before_action :authenticate_animateur!, except: [:index, :show]
+  before_action :authenticate_contributeur!, only: [:new, :create, :jadhere]
   
   def index
     if current_contributeur && current_contributeur.type == 'Animateur'
