@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603083014) do
+ActiveRecord::Schema.define(version: 20160606140521) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160603083014) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
+    t.date     "date"
     t.string   "lieu"
     t.string   "siteweb"
-    t.date     "date"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20160603083014) do
     t.text     "description"
     t.string   "localisation"
     t.string   "image"
+    t.string   "commune"
     t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
@@ -136,6 +137,16 @@ ActiveRecord::Schema.define(version: 20160603083014) do
   add_index "projets", ["codepostal_id"], name: "index_projets_on_codepostal_id"
   add_index "projets", ["contributeur_id"], name: "index_projets_on_contributeur_id"
   add_index "projets", ["ville_id"], name: "index_projets_on_ville_id"
+
+  create_table "scot_jadheres", force: :cascade do |t|
+    t.integer  "scot_message_id"
+    t.integer  "contributeur_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "scot_jadheres", ["contributeur_id"], name: "index_scot_jadheres_on_contributeur_id"
+  add_index "scot_jadheres", ["scot_message_id"], name: "index_scot_jadheres_on_scot_message_id"
 
   create_table "scot_messages", force: :cascade do |t|
     t.text     "contenu"

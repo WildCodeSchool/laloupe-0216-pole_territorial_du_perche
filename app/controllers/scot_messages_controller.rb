@@ -6,7 +6,7 @@ class ScotMessagesController < ApplicationController
     if current_contributeur && current_contributeur.type == 'Animateur'
       @scot_messages = ScotMessage.all
     else
-      @scot_messages = ScotMessage.where(validation: true).order(updated_at: :desc)
+      @scot_messages = ScotMessage.where(validation: true).order(updated_at: :asc)
     end
     @scot_message = ScotMessage.new
   end
@@ -39,11 +39,11 @@ class ScotMessagesController < ApplicationController
 
   def jadhere
     @scot_message = ScotMessage.find(params[:id])
-    if @scot_message.jadhere_by? current_contributeur
-      redirect_to @scot_message
+    if @scot_message.scot_jadhere_by? current_contributeur
+      redirect_to scot_messages_path, method: :get
     else
-      @scot_message.jadheres.create(contributeur_id: current_contributeur.id)
-      redirect_to @scot_message
+      @scot_message.scot_jadheres.create(contributeur_id: current_contributeur.id)
+      redirect_to scot_messages_path, method: :get
     end
   end
 

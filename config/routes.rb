@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :scot_messages
   post 'scot_messages/:id/validation' => 'scot_messages#validation', as: :validation_scot_message
-
+  get 'scot_messages/:id/scot_jadhere' => 'scot_messages#jadhere', as: :jadhere_scot_message
+  
   get 'contributeurs_info/:id' => 'contributeurs#show', as: :contributeur_info
 
 
