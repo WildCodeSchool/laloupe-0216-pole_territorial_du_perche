@@ -25,7 +25,11 @@
       .col-md-5
         = link_to "Que je n'aime pas", new_point_de_vue_path(positif: false), class: 'btn btn-primary btn-lg btn-aime-pas'
 %h3 Actuellement #{@point_de_vues.size} point(s) de vue déposé(s)
-%p Dites nous si vous approuvez les points de vue déposés et partagez !
+%p
+  Dites nous si vous approuvez les points de vue déposés et partagez !
+  %br
+  .gras nb:
+  Vos photos feront l'objet d'une validation avant publication (sous 24h).
 
 .liste-point-de-vues
   = render partial: 'point_de_vues/point_de_vue', collection: @point_de_vues

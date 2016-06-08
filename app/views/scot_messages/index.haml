@@ -1,7 +1,7 @@
 .index_scot_messages
   .row
     .col-sm-5.text-center
-      =image_tag "ferté.vidame.jpg", class: 'img-responsive', alt: "Groupe de cyclistes"
+      =image_tag "paysage.28_perche.51.jpg", class: 'img-responsive', alt: "Groupe de cyclistes"
     .col-sm-7
       %h2 « SCOT BOX / SCOT VOX »
 
@@ -14,11 +14,18 @@
       %br
       %p.asterix *Le schéma de cohérence territorial est un document de planification stratégique qui fixe les orientations d’aménagement du territoire pour les 20 prochaines années.
 
+  %h3 Actuellement #{@scot_messages.size} message(s) déposé(s)
+  %p Dites nous si vous approuvez les messages déposés et partagez !
+  %p nb: Vos messages feront l'objet d'une validation avant publication (sous 24h).
+
   .scot-form.col-sm-8.col-sm-offset-2
     = form_for @scot_message do |form|
-      %h3= form.label :contenu, "Partager votre idée"
+      %h3= form.label :contenu, "Partage votre idée"
       %p= form.text_area :contenu, placeholder: "Ecrire votre message"
-      = form.submit "Je partage mon idée", class: 'btn btn-primary btn-lg', id: "submit_form"
+      .checkbox
+        %input{name: "droit_image", type: "checkbox", id: "droits"}
+        = form.label :droit_image, "En postant mon message sur Perche Participatif, je m'engage à respecter propriété et vie privées. J'accepte également que mon texte puissent être utilisés par le Pôle territorial du Perche."
+      = form.submit "Je partage mon idée", class: 'btn btn-primary btn-lg', id: "submit_form", disabled: "true"
 
   .col-sm-12
     %br
@@ -41,4 +48,28 @@
           = link_to 'Supprimer cette idée', scot_message_path(scot_message.id), method: :delete, class: 'btn-delete btn btn-primary pull-right'
           - if !scot_message.validation
             = link_to 'Valider cette idée', validation_scot_message_path(scot_message.id), method: :post, class: 'btn-valid btn btn-primary pull-right'
+
+        - if !scot_message.scot_jadhere_by?(current_contributeur) && scot_message.validation
+          = button_to jadhere_scot_message_path(scot_message.id), method: :get, class: "scot-btn" do
+            %svg{:role => "img"}
+              %use{"xlink:href" => "#{image_url("icons.svg")}\#japprouve"}
+            J'approuve
+      %br
+      .comptescot
+        - if scot_message.scot_jadhere_by?(current_contributeur)
+          J'ai déjà approuvé ce point de vue
+      .alreadyapproved
+        = scot_message.scot_jadheres.count 
+        personnes approuvent ce point de vue
       %hr
+
+  :javascript
+    $('#droits').change(function () {
+      if ($('#droits').is(":checked")) {
+        $('#submit_form').removeAttr("disabled")
+      }
+      else {
+        $('#submit_form').prop("disabled", "true");
+      }
+    });
+

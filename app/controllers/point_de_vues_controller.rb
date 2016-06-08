@@ -20,8 +20,6 @@ class PointDeVuesController < ApplicationController
     redirect_to point_de_vues_path, method: :get
   end
 
-
-
   def new
   	@point_de_vue = PointDeVue.new
 
@@ -49,7 +47,7 @@ class PointDeVuesController < ApplicationController
       Animateur.all.each do |animateur|
         AnimateurMailer.nouveau_point_de_vue(animateur, point_de_vue).deliver_now
       end
-      redirect_to point_de_vues_path, method: :get
+      redirect_to point_de_vues_path, method: :get, notice: "Votre point de vue a été pris en compte. Il sera visible dans les plus bref délais. Nous vous invitons à déposer un point #{point_de_vue.positif ? 'négatif' : 'positif'}."
     else
       render 'new'
     end

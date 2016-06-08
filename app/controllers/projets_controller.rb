@@ -121,9 +121,7 @@ class ProjetsController < ApplicationController
               :localisation,
               :demarrage,
               :urlsite,
-              :image,
-              :codepostal_id,
-              :ville_id)
+              :image)
   end
 
   def checked_statuts
