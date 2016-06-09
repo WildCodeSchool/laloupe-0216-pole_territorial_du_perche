@@ -1,0 +1,4 @@
+.show
+	%h1= @questionnaire.titre
+
+	%iframe{src: "https://docs.google.com/forms/d/#{@questionnaire.code_formulaire}/viewform?embedded=true", id: "google-form"}
