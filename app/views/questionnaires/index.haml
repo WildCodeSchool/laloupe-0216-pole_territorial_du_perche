@@ -1,0 +1,22 @@
+.row
+  .col-sm-5
+    = image_tag 'page-sondage.png', class: 'img-responsive'
+  .col-sm-7
+    %h1 Je participe à un sondage
+    %p Pour aider les entreprises, le développement des services à la personne, la valorisation et la préservation de l’environnement du Perche... je participe à de courts sondages.
+    %p Merci de prendre quelques minutes pour vous connecter et répondre aux questions du moment.
+%br
+
+.row
+  .col-sm-8
+    - @questionnaires.each do |questionnaire|
+      .panel.panel-default
+        .panel-heading
+          = questionnaire.titre
+          %h4
+            %span.label.label-success En cours
+        .panel-body
+          = questionnaire.description
+          %br
+          =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg'
+          %br

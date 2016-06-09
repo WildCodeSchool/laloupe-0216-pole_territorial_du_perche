@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'animation' => 'pages#animation'
   get 'sondages/export' => 'sondages#export', as: :export_sondages
   resources :sondages
+  resources :questionnaires, only: [:index, :show]
 
   get 'mentions' => 'pages#mentions'
   get 'merci' => 'pages#merci'

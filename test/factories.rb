@@ -1,5 +1,8 @@
 
-FactoryGirl.define do  factory :scot_jadhere do
+FactoryGirl.define do  factory :questionnaire do
+    
+  end
+  factory :scot_jadhere do
     
   end
   factory :scot_message do
