@@ -1,4 +1,5 @@
 class QuestionnairesController < ApplicationController
+	before_action  :authenticate_contributeur!, only: [:new, :create]
 
   def index
     @questionnaires = Questionnaire.all.reverse
