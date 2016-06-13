@@ -11,13 +11,24 @@
 	.panel-heading{ background-color: $ocre;}
 }
 
-
-
 .show
 {
 	iframe
 	{	
 		width: 100%;
 	}
+}
+
+.questform {
+  label {
+    margin-top: 1%;
+  }
+  #questionnaire_description {
+    resize: none;
+    height: 105px;
+  }
+  .btnquest {
+    margin-top: 8%;
+  }
 }
 
