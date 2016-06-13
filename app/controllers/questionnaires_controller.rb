@@ -1,5 +1,5 @@
 class QuestionnairesController < ApplicationController
-	before_action  :authenticate_contributeur!, only: [:new, :create]
+	before_action  :authenticate_animateur!, only: [:new, :create]
 
   def index
     @questionnaires = Questionnaire.all.reverse
@@ -25,7 +25,7 @@ class QuestionnairesController < ApplicationController
   	questionnaire = Questionnaire.new(questionnaire_params)
   	questionnaire.contributeur_id = current_contributeur.id
   	 if questionnaire.save
-  	 	redirect_to @questionnaire
+  	 	redirect_to questionnaires_path, method: :get
   	 else
       render 'new'
      end
