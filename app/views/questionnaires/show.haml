@@ -1,4 +1,14 @@
 .show
-	%h1= @questionnaire.titre
+  %iframe{src: "http://docs.google.com/forms/d/#{@questionnaire.code_formulaire}/viewform?embedded=true#mG61Hd", id: "google-form", frameborder: "0", onload: 'totoIframe()', style: "width: 100%;"}
 
-	%iframe{src: "https://docs.google.com/forms/d/#{@questionnaire.code_formulaire}/viewform?embedded=true", id: "google-form"}
+:javascript
+  function totoIframe() {
+    $('iframe').height($(document).height()-160);
+  }
+
+:css
+  iframe::-webkit-scrollbar {
+    display: block;
+    background-color: rgb(237, 231, 246);
+  }
+  
