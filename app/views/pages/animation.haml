@@ -101,11 +101,35 @@
           %td= scot_message.created_at.to_date
           %td
             = link_to 'Voir', scot_message_path(scot_message)
-            / = link_to 'Editer', edit_point_de_vue_path(scot_message)
             |
             = link_to 'Supprimer', scot_message_path(scot_message.id),
                 method: :delete,
-                data: {confirm: "Êtes-vous sur de vouloir supprimer le message ?"}                
+                data: {confirm: "Êtes-vous sur de vouloir supprimer le message ?"}        
+
+.anim-questionnaires
+  %h2 
+    Questionnaires
+  %table
+    %thead
+      %th #
+      %th Auteur
+      %th Titre
+      %th Publié le
+      %th Actions
+    %tbody
+      - @questionnaires.each do |questionnaire|
+        %tr
+          %td= questionnaire.id
+          %td= questionnaire.animateur.pseudo
+          %td= link_to questionnaire.titre, questionnaire_path(questionnaire)
+          %td= questionnaire.created_at.to_date
+          %td
+            = link_to 'voir', questionnaire_path(questionnaire)
+            |
+            = link_to 'Supprimer', questionnaire_path(questionnaire),
+                method: :delete,
+                data: {confirm: "Êtes-vous sur de vouloir supprimer ce questionnaire ?"}
+
 
 .anim-actus
   %h2
