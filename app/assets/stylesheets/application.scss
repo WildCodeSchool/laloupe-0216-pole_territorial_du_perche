@@ -307,15 +307,15 @@ select
     .navbar-header {
       button {
         background-color: $orange;
-      &:hover {
-        background-color: $orange;
-      }
+        &:hover {
+          background-color: $orange;
+        }
       }
     }
   }
 }
 
-.sondages
+.sondages, .questionnaires
 {
   .navbar-all{
     .navbar-default .navbar-nav a{
