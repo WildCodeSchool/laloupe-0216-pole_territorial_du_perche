@@ -120,8 +120,9 @@
       - @questionnaires.each do |questionnaire|
         %tr
           %td= questionnaire.id
-          %td= questionnaire.animateur.pseudo
-          %td= link_to questionnaire.titre, questionnaire_path(questionnaire)
+          / %td= questionnaire.animateur.pseudo
+          %td= questionnaire.titre
+          / %td= link_to questionnaire.titre, questionnaire_path(questionnaire)
           %td= questionnaire.created_at.to_date
           %td
             = link_to 'voir', questionnaire_path(questionnaire)
