@@ -1,0 +1,11 @@
+= form_for @questionnaire do |f|
+  = f.label :titre, "Titre du sondage"
+  = f.text_field :titre
+    
+  = f.label :code_formulaire, "Entrez le code du Sondage"
+  = f.text_field :code_formulaire
+    
+  = f.label :description, "Décrire le sondage"
+  = f.text_area :description
+     
+  = f.submit "Enregistrer le sondage", class: 'btn btn-primary btn-lg', id: "submit_form"

@@ -32,9 +32,9 @@
                 J'exprime un
                 %br.hidden-sm.hidden-xs point de vue      
 
-          - ifactive = controller.controller_name == 'sondages' ? "active" : ""
+          - ifactive = controller.controller_name == 'questionnaires' ? "active" : ""
           %li{class: ifactive}
-            %a{href: sondages_path }
+            %a{href: questionnaires_path }
               %span.icon
                 %svg.icon-bubble{:role => "img"}
                   %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-bubble"}
