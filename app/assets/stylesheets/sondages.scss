@@ -79,4 +79,12 @@
   }
   .panel{ border-color: $ocre; }
   .panel-heading{ background-color: $ocre;}
+
 }
+  .show{
+
+    iframe {
+      width: 100%; 
+      height: 1000px;
+    }
+  }
