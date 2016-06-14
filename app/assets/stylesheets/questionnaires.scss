@@ -2,22 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.questionnaires {
-
-	.label {
-		margin-right: 1em;
-	}
-	.panel{ border-color: $ocre; }
-	.panel-heading{ background-color: $ocre;}
-}
-
-.show
-{
-	iframe
-	{	
-		width: 100%;
-	}
-}
 
 .questform {
   label {
@@ -31,4 +15,33 @@
     margin-top: 8%;
   }
 }
+
+.questindex {
+
+	.panel{ border-color: $ocre; }
+	.panel-heading{ background-color: $ocre;}
+
+  .btn-participe {
+    float: right;
+  }
+
+  .label {
+    float: left;
+    font-size: 14px;
+  }
+
+  h4 {
+    display: inline;
+    vertical-align: -webkit-baseline-middle;
+    margin-left: 2%;
+  }
+}
+
+.questshow {
+  iframe
+  { 
+    width: 100%;
+  }
+}
+
 
