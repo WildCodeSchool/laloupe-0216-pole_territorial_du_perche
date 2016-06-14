@@ -33,8 +33,8 @@ class QuestionnairesController < ApplicationController
 
   def destroy
     questionnaire = Questionnaire.find(params[:id])
-    quesiotnnaire.destroy
-    redirect_to questionnaire_path, method: :get
+    questionnaire.destroy
+    redirect_to animation_path, method: :get
 
   end
 
