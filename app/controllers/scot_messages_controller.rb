@@ -22,7 +22,7 @@ class ScotMessagesController < ApplicationController
       Animateur.all.each do |animateur|
         AnimateurMailer.nouveau_scot_message(animateur, scot_message).deliver_now
       end
-      redirect_to scot_messages_path, method: :get
+      redirect_to scot_messages_path, method: :get, notice: "Merci de votre participation, votre idée a été prise en compte. Elle sera visible dans les plus bref délais. Nous vous invitons à déposer d’autres idées."
     else
       render 'new'
     end

@@ -1,0 +1,47 @@
+// Place all the styles related to the questionnaires controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.questform {
+  label {
+    margin-top: 1%;
+  }
+  #questionnaire_description {
+    resize: none;
+    height: 105px;
+  }
+  .btnquest {
+    margin-top: 8%;
+  }
+}
+
+.questindex {
+
+	.panel{ border-color: $ocre; }
+	.panel-heading{ background-color: $ocre;}
+
+  .btn-participe {
+    float: right;
+  }
+
+  .label {
+    float: left;
+    font-size: 14px;
+  }
+
+  h4 {
+    display: inline;
+    vertical-align: -webkit-baseline-middle;
+    margin-left: 2%;
+  }
+}
+
+.questshow {
+  iframe
+  { 
+    width: 100%;
+  }
+}
+
+

@@ -141,7 +141,7 @@
 }
 
 // PAGE ANIMATION
-.anim-point-de-vue, .anim-scot-box, .anim-projets, .anim-commentaires, .anim-actus {
+.anim-point-de-vue, .anim-scot-box, .anim-projets, .anim-commentaires, .anim-actus, .anim-questionnaires {
   @extend .table-responsive;
   table {
     @extend .table;
@@ -170,6 +170,11 @@
 .anim-scot-box {
   h2{
     background-color: $violet;
+  }
+}
+.anim-questionnaires {
+  h2{
+    background-color: $ocre;
   }
 }
 .anim-actus{

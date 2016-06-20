@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606140521) do
+ActiveRecord::Schema.define(version: 20160608131638) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -132,6 +132,15 @@ ActiveRecord::Schema.define(version: 20160606140521) do
 
   add_index "projets", ["categorie_id"], name: "index_projets_on_categorie_id"
   add_index "projets", ["contributeur_id"], name: "index_projets_on_contributeur_id"
+
+  create_table "questionnaires", force: :cascade do |t|
+    t.string   "titre"
+    t.integer  "contributeur_id"
+    t.string   "code_formulaire"
+    t.text     "description"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "scot_jadheres", force: :cascade do |t|
     t.integer  "scot_message_id"
