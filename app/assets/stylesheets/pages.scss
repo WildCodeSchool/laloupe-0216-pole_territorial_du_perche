@@ -212,3 +212,19 @@
     float: right;
   }
 }
+
+// Page Mentions Légals
+.mentions {
+  .titre-mentions{    
+    h3{
+      padding-top: 6px;
+      padding-left: 8px;
+      background-color: $vert;
+      color: white;
+    }
+  }
+
+  h4{
+    font-weight: bold;
+  }
+}
