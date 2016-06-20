@@ -21,6 +21,8 @@ class PagesController < ApplicationController
     @commentaires = Commentaire.order(created_at: :desc)
     @point_de_vues = PointDeVue.order(id: :desc)
     @scot_messages = ScotMessage.order(created_at: :desc)
+    @questionnaires = Questionnaire.order(created_at: :desc)
+    @reponse_questionnaires = Reponse_questionnaire.order(created_at: :desc)
   end
 
   def merci

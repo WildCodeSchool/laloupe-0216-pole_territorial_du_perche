@@ -9,6 +9,7 @@
 
 - if current_contributeur && current_contributeur.type == 'Animateur'
   = link_to 'Je crée un nouveau sondage', new_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
+= link_to "J'ajoute le resultat du sondage", new_reponse_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
 %br
 %br
 
@@ -25,3 +26,9 @@
           %br
           =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg'
           %br
+
+%h2 Réponses des derniers sondages
+- @reponse_questionnaires.each do |reponse_questionnaire| 
+  = reponse_questionnaire.pourcentage
+  = reponse_questionnaire.texte
+  %br
