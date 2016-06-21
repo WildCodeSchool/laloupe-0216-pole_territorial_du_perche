@@ -25,6 +25,7 @@
 @import "point_de_vues";
 @import "scot_messages";
 @import "questionnaires";
+@import "reponse_questionnaires";
 
 @font-face
 {
@@ -316,7 +317,7 @@ select
 }
 
 
-.sondages, .questionnaires
+.sondages, .questionnaires, .reponse_questionnaires
 
 
 {

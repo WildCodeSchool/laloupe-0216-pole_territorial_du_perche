@@ -1,3 +1,15 @@
 // Place all the styles related to the reponse_questionnaires controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.repquest {
+
+  #reponse_questionnaire_texte {
+    resize: none;
+    height: 105px;
+  }
+
+  .btn-back-sond {
+    margin-left: 13%;
+  }
+}
