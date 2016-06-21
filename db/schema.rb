@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608131638) do
+ActiveRecord::Schema.define(version: 20160613151659) do
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -104,10 +104,9 @@ ActiveRecord::Schema.define(version: 20160608131638) do
     t.text     "description"
     t.string   "localisation"
     t.string   "image"
-    t.string   "commune"
-    t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
+    t.integer  "contributeur_id"
     t.boolean  "positif",         default: true
     t.boolean  "validation",      default: false
   end
@@ -142,6 +141,16 @@ ActiveRecord::Schema.define(version: 20160608131638) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "reponse_questionnaires", force: :cascade do |t|
+    t.integer  "questionnaire_id"
+    t.integer  "pourcentage"
+    t.text     "texte"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "reponse_questionnaires", ["questionnaire_id"], name: "index_reponse_questionnaires_on_questionnaire_id"
 
   create_table "scot_jadheres", force: :cascade do |t|
     t.integer  "scot_message_id"

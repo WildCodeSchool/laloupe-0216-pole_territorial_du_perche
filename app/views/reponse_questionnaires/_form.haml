@@ -1,0 +1,15 @@
+
+= form_for @reponse_questionnaire do |f| 
+  = f.label :questionnaires, "Choisissez le sondage:"
+  = f.collection_select :questionnaire_id, Questionnaire.order(:id), :id, :titre, include_blank: false
+  %br
+  = f.label :pourcentage, "Entrez le nombre de pourcentage"
+  = f.text_field :pourcentage
+  %br
+  = f.label :texte, "Décrire le résultat"
+  = f.text_area :texte
+  %br
+  = f.submit "Ajouter ce résultat", class: 'btn btn-primary btn-lg', id: "submit_form"
+
+= link_to 'Ajouter une autre réponse', new_reponse_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
+= link_to 'Retourner vers les sondages', questionnaires_path, method: :get, class: 'btn btn-primary btn-lg'

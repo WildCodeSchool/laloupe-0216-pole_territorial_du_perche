@@ -3,14 +3,15 @@ class QuestionnairesController < ApplicationController
 
   def index
     @questionnaires = Questionnaire.all.reverse
+    @reponse_questionnaires = ReponseQuestionnaire.all
   end
 
   def show
     @questionnaire = Questionnaire.find(params[:id])
   end
 
-  def new
-  	@questionnaire = Questionnaire.new	
+
+    @questionnaire = Questionnaire.new  
   end
 
   def create
@@ -34,10 +35,13 @@ class QuestionnairesController < ApplicationController
 
   end
 
-  private
+private
 
   def questionnaire_params
-    params.require(:questionnaire).permit(:titre, :code_formulaire, :description)
+    params.require(:questionnaire)
+      .permit(:titre,
+              :description,
+              :contributeur_id,
+              :code_formulaire)
   end
-
 end
