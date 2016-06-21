@@ -10,7 +10,7 @@ class QuestionnairesController < ApplicationController
     @questionnaire = Questionnaire.find(params[:id])
   end
 
-
+  def new
     @questionnaire = Questionnaire.new  
   end
 

@@ -19,8 +19,9 @@
     - @questionnaires.each do |questionnaire|
       .panel.panel-default
         .panel-heading
-          %span.label.label-success En cours
-          = questionnaire.titre
+          .trou
+            %span.label.label-success En cours
+            = questionnaire.titre
           %h4
         .panel-body
           = questionnaire.description
