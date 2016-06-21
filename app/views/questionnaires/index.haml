@@ -8,23 +8,43 @@
       %p Merci de prendre quelques minutes pour vous connecter et répondre aux questions du moment.
   %br
 
-  - if current_contributeur && current_contributeur.type == 'Animateur'
-    = link_to 'Je créé un nouveau sondage', new_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
-  %br
-  %br
+- if current_contributeur && current_contributeur.type == 'Animateur'
+  = link_to 'Je crée un nouveau sondage', new_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
+  = link_to "J'ajoute le resultat des sondages", new_reponse_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
+%br
+%br
 
-  .row
-    .col-sm-8
-      - @questionnaires.each do |questionnaire|
-        .panel.panel-default
-          .panel-heading
-            %h4= questionnaire.titre
-            %span.label.label-success En cours
-          .panel-body
-            = questionnaire.description
-            %br
-            %br
-            =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg btn-participe'
-            - if current_contributeur && current_contributeur.type == 'Animateur'
-              = link_to "Supprimer ce sondage", questionnaire_path(questionnaire, redirect: 'index_questionnaires'), method: :delete, class: 'btn btn-primary btn-lg btn-delete'
-              
+.row
+  .col-sm-8
+    - @questionnaires.each do |questionnaire|
+      .panel.panel-default
+        .panel-heading
+          %span.label.label-success En cours
+          = questionnaire.titre
+          %h4
+        .panel-body
+          = questionnaire.description
+          %br
+          =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg'
+  .col-sm-4
+    = image_tag 'sondage-percherons-usages-numeriques.jpg', class: 'img-responsive'
+
+
+.row
+  .container
+    %h2 Réponses des derniers sondages
+.last-sondages    
+  - @reponse_questionnaires.each do |reponse_questionnaire| 
+
+    .row
+      .col-sm-2
+        =image_tag 'arrow-80.png', class: 'img-responsive'
+      .col-sm-1
+        %h3= "#{reponse_questionnaire.pourcentage} % "
+      .col-sm-5
+        %p= "#{reponse_questionnaire.texte}"
+      .col-sm-4
+        %p.download
+          =link_to 'Télécharger', 'Resultats-enquete-circuits-courts.pdf'
+          les résultats de l’enquête sur la commercialisation des produits locaux dans le Perche
+    %br
