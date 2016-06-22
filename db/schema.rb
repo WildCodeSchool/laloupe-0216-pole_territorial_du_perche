@@ -104,9 +104,10 @@ ActiveRecord::Schema.define(version: 20160622072743) do
     t.text     "description"
     t.string   "localisation"
     t.string   "image"
+    t.string   "commune"
+    t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
-    t.integer  "contributeur_id"
     t.boolean  "positif",         default: true
     t.boolean  "validation",      default: false
   end

@@ -41,6 +41,25 @@
     vertical-align: -webkit-baseline-middle;
     margin-left: 2%;
   }
+
+  .last-sondages {
+    background-color: $ocre;
+    padding: 15px;
+
+    p{
+      font-weight: bold;
+      color: #FFF;
+      display: inline;
+    }
+
+    a{
+      display: inline;
+    }
+
+    h3{
+      color: #FFF;
+    }
+  }
 }
 
 .questshow {
