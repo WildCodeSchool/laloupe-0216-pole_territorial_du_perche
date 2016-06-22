@@ -215,20 +215,22 @@
 // ---- End View Show ----- //
 
 // ---- Sousmenu responsive ----//
-@media (max-width: 400px) {
 
   svg {
     width: 100%;
     height: auto;
   }
+  
+@media (max-width: 400px) {
+
 
   span.action {
     font-size: 70%;
   }
 
   a.btn.violet.btn-lg {
-    width: 42%;
-    margin-left: 5%;
+    width: 45%;
+    margin-left: 3%;
   }
 }
 
