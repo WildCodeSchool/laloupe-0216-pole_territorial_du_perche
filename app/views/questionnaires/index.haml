@@ -40,7 +40,18 @@
 
     .row
       .col-sm-2
-        =image_tag 'arrow-80.png', class: 'img-responsive'
+        - if reponse_questionnaire.pourcentage == 0
+          = image_tag 'arrow-0.png', class: 'img-responsive'
+        - elsif reponse_questionnaire.pourcentage <= 25
+          = image_tag 'arrow-25.png', class: 'img-responsive'
+        - elsif reponse_questionnaire.pourcentage <= 50
+          = image_tag 'arrow-50.png', class: 'img-responsive'
+        - elsif reponse_questionnaire.pourcentage <= 75
+          = image_tag 'arrow-75.png', class: 'img-responsive'
+        - elsif reponse_questionnaire.pourcentage <= 100
+          = image_tag 'arrow-100.png', class: 'img-responsive'
+
+
       .col-sm-1
         %h3= "#{reponse_questionnaire.pourcentage} % "
       .col-sm-5
