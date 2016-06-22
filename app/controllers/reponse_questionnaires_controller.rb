@@ -16,6 +16,12 @@ class ReponseQuestionnairesController < ApplicationController
     end
   end
 
+  def export
+    respond_to do |format|
+      format.pdf { render pdf: Sondage.all, filename: "reponses_sondage_#{Time.now.strftime('%F-%Hh%Mm%Ss')}" }
+    end
+  end
+
 private
 
   def reponse_questionnaire_params
