@@ -5,7 +5,7 @@ class ReponseQuestionnairesController < ApplicationController
   end
 
   def create
-  	reponse_questionnaire = ReponseQuestionnaire.new(reponse_questionnaire_params)
+    reponse_questionnaire = ReponseQuestionnaire.new(reponse_questionnaire_params)
   	 if reponse_questionnaire.save
   	 	redirect_to new_reponse_questionnaire_path, method: :get
   	 else
@@ -25,5 +25,5 @@ private
   def reponse_questionnaire_params
     params.require(:reponse_questionnaire)
       .permit(:pourcentage,
-              :texte)
+              :texte, :questionnaire_id)
   end

@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'sondages/export' => 'sondages#export', as: :export_sondages
   resources :sondages
   resources :questionnaires
-  resources :reponse_questionnaires
+  resources :reponse_questionnaires, unless: [ :index]
 
   get 'mentions' => 'pages#mentions'
   get 'merci' => 'pages#merci'
