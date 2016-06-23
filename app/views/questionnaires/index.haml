@@ -43,7 +43,7 @@
         .last-sondages
           %h3= questionnaire.titre
           =link_to 'Supprimer tous les résultats', delete_all_reponses_path(questionnaire.id), class: 'btn btn-primary btn-lg btn-delete'
-          
+
           - @reponse_questionnaires.select{|r| r.questionnaire_id == questionnaire.id}.each do |reponse_questionnaire| 
             .row
               .col-sm-2
