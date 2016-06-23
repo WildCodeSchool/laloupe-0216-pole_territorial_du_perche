@@ -37,9 +37,7 @@
     %br
     - @questionnaires.each do |questionnaire|
      
-    
       -if questionnaire.id.in?(@rep_quest_ids)
-        %br
         .last-sondages
           %h3= questionnaire.titre
           =link_to 'Supprimer tous les résultats', delete_all_reponses_path(questionnaire.id), class: 'btn btn-primary btn-lg btn-delete'
@@ -60,7 +58,7 @@
 
 
               .col-sm-1
-                %h3= "#{reponse_questionnaire.pourcentage} % "
+                %h2= "#{reponse_questionnaire.pourcentage} % "
               .col-sm-5
                 %p= "#{reponse_questionnaire.texte}"
               .col-sm-4
@@ -69,8 +67,8 @@
                   = link_to "Supprimer ce résultat", reponse_questionnaire_path(reponse_questionnaire.id), method: :delete
 
 
-            .row
+            .row.telecharge
               .col-sm-offset-8.col-sm-4
                 %br
                 - if reponse_questionnaire.pdf.present?
-                  %a{:href => "/uploads/pdf/#{reponse_questionnaire.pdf}"} Télécharge
+                  %a{:href => "/uploads/pdf/#{reponse_questionnaire.pdf}"} Télécharge les résultats de l'enquête
