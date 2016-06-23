@@ -62,5 +62,5 @@
 
     .row
       .col-sm-offset-8.col-sm-4
-        =link_to 'Télécharger', 'Resultats-enquete-circuits-courts.pdf'
-        les résultats de l’enquête.
+        =link_to 'Télécharger', questionnaires_path(reponse_questionnaire.id, format: 'pdf'), method: :get
+        les résultats de l’enquête sur la commercialisation des produits locaux dans le Perche
