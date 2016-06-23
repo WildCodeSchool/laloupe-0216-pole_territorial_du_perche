@@ -33,34 +33,39 @@
   
   %h2 Réponses des derniers sondages :
 
-  .last-sondages
+  .last-sond
     %br
-    - @reponse_questionnaires.each do |reponse_questionnaire| 
+    - @questionnaires.each do |questionnaire|
+      .last-sondages
+
+        - @reponse_questionnaires.select{|r| r.questionnaire_id == questionnaire.id}.each do |reponse_questionnaire| 
+          
+          .row
+            .col-sm-2
+              - if reponse_questionnaire.pourcentage == 0
+                = image_tag 'arrow-0.png', class: 'img-responsive'
+              - elsif reponse_questionnaire.pourcentage <= 25
+                = image_tag 'arrow-25.png', class: 'img-responsive'
+              - elsif reponse_questionnaire.pourcentage <= 50
+                = image_tag 'arrow-50.png', class: 'img-responsive'
+              - elsif reponse_questionnaire.pourcentage <= 75
+                = image_tag 'arrow-75.png', class: 'img-responsive'
+              - elsif reponse_questionnaire.pourcentage <= 100
+                = image_tag 'arrow-100.png', class: 'img-responsive'
+
+
+            .col-sm-1
+              %h3= "#{reponse_questionnaire.pourcentage} % "
+            .col-sm-5
+              %p= "#{reponse_questionnaire.texte}"
+            .col-sm-4
+              %p.download
+              - if current_contributeur && current_contributeur.type == 'Animateur'
+                = link_to "Supprimer ce résultat", reponse_questionnaire_path(reponse_questionnaire.id), method: :delete
+
+
       .row
-        .col-sm-2
-          - if reponse_questionnaire.pourcentage == 0
-            = image_tag 'arrow-0.png', class: 'img-responsive'
-          - elsif reponse_questionnaire.pourcentage <= 25
-            = image_tag 'arrow-25.png', class: 'img-responsive'
-          - elsif reponse_questionnaire.pourcentage <= 50
-            = image_tag 'arrow-50.png', class: 'img-responsive'
-          - elsif reponse_questionnaire.pourcentage <= 75
-            = image_tag 'arrow-75.png', class: 'img-responsive'
-          - elsif reponse_questionnaire.pourcentage <= 100
-            = image_tag 'arrow-100.png', class: 'img-responsive'
-
-
-        .col-sm-1
-          %h3= "#{reponse_questionnaire.pourcentage} % "
-        .col-sm-5
-          %p= "#{reponse_questionnaire.texte}"
-        .col-sm-4
-          %p.download
-          - if current_contributeur && current_contributeur.type == 'Animateur'
-            = link_to "Supprimer ce résultat", reponse_questionnaire_path(reponse_questionnaire.id), method: :delete
-      %br
-
-    .row
-      .col-sm-offset-8.col-sm-4
-        =link_to 'Télécharger', questionnaires_path(reponse_questionnaire.id, format: 'pdf'), method: :get
-        les résultats de l’enquête sur la commercialisation des produits locaux dans le Perche
+        .col-sm-offset-8.col-sm-4
+          test
+          / =link_to 'Télécharger', questionnaires_path(reponse_questionnaire.id, format: 'pdf'), method: :get
+          / les résultats de l’enquête sur la commercialisation des produits locaux dans le Perche
