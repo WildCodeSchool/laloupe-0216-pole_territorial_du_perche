@@ -7,15 +7,24 @@ class ReponseQuestionnairesController < ApplicationController
   def create
     reponse_questionnaire = ReponseQuestionnaire.new(reponse_questionnaire_params)
     if reponse_questionnaire.save
-      uploaded_pdf = reponse_questionnaire_params[:pdf]
-      File.open(Rails.root.join('public', 'uploads', 'pdf', uploaded_pdf.original_filename), 'wb') do |file|
-        file.write(uploaded_pdf.read)
+      if reponse_questionnaire_params[:pdf].present?
+        uploaded_pdf = reponse_questionnaire_params[:pdf]
+        File.open(Rails.root.join('public', 'uploads', 'pdf', uploaded_pdf.original_filename), 'wb') do |file|
+          file.write(uploaded_pdf.read)
+        end
+        reponse_questionnaire.update(pdf: uploaded_pdf.original_filename )
       end
-      reponse_questionnaire.update(pdf: uploaded_pdf.original_filename )
-    	redirect_to questionnaires_path, method: :get
+    	redirect_to new_reponse_questionnaire_path, method: :get
     else
       render 'new'
     end
+  end
+
+  def destroy_all
+    questionnaire = Questionnaire.find(params[:id])
+    @reponses_questionnaire = ReponseQuestionnaire.where(questionnaire_id: questionnaire.id)
+    @reponses_questionnaire.destroy_all
+    redirect_to questionnaires_path
   end
 
   def destroy

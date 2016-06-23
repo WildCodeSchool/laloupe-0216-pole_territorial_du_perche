@@ -3,7 +3,9 @@ class QuestionnairesController < ApplicationController
 
   def index
     @questionnaires = Questionnaire.all.reverse
-    @reponse_questionnaires = ReponseQuestionnaire.all
+    @quest_ids = @questionnaires.map(&:id)
+    @reponse_questionnaires = ReponseQuestionnaire.where(questionnaire_id: @quest_ids)
+    @rep_quest_ids = @reponse_questionnaires.map(&:questionnaire_id)
   end
 
   def show
