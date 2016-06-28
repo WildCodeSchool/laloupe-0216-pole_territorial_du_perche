@@ -3,7 +3,9 @@ class QuestionnairesController < ApplicationController
 
   def index
     @questionnaires = Questionnaire.all.reverse
-    @reponse_questionnaires = ReponseQuestionnaire.all
+    @quest_ids = @questionnaires.map(&:id)
+    @reponse_questionnaires = ReponseQuestionnaire.where(questionnaire_id: @quest_ids)
+    @rep_quest_ids = @reponse_questionnaires.map(&:questionnaire_id)
   end
 
   def show
@@ -18,6 +20,7 @@ class QuestionnairesController < ApplicationController
     @questionnaire = Questionnaire.new(questionnaire_params)
     @questionnaire.contributeur_id = current_contributeur.id
      if @questionnaire.save
+      @questionnaire.update(status: 'en cours')
       redirect_to questionnaires_path, method: :get
      else
       render :new
@@ -25,14 +28,19 @@ class QuestionnairesController < ApplicationController
   end
 
   def destroy
-    questionnaire = Questionnaire.find(params[:id])
-    questionnaire.destroy
-    if params[:redirect] == 'index_questionnaires'
-      redirect_to questionnaires_path, method: :get
-    else
-      redirect_to animation_path, method: :get
+    if current_contributeur.type == 'Animateur'
+      questionnaire = Questionnaire.find(params[:id])
+      questionnaire.update(status: 'suppr')
     end
+    redirect_to questionnaires_path, method: :get
+  end
 
+  def status_clos
+    if current_contributeur.type == 'Animateur'
+      @questionnaire = Questionnaire.find(params[:id])
+      @questionnaire.update(status: 'clos')
+    end
+    redirect_to questionnaires_path
   end
 
 private

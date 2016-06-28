@@ -1,5 +1,8 @@
 
-FactoryGirl.define do  factory :reponse_questionnaire do
+FactoryGirl.define do  factory :active do
+    
+  end
+  factory :reponse_questionnaire do
     
   end
   factory :reponse_sondage do

@@ -45,6 +45,7 @@
   .last-sondages {
     background-color: $ocre;
     padding: 15px;
+    margin-bottom: 3%;
 
     p{
       font-weight: bold;
@@ -58,6 +59,21 @@
 
     h3{
       color: #FFF;
+      margin-top: 6px;
+      margin-bottom: 29px;
+      font-size: 28px;
+    }
+
+    h2{
+      margin-top: 11px;
+      font-size: 28px;
+      color: white;
+    }
+
+    .telecharge {
+      a{
+        font-size: 20px;
+      }
     }
   }
 }

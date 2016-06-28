@@ -3,7 +3,8 @@
     .row
       .col-sm-offset-2.col-sm-8
         = f.label :questionnaires, "Choisissez le sondage:"
-        = f.collection_select :questionnaire_id, Questionnaire.order(:id), :id, :titre, include_blank: false
+        -@default_questionnaire = ReponseQuestionnaire.last.questionnaire_id
+        = f.select :questionnaire_id, options_for_select(@questionnaires.map{ |q| [q.titre, q.id] }, @default_questionnaire)
         %br
         = f.label :pourcentage, "Entrez le nombre de pourcentage"
         = f.text_field :pourcentage
@@ -14,7 +15,6 @@
         %br
         = f.label :pdf, "Télécharger un fichier PDF"
         = f.file_field :pdf
-
     .row
       .col-sm-offset-4.col-sm-4
         %br
