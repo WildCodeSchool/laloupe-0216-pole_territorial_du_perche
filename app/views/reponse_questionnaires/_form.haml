@@ -3,7 +3,9 @@
     .row
       .col-sm-offset-2.col-sm-8
         = f.label :questionnaires, "Choisissez le sondage:"
-        = f.collection_select :questionnaire_id, Questionnaire.order(:id), :id, :titre, include_blank: false
+        - default_questionnaire = params[:reponse_questionnaire][:questionnaire_id] if params[:reponse_questionnaire]
+        = f.select :questionnaire_id, options_for_select(@questionnaires.map{ |q| [q.titre, q.id] }, default_questionnaire)
+        /= f.collection_select :questionnaire_id, Questionnaire.order(:id), :id, :titre, include_blank: false
         %br
         = f.label :pourcentage, "Entrez le nombre de pourcentage"
         = f.text_field :pourcentage

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :questionnaires
   resources :reponse_questionnaires, unless: [ :index]
   get 'supprimer_toutes_les_reponses/:id' => 'reponse_questionnaires#destroy_all', as: :delete_all_reponses
+  get 'clore_les_sondages/:id' => 'questionnaires#status_clos', as: :clos_sondages
 
   get 'mentions' => 'pages#mentions'
   get 'merci' => 'pages#merci'

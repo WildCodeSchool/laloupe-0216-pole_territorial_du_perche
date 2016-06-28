@@ -20,12 +20,30 @@
         .panel.panel-default
           .panel-heading
             %h4= questionnaire.titre
-            %span.label.label-success En cours
+            %span.label.label-success
+              - if current_contributeur == nil
+                -if questionnaire.status == 'en cours'
+                  En cours
+                -else
+                  Clos
+
+              - elsif current_contributeur.type == 'Animateur'
+                -if questionnaire.status == 'en cours'
+                  = link_to questionnaire.status.capitalize, clos_sondages_path(questionnaire.id)
+                -else
+                  Clos
+              - else current_contributeur.type == nil
+                -if questionnaire.status == 'en cours'
+                  En cours
+                -else
+                  Clos
+
+
           .panel-body
             = questionnaire.description
             %br
-            =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg btn-participe'
-            
+            - if questionnaire.status == 'en cours'
+              =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg btn-participe'
             - if current_contributeur && current_contributeur.type == 'Animateur'
               = link_to "Supprimer ce sondage", questionnaire_path(questionnaire, redirect: 'index_questionnaires'), method: :delete, class: 'btn btn-primary btn-lg btn-delete'
     .col-sm-4
