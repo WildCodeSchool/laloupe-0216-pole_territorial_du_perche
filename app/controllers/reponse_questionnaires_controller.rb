@@ -6,7 +6,6 @@ class ReponseQuestionnairesController < ApplicationController
   end
 
   def create
-    #binding.pry
     @reponse_questionnaire = ReponseQuestionnaire.new(reponse_questionnaire_params)
     if @reponse_questionnaire.save
       if reponse_questionnaire_params[:pdf].present?
@@ -24,16 +23,17 @@ class ReponseQuestionnairesController < ApplicationController
   end
 
   def destroy_all
-    if current_contributeur == 'Animateur'
+    if current_contributeur.type == 'Animateur'
       questionnaire = Questionnaire.find(params[:id])
-      @reponses_questionnaire = ReponseQuestionnaire.where(questionnaire_id: questionnaire.id)
-      @reponses_questionnaire.destroy_all
+      reponses_questionnaire = ReponseQuestionnaire.where(questionnaire_id: questionnaire.id)
+      reponses_questionnaire.destroy_all
+      questionnaire.destroy
     end
     redirect_to questionnaires_path
   end
 
   def destroy
-    if current_contributeur == 'Animateur'
+    if current_contributeur.type == 'Animateur'
       reponse_questionnaire = ReponseQuestionnaire.find(params[:id])
       reponse_questionnaire.destroy
     end

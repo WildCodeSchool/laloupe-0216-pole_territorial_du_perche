@@ -28,19 +28,15 @@ class QuestionnairesController < ApplicationController
   end
 
   def destroy
-    if current_contributeur == 'Animateur'
+    if current_contributeur.type == 'Animateur'
       questionnaire = Questionnaire.find(params[:id])
       questionnaire.update(status: 'suppr')
     end
-    if params[:redirect] == 'index_questionnaires'
-      redirect_to questionnaires_path, method: :get
-    else
-      redirect_to animation_path, method: :get
-    end
+    redirect_to questionnaires_path, method: :get
   end
 
   def status_clos
-    if current_contributeur == 'Animateur'
+    if current_contributeur.type == 'Animateur'
       @questionnaire = Questionnaire.find(params[:id])
       @questionnaire.update(status: 'clos')
     end

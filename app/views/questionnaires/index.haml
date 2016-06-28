@@ -16,7 +16,7 @@
   %br
   .row
     .col-sm-8
-      - @questionnaires.each do |questionnaire|
+      - @questionnaires.reject{|q| q.status == "suppr" }.each do |questionnaire|
         .panel.panel-default
           .panel-heading
             %h4= questionnaire.titre
@@ -26,7 +26,6 @@
                   En cours
                 -else
                   Clos
-
               - elsif current_contributeur.type == 'Animateur'
                 -if questionnaire.status == 'en cours'
                   = link_to questionnaire.status.capitalize, clos_sondages_path(questionnaire.id)
@@ -45,7 +44,7 @@
             - if questionnaire.status == 'en cours'
               =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg btn-participe'
             - if current_contributeur && current_contributeur.type == 'Animateur'
-              = link_to "Supprimer ce sondage", questionnaire_path(questionnaire, redirect: 'index_questionnaires'), method: :delete, class: 'btn btn-primary btn-lg btn-delete'
+              = link_to "Supprimer ce sondage", questionnaire_path(questionnaire), method: :delete, class: 'btn btn-primary btn-lg btn-delete'
     .col-sm-4
       = image_tag 'sondage-percherons-usages-numeriques.jpg', class: 'img-responsive'
   
@@ -58,8 +57,6 @@
       -if questionnaire.id.in?(@rep_quest_ids)
         .last-sondages
           %h3= questionnaire.titre
-          =link_to 'Supprimer tous les résultats', delete_all_reponses_path(questionnaire.id), class: 'btn btn-primary btn-lg btn-delete'
-
           - @reponse_questionnaires.select{|r| r.questionnaire_id == questionnaire.id}.each do |reponse_questionnaire| 
             .row
               .col-sm-2
@@ -90,3 +87,5 @@
                 %br
                 - if reponse_questionnaire.pdf.present?
                   %a{:href => "/uploads/pdf/#{reponse_questionnaire.pdf}"} Télécharge les résultats de l'enquête
+          .row
+            =link_to 'Supprimer tous les résultats', delete_all_reponses_path(questionnaire.id), class: 'btn btn-primary btn-lg btn-delete right'
