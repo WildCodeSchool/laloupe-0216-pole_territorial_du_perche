@@ -3,7 +3,10 @@
     .row
       .col-sm-offset-2.col-sm-8
         = f.label :questionnaires, "Choisissez le sondage:"
-        -@default_questionnaire = ReponseQuestionnaire.last.questionnaire_id
+        -if ReponseQuestionnaire.any?
+          - @default_questionnaire = ReponseQuestionnaire.last.questionnaire_id
+        -else 
+          - @default_questionnaire = nil
         = f.select :questionnaire_id, options_for_select(@questionnaires.map{ |q| [q.titre, q.id] }, @default_questionnaire)
         %br
         = f.label :pourcentage, "Entrez le nombre de pourcentage"
