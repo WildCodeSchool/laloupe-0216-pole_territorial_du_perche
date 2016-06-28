@@ -20,21 +20,28 @@
         .panel.panel-default
           .panel-heading
             %h4= questionnaire.titre
-            %span.label.label-success
-              - if current_contributeur == nil
-                -if questionnaire.status == 'en cours'
+            - if current_contributeur == nil
+              -if questionnaire.status == 'en cours'
+                %span.label.label-success
                   En cours
-                -else
+              -else
+                %span.label.label-danger
                   Clos
-              - elsif current_contributeur.type == 'Animateur'
-                -if questionnaire.status == 'en cours'
-                  = link_to questionnaire.status.capitalize, clos_sondages_path(questionnaire.id)
-                -else
+            - elsif current_contributeur.type == 'Animateur'
+              -if questionnaire.status == 'en cours'
+                %span.label.label-success
+                  = link_to clos_sondages_path(questionnaire.id) do
+                    %span.glyphicon.glyphicon-off
+                    = questionnaire.status.capitalize
+              -else
+                %span.label.label-danger
                   Clos
-              - else current_contributeur.type == nil
-                -if questionnaire.status == 'en cours'
+            - else current_contributeur.type == nil
+              -if questionnaire.status == 'en cours'
+                %span.label.label-success
                   En cours
-                -else
+              -else
+                %span.label.label-danger
                   Clos
 
 
@@ -86,6 +93,8 @@
               .col-sm-offset-8.col-sm-4
                 %br
                 - if reponse_questionnaire.pdf.present?
-                  %a{:href => "/uploads/pdf/#{reponse_questionnaire.pdf}"} Télécharge les résultats de l'enquête
+                  %a{:href => "/uploads/pdf/#{reponse_questionnaire.pdf}"} Télécharger les résultats de l'enquête
           .row
-            =link_to 'Supprimer tous les résultats', delete_all_reponses_path(questionnaire.id), class: 'btn btn-primary btn-lg btn-delete right'
+            .col-sm-offset-8.col-sm-4
+            - if current_contributeur && current_contributeur.type == 'Animateur'
+              =link_to 'Supprimer tous les résultats', delete_all_reponses_path(questionnaire.id), class: 'btn btn-primary btn-lg btn-deleteall'
