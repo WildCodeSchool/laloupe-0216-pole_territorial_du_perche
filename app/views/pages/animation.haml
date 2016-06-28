@@ -1,12 +1,30 @@
 - provide( :title, sanitize("Animation de la plateforme") )
 %h1.text-center= yield :title
-
 .anim-actions
   = link_to 'Télécharger les réponses au sondage', export_sondages_path(format: 'csv'), class: 'btn btn-md btn-primary'
   = link_to '+ Ajouter une actualité', new_actualite_path, class: 'btn btn-md btn-primary'
+.anchors
+  .anchor_projet_en_lignes
+    %a{:href => "#Projets_en_lignes"} Aller vers Projets en ligne
+  
+  .anchor_Commentaires_deposes_des_projets
+    %a{:href => "#Commentaires_deposes_des_projets"} Aller vers Commentaires déposés des projets
+  
+  .anchor_Points_de_vue
+    %a{:href => "#Points_de_vue"} Aller vers Points de vue
+  
+  .anchor_Scot_Messages
+    %a{:href => "#Scot_Messages"} Aller vers Scot Messages
+  
+  .anchor_Questionnaires
+    %a{:href => "#Questionnaires"} Aller vers Questionnaires
+  
+  .anchor_Actualites
+    %a{:href => "#Actualites"} Aller vers Actualités
+
 
 .anim-projets
-  %h2 Projets en lignes
+  %h2#Projets_en_lignes Projets en lignes
   %table
     %thead
       %th #
@@ -31,7 +49,7 @@
                 data: {confirm: "Êtes-vous sur de vouloir supprimer le projet \"#{projet.titre}\" ?"}
 
 .anim-commentaires
-  %h2 Commentaires déposés des projets
+  %h2#Commentaires_deposes_des_projets Commentaires déposés des projets
   %table
     %thead
       %th #
@@ -59,7 +77,7 @@
                 data: {confirm: "Êtes-vous sur de vouloir supprimer ce commentaire ?"}
 
 .anim-point-de-vue
-  %h2 Points de vue
+  %h2#Points_de_vue Points de vue
   %table
     %thead
       %th #
@@ -84,7 +102,7 @@
                 data: {confirm: "Êtes-vous sur de vouloir supprimer ce point de vue ?"}
 
 .anim-scot-box
-  %h2 Scot Messages
+  %h2#Scot_Messages Scot Messages
   %table
     %thead
       %th #
@@ -107,8 +125,7 @@
                 data: {confirm: "Êtes-vous sur de vouloir supprimer le message ?"}        
 
 .anim-questionnaires
-  %h2 
-    Questionnaires
+  %h2#Questionnaires Questionnaires
   %table
     %thead
       %th #
@@ -133,8 +150,7 @@
 
 
 .anim-actus
-  %h2
-    Actualités
+  %h2#Actualites Actualités
   %table
     %thead
       %th #
@@ -156,4 +172,5 @@
                 method: :delete,
                 data: {confirm: "Êtes-vous sur de vouloir supprimer cette actualité ?"}
 
-
+  .anchor_retour_en_haut
+  %a{:href => "#Points_de_vue"} Aller vers Points de vue
