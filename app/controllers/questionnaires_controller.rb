@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
 	before_action  :authenticate_animateur!, only: [:new, :create, :destroy]
-
+  before_action :authenticate_contributeur!, only: [:show]
   def index
     @questionnaires = Questionnaire.all.reverse
     @quest_ids = @questionnaires.map(&:id)
