@@ -127,7 +127,8 @@ footer
 
     .input-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn
     {
-      height: 47px
+      height: 47px;
+      width: 80px;
     }
 
     input[type="email"]
