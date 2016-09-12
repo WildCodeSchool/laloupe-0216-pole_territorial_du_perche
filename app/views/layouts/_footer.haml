@@ -9,11 +9,14 @@
         \-
         28400 Nogent-Le-Rotrou
         %br
-        = mail_to 'paysperche.siap@wanadoo.fr'
+        = mail_to 'contact@perche28.fr'
       %p
         Tél : 02 37 29 09 29
         %br
         Fax : 02 37 29 09 30
+      %br
+      %p
+        =link_to 'Mentions légales', mentions_path
 
     .newsletter
       %h3 Inscrivez-vous à la lettre d’information
@@ -25,14 +28,14 @@
 
     .financeurs.text-center
       %p Avec le soutien financier de
-      = image_tag 'region-centre-violet.png'
-      = image_tag 'leader.png'
+      = image_tag 'region-centre-val-de-loir.jpg'
+      = image_tag 'logoleader.png'
       = image_tag 'europe-centre.png'
       = image_tag 'europe.png'
   %br
   .row.text-center.made-by
     %p
       Réalisé par
-      =link_to 'Wild Code School', 'http://www.wildcodeschool.fr', target: '_blank'
+      = link_to 'Wild Code School', 'http://www.wildcodeschool.fr', target: '_blank'
       l'école numérique de La Loupe 
       = link_to image_tag("wcs.svg"), "http://www.wildcodeschool.fr", target: '_blank' , class: 'wcsfooter'

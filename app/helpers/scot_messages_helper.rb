@@ -1,0 +1,2 @@
+module ScotMessagesHelper
+end

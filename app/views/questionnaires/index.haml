@@ -1,0 +1,100 @@
+.questindex
+  .row
+    .col-sm-5
+      = image_tag 'page-sondage.png', class: 'img-responsive'
+    .col-sm-7
+      %h1 Je participe à un sondage
+      %p Pour aider les entreprises, le développement des services à la personne, la valorisation et la préservation de l’environnement du Perche... je participe à de courts sondages.
+      %p Merci de prendre quelques minutes pour vous connecter et répondre aux questions du moment.
+  %br
+
+  - if current_contributeur && current_contributeur.type == 'Animateur'
+    = link_to 'Je crée un nouveau sondage', new_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
+    = link_to "J'ajoute le resultat des sondages", new_reponse_questionnaire_path, method: :get, class: 'btn btn-primary btn-lg'
+
+  %br
+  %br
+  .row
+    .col-sm-8
+      - @questionnaires.reject{|q| q.status == "suppr" }.each do |questionnaire|
+        .panel.panel-default
+          .panel-heading
+            %h4= questionnaire.titre
+            - if current_contributeur == nil
+              -if questionnaire.status == 'en cours'
+                %span.label.label-success
+                  En cours
+              -else
+                %span.label.label-danger
+                  Clos
+            - elsif current_contributeur.type == 'Animateur'
+              -if questionnaire.status == 'en cours'
+                %span.label.label-success
+                  = link_to clos_sondages_path(questionnaire.id) do
+                    %span.glyphicon.glyphicon-off
+                    = questionnaire.status.capitalize
+              -else
+                %span.label.label-danger
+                  Clos
+            - else current_contributeur.type == nil
+              -if questionnaire.status == 'en cours'
+                %span.label.label-success
+                  En cours
+              -else
+                %span.label.label-danger
+                  Clos
+
+
+          .panel-body
+            = questionnaire.description
+            %br
+            - if questionnaire.status == 'en cours'
+              =link_to 'Je participe au sondage', questionnaire_path(questionnaire.id), method: :get, class: 'btn btn-primary btn-lg btn-participe'
+            - if current_contributeur && current_contributeur.type == 'Animateur'
+              = link_to "Supprimer ce sondage", questionnaire_path(questionnaire), method: :delete, class: 'btn btn-primary btn-lg btn-delete'
+    .col-sm-4
+      = image_tag 'sondage-percherons-usages-numeriques.jpg', class: 'img-responsive'
+  
+  %h2 Réponses des derniers sondages :
+
+  .old-last-sondages
+    %br
+    - @questionnaires.each do |questionnaire|
+     
+      -if questionnaire.id.in?(@rep_quest_ids)
+        .last-sondages
+          %h3= questionnaire.titre
+          - @reponse_questionnaires.select{|r| r.questionnaire_id == questionnaire.id}.each do |reponse_questionnaire| 
+            .row
+              .col-sm-2
+                - if reponse_questionnaire.pourcentage == 0
+                  = image_tag 'arrow-0.png', class: 'img-responsive'
+                - elsif reponse_questionnaire.pourcentage <= 25
+                  = image_tag 'arrow-25.png', class: 'img-responsive'
+                - elsif reponse_questionnaire.pourcentage <= 50
+                  = image_tag 'arrow-50.png', class: 'img-responsive'
+                - elsif reponse_questionnaire.pourcentage <= 75
+                  = image_tag 'arrow-75.png', class: 'img-responsive'
+                - elsif reponse_questionnaire.pourcentage <= 100
+                  = image_tag 'arrow-100.png', class: 'img-responsive'
+
+
+              .col-sm-1
+                %h2= "#{reponse_questionnaire.pourcentage} % "
+              .col-sm-5
+                %p= "#{reponse_questionnaire.texte}"
+              .col-sm-4
+                %p.download
+                - if current_contributeur && current_contributeur.type == 'Animateur'
+                  = link_to "Supprimer ce résultat", reponse_questionnaire_path(reponse_questionnaire.id), method: :delete
+
+
+            .row.telecharge
+              .col-sm-offset-8.col-sm-4
+                %br
+                - if reponse_questionnaire.pdf.present?
+                  %a{:href => "/uploads/pdf/#{reponse_questionnaire.pdf}"} Télécharger les résultats de l'enquête
+          .row
+            .col-sm-offset-8.col-sm-4
+            - if current_contributeur && current_contributeur.type == 'Animateur'
+              =link_to 'Supprimer tous les résultats', delete_all_reponses_path(questionnaire.id), class: 'btn btn-primary btn-lg btn-deleteall'

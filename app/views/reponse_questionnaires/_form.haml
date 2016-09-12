@@ -1,0 +1,27 @@
+.repquest
+  = form_for @reponse_questionnaire do |f| 
+    .row
+      .col-sm-offset-2.col-sm-8
+        = f.label :questionnaires, "Choisissez le sondage:"
+        -if ReponseQuestionnaire.any?
+          - @default_questionnaire = ReponseQuestionnaire.last.questionnaire_id
+        -else 
+          - @default_questionnaire = nil
+        = f.select :questionnaire_id, options_for_select(@questionnaires.map{ |q| [q.titre, q.id] }, @default_questionnaire)
+        %br
+        = f.label :pourcentage, "Entrez le nombre de pourcentage"
+        = f.text_field :pourcentage
+        %br
+        = f.label :texte, "Décrire le résultat"
+        = f.text_area :texte
+        
+        %br
+        = f.label :pdf, "Télécharger un fichier PDF"
+        = f.file_field :pdf
+    .row
+      .col-sm-offset-4.col-sm-4
+        %br
+        = f.submit "Ajouter ce résultat", class: 'btn btn-primary btn-lg', id: "submit_form" 
+        %br
+        %br
+        = link_to "Retourner vers les sondages", questionnaires_path, method: :get, class: "btn btn-primary btn-lg btn-back-sond"

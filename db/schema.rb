@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606073459) do
+ActiveRecord::Schema.define(version: 20160624093701) do
+
+  create_table "actives", force: :cascade do |t|
+    t.integer  "questionnaire_id"
+    t.integer  "animateur_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "actives", ["animateur_id"], name: "index_actives_on_animateur_id"
+  add_index "actives", ["questionnaire_id"], name: "index_actives_on_questionnaire_id"
 
   create_table "actualites", force: :cascade do |t|
     t.string   "titre"
@@ -20,9 +30,9 @@ ActiveRecord::Schema.define(version: 20160606073459) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
+    t.date     "date"
     t.string   "lieu"
     t.string   "siteweb"
-    t.date     "date"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -104,9 +114,9 @@ ActiveRecord::Schema.define(version: 20160606073459) do
     t.text     "description"
     t.string   "localisation"
     t.string   "image"
-    t.integer  "contributeur_id"
     t.integer  "codepostal_id"
     t.integer  "ville_id"
+    t.integer  "contributeur_id"
     t.boolean  "positif",         default: true
     t.boolean  "validation",      default: false
   end
@@ -132,6 +142,48 @@ ActiveRecord::Schema.define(version: 20160606073459) do
 
   add_index "projets", ["categorie_id"], name: "index_projets_on_categorie_id"
   add_index "projets", ["contributeur_id"], name: "index_projets_on_contributeur_id"
+
+  create_table "questionnaires", force: :cascade do |t|
+    t.string   "titre"
+    t.integer  "contributeur_id"
+    t.string   "code_formulaire"
+    t.text     "description"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "status"
+  end
+
+  create_table "reponse_questionnaires", force: :cascade do |t|
+    t.integer  "questionnaire_id"
+    t.integer  "pourcentage"
+    t.text     "texte"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "pdf"
+    t.string   "status"
+  end
+
+  add_index "reponse_questionnaires", ["questionnaire_id"], name: "index_reponse_questionnaires_on_questionnaire_id"
+
+  create_table "scot_jadheres", force: :cascade do |t|
+    t.integer  "scot_message_id"
+    t.integer  "contributeur_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "scot_jadheres", ["contributeur_id"], name: "index_scot_jadheres_on_contributeur_id"
+  add_index "scot_jadheres", ["scot_message_id"], name: "index_scot_jadheres_on_scot_message_id"
+
+  create_table "scot_messages", force: :cascade do |t|
+    t.text     "contenu"
+    t.integer  "contributeur_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "validation",      default: false
+  end
+
+  add_index "scot_messages", ["contributeur_id"], name: "index_scot_messages_on_contributeur_id"
 
   create_table "sondages", force: :cascade do |t|
     t.datetime "created_at",             null: false

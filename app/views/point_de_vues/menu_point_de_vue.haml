@@ -12,7 +12,7 @@
 
     %p - la boîte à idées SCOT BOX / SCOT VOX
   .col-sm-5.text-center
-    =image_tag "page-projet.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
+    =image_tag "ferté.vidame.jpg", class: 'img-responsive', alt: "Groupe de cyclistes faisant halte dans le Perche"
   
   
 %a{href: point_de_vues_path, class: 'btn violet btn-lg'}
@@ -22,9 +22,9 @@
     %span.action
       %br je dépose une photo
 
-%a{href: point_de_vues_path, class: 'btn violet btn-lg'}
+%a{href: scot_messages_path, class: 'btn violet btn-lg'}
   %span.icon
     %svg.icon-pencil{:role => "img"}
       %use{"xlink:href" => "#{image_url("icons.svg")}\#icon-pencil"}
     %span.action
-      %br je depose une photo
+      %br je partage une idée

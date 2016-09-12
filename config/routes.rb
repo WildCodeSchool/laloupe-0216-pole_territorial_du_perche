@@ -5,18 +5,26 @@ Rails.application.routes.draw do
   get 'point_de_vues/:id/unjadhere' => 'point_de_vues#unjadhere', as: :unjadhere_point_de_vue
   get 'point_de_vues/:id/edit' => 'point_de_vues#edit'
   post 'point_de_vues/:id/validation' => 'point_de_vues#validation', as: :validation_point_de_vue
-  
+  get 'sousmenu' => 'point_de_vues#menu_point_de_vue'
   # only: [:index, :new]
   # get 'point_de_vues' => 'point_de_vues#show'
 
-  get 'contributeurs_info/:id' => 'contributeurs#show', as: :contributeur_info
+  resources :scot_messages
 
+  post 'scot_messages/:id/validation' => 'scot_messages#validation', as: :validation_scot_message
+  get 'scot_messages/:id/scot_jadhere' => 'scot_messages#jadhere', as: :jadhere_scot_message
+
+  get 'contributeurs_info/:id' => 'contributeurs#show', as: :contributeur_info
 
   root 'pages#intro'
   devise_for :contributeurs
   get 'animation' => 'pages#animation'
   get 'sondages/export' => 'sondages#export', as: :export_sondages
   resources :sondages
+  resources :questionnaires
+  resources :reponse_questionnaires, unless: [ :index]
+  get 'supprimer_toutes_les_reponses/:id' => 'reponse_questionnaires#destroy_all', as: :delete_all_reponses
+  get 'clore_les_sondages/:id' => 'questionnaires#status_clos', as: :clos_sondages
 
   get 'mentions' => 'pages#mentions'
   get 'merci' => 'pages#merci'

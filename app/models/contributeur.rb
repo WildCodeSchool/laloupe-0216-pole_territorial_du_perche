@@ -1,4 +1,5 @@
 class Contributeur < ActiveRecord::Base
+
   has_many :commentaires
   has_one :sondage
   # Include default devise modules. Others available are:
@@ -9,6 +10,7 @@ class Contributeur < ActiveRecord::Base
   has_many :point_de_vues
   has_many :likes
   has_many :jadheres
+  has_many :scot_messages
   validates_presence_of :pseudo, :nom, :prenom, :annee_naissance,
                         :commune, :status, :sexe
   validates_uniqueness_of :pseudo
@@ -42,5 +44,6 @@ class Contributeur < ActiveRecord::Base
   def get_age
     DateTime.now.year - annee_naissance
   end
+
 end
 

@@ -141,7 +141,7 @@
 }
 
 // PAGE ANIMATION
-.anim-point-de-vue, .anim-projets, .anim-commentaires, .anim-actus {
+.anim-point-de-vue, .anim-scot-box, .anim-projets, .anim-commentaires, .anim-actus, .anim-questionnaires {
   @extend .table-responsive;
   table {
     @extend .table;
@@ -167,11 +167,62 @@
     background-color: $violet;
   }
 }
+.anim-scot-box {
+  h2{
+    background-color: $violet;
+  }
+}
+.anim-questionnaires {
+  h2{
+    background-color: $ocre;
+  }
+}
 .anim-actus{
   h2{
     background-color: $orange;
   }
 }
+.anchors{
+  display: inline-flex;
+  margin-top: 20px;
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: white; 
+    display: inline-block;
+    padding: 2px 8px; 
+    border-style: solid;
+    border-radius: 5px; 
+    border-width: 2px;
+    border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+    max-width: 100%;
+    margin-right: 5px;
+}
+  .anchor_projet_en_lignes a{
+  background-color: $bleu;
+  }
+
+  .anchor_Commentaires_deposes_des_projets a{
+  background-color: $bleu;
+  }
+
+  .anchor_Points_de_vue a{
+  background-color: $violet;
+  }
+
+  .anchor_Scot_Messages a{
+  background-color: $violet;
+  }
+
+  .anchor_Questionnaires a{
+    background-color: $ocre;
+  }
+
+  .anchor_Actualites a{
+    background-color: $orange;
+  }
+}
+
 
 // PAGE HOWTO
 .comment-ca-marche{
@@ -200,5 +251,21 @@
     height: 2.5rem;
     margin-top: 1rem;
     float: right;
+  }
+}
+
+// Page Mentions Légals
+.mentions {
+  .titre-mentions{    
+    h3{
+      padding-top: 6px;
+      padding-left: 8px;
+      background-color: $vert;
+      color: white;
+    }
+  }
+
+  h4{
+    font-weight: bold;
   }
 }

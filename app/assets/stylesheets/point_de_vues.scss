@@ -214,10 +214,35 @@
 }
 // ---- End View Show ----- //
 
+// ---- Sousmenu responsive ----//
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+  
+@media (max-width: 400px) {
+
+
+  span.action {
+    font-size: 70%;
+  }
+
+  a.btn.violet.btn-lg {
+    width: 45%;
+    margin-left: 3%;
+  }
+}
+
 footer
 {
   img
   {
-    width: 80px;
+    // width: 80px;
+  }
+  .wcsfooter{
+    img{
+      width: 80px;
+    }
   }
 }

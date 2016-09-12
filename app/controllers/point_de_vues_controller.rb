@@ -1,10 +1,13 @@
 class PointDeVuesController < ApplicationController
-  before_action :authenticate_animateur!, except: [:index, :show, :last_actu, :new]
+  before_action :authenticate_animateur!, except: [:index, :show, :last_actu, :new, :menu_point_de_vue]
   before_action :authenticate_contributeur!, only: [:new, :create]
 
 	def index
 		@point_de_vues = PointDeVue.where(validation: true).order(updated_at: :desc)
 	end
+
+  def menu_point_de_vue
+  end
 
 	def show
     @point_de_vue = PointDeVue.find(params[:id])
@@ -44,7 +47,7 @@ class PointDeVuesController < ApplicationController
       Animateur.all.each do |animateur|
         AnimateurMailer.nouveau_point_de_vue(animateur, point_de_vue).deliver_now
       end
-      redirect_to point_de_vues_path, method: :get, notice: "Votre point de vue a été pris en compte. Il sera visible dans les plus bref délais. Nous vous invitons à déposer un point #{point_de_vue.positif ? 'négatif' : 'positif'}."
+      redirect_to point_de_vues_path, method: :get, notice: "Merci de votre participation, votre point de vue a été pris en compte. Il sera visible dans les plus bref délais. Nous vous invitons à déposer d’autres points de vue."
     else
       render 'new'
     end

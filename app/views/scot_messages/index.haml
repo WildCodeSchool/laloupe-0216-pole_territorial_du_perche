@@ -1,0 +1,75 @@
+.index_scot_messages
+  .row
+    .col-sm-5.text-center
+      =image_tag "paysage.28_perche.51.jpg", class: 'img-responsive', alt: "Groupe de cyclistes"
+    .col-sm-7
+      %h2 « SCOT BOX / SCOT VOX »
+
+      %p « SCOT* BOX / SCOT VOX » est une boite à idées. 
+
+      %p Elle vous permet d’exprimer publiquement un point de vue sur le développement du territoire percheron. Il ne s’agit pas d’un forum mais d’un lieu de partage d’idées et d’opinions formulées par quelques phrases ou par un texte plus conséquent. Ces témoignages pourront être pris en compte par le Pôle Territorial pour élaborer le projet de territoire des vingt prochaines années. 
+
+      %p Les textes que nous jugerons hors-sujet par rapport à la démarche SCOT BOX / SCOT VOX ne seront pas publiés sur l’application Perche Participatif 2.8.
+
+      %br
+      %p.asterix *Le schéma de cohérence territorial est un document de planification stratégique qui fixe les orientations d’aménagement du territoire pour les 20 prochaines années.
+
+  %h3 Actuellement #{@scot_messages.size} message(s) déposé(s)
+  %p Dites nous si vous approuvez les messages déposés et partagez !
+  %p nb: Vos messages feront l'objet d'une validation avant publication (sous 24h).
+
+  .scot-form.col-sm-8.col-sm-offset-2
+    = form_for @scot_message do |form|
+      %h3= form.label :contenu, "Partage votre idée"
+      %p= form.text_area :contenu, placeholder: "Ecrire votre message"
+      .checkbox
+        %input{name: "droit_image", type: "checkbox", id: "droits"}
+        = form.label :droit_image, "En postant mon message sur Perche Participatif, je m'engage à respecter propriété et vie privées. J'accepte également que mon texte puissent être utilisés par le Pôle territorial du Perche."
+      = form.submit "Je partage mon idée", class: 'btn btn-primary btn-lg', id: "submit_form", disabled: "true"
+
+  .col-sm-12
+    %br
+    %hr
+    - @scot_messages.reverse.each do |scot_message|
+      .row
+        .pseudo.col-sm-6
+          - if current_contributeur && current_contributeur.type == 'Animateur'
+            = link_to scot_message.contributeur.pseudo, contributeur_info_path(scot_message.contributeur.id)
+          - else
+            = scot_message.contributeur.pseudo
+        .date.col-sm-6
+          Créé il y a
+          = time_ago_in_words(scot_message.created_at)
+      %br
+      .row
+        .contents.col-sm-12
+          = scot_message.contenu
+        - if current_contributeur && current_contributeur.type == 'Animateur'
+          = link_to 'Supprimer cette idée', scot_message_path(scot_message.id), method: :delete, class: 'btn-delete btn btn-primary pull-right'
+          - if !scot_message.validation
+            = link_to 'Valider cette idée', validation_scot_message_path(scot_message.id), method: :post, class: 'btn-valid btn btn-primary pull-right'
+
+        - if !scot_message.scot_jadhere_by?(current_contributeur) && scot_message.validation
+          = button_to jadhere_scot_message_path(scot_message.id), method: :get, class: "scot-btn" do
+            %svg{:role => "img"}
+              %use{"xlink:href" => "#{image_url("icons.svg")}\#japprouve"}
+            J'approuve
+      %br
+      .comptescot
+        - if scot_message.scot_jadhere_by?(current_contributeur)
+          J'ai déjà approuvé ce point de vue
+      .alreadyapproved
+        = scot_message.scot_jadheres.count 
+        personnes approuvent ce point de vue
+      %hr
+
+  :javascript
+    $('#droits').change(function () {
+      if ($('#droits').is(":checked")) {
+        $('#submit_form').removeAttr("disabled")
+      }
+      else {
+        $('#submit_form').prop("disabled", "true");
+      }
+    });
+
